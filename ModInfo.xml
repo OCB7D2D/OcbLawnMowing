@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<ModInfo>
+		<Name value="OcbLawnMowing" />
+		<Description value="Lawn mowing utilities" />
+		<Website value="https://github.com/OCB7D2D/OcbLawnMowing" />
+		<Author value="ocbMaurice" />
+		<Version value="0.0.0" compat="A20"/>
+	</ModInfo>
+</xml>

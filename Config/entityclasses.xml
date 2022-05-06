@@ -1,0 +1,23 @@
+<configs>
+	<append xpath="/entity_classes">
+		<entity_class name="OcbLawnMowerBike">
+			<property name="HideInSpawnMenu" value="true" />
+			<property name="Tags" value="vehicle" />
+			<property name="Class" value="EntityBicycle" />
+			<property name="Parent" value="Cars" />
+			<property name="Prefab" value="#Entities/Vehicles?bicycle_Prefab.prefab" />
+			<property name="ModelType" value="Standard" />
+			<property name="SurfaceCategory" value="metal" />
+			<property name="IgnoreTrigger" value="true" />
+			<property name="LootListAlive" value="vehicleBicycle" />
+			<property name="IsEnemyEntity" value="false" />
+			<property name="Explosion.ParticleIndex" value="0" />
+			<property name="Explosion.RadiusBlocks" value="0" />
+			<property name="Explosion.RadiusEntities" value="0" />
+			<property name="RotateToGround" value="true" />
+			<property name="Faction" value="none" />
+			<property name="MapIcon" value="ui_game_symbol_bicycle"/>
+			<property name="NavObject" value="bicycle" />
+		</entity_class>
+	</append>
+</configs>
