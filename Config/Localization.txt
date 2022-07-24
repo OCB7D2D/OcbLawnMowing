@@ -1,0 +1,25 @@
+Key,File,Type,english
+vehicleLawnMower,vehicles,vehicle,Lawn Mower
+vehicleLawnMowerPlaceable,vehicles,item,Lawn Mower
+vehicleLawnMowerChassis,vehicles,vehicle,Lawn Mower Chassis
+vehicleLawnMowerChassisSchematic,vehicles,item,Lawn Mower Chassis Schematic
+vehicleLawnMowerAccessories,vehicles,vehicle,Lawn Mower Accessories
+vehicleLawnMowerAccessoriesSchematic,vehicles,item,Lawn Mower Accessories Schematic
+modVehicleMowerGrassCollector,vehicles,vehicle,Grass Collector Mod
+modVehicleMowerGrassCollectorDesc,vehicles,vehicle,"Install this mod onto the lawn mower to harvest grass and bushes; these will be deposited into the vehicles inventory."
+modVehicleMowerGrassCollectorSchematic,item_modifiers,Mod,Grass Collector Mod Schematic
+modVehicleMowerPlantCollector,vehicles,vehicle,Plant Collector Mod
+modVehicleMowerPlantCollectorDesc,vehicles,vehicle,"Install this mod onto the lawn mower to harvest wild crops and flowers; these will be deposited into the vehicles inventory."
+modVehicleMowerPlantCollectorSchematic,item_modifiers,Mod,Plant Collector Mod Schematic
+modVehicleMowerCropsCollector,vehicles,vehicle,Crop Harvester Mod
+modVehicleMowerCropsCollectorDesc,vehicles,vehicle,"Install this mod onto the lawn mower to harvest player planted crops; these will be deposited into the vehicles inventory."
+modVehicleMowerCropsCollectorSchematic,item_modifiers,Mod,Crop Harvester Mod Schematic
+modVehicleMowerCropsProtector,vehicles,vehicle,Crop Protector Mod
+modVehicleMowerCropsProtectorDesc,vehicles,vehicle,"Install this mod onto the lawn mower to protect your growing plants. Fully grown plants will still be mowed down, regardless of the crop harvester mod being installed or not."
+modVehicleMowerCropsProtectorSchematic,item_modifiers,Mod,Crop Protector Mod Schematic
+modVehicleMowerCropsReseeder,vehicles,vehicle,Crop Reseeder Mod
+modVehicleMowerCropsReseederDesc,vehicles,vehicle,"Install this mod onto the lawn mower to reseed crops harvested by Crop Harvester mod. So doesn't make much sense on its own."
+modVehicleMowerCropsReseederSchematic,item_modifiers,Mod,Crop Reseeder Mod Schematic
+lawnMowerTip,Journal Tip,,"Thanks for choosing Lawn Mower Mod, brought to you by Zilox and ocbMaurice.
+Extend the lawn mower with modifiers, to make it a multipurpose farming vehicle. Without modifiers, it will mow down everything marked as a plant, including your own crops, so be careful when driving trough your farm. It doesn't do any damage to anything else, if you don't bump into it. Harvested items, by various collectors, are put into the vehicle storage. Base vehicle recipes are unlocked by [CCFF99]Grease Monkey 3[-] or by finding or buying the schematics. [C0F030]Press F[-] to enable the mower blades (uses fuel).\n\n[FFCC99]Grass Collector[-] ([CCFF99]Living Off The Land 1[-]): Collect plant-fibers from grass and wood from bushes. [FFCC99]Plant Collector[-] ([CCFF99]Living Off The Land 2[-]): Can harvest flowers and other small plants, like coffee or mushrooms. Yield is low, but you get at least a little bit. [FFCC99]Crop Harvester[-] ([CCFF99]Living Off The Land 3[-]): Can gather all sort of plants and crops. Yield should be good enough to sustain a farm. [FFCC99]Crop Protector[-] ([CCFF99]Advanced Engineering 2[-]): Protect your own crops from being mowed down. [FFCC99]Crop Reseeder[-] ([CCFF99]Advanced Engineering 4[-]): Use this mod together with Crop Harvester to fully automate your farm life. Seeds need to be put into the vehicle storage, as you will not get enough seeds back when harvesting."
+lawnMowerTip_title,Journal Tip,,"Lawn Mower"

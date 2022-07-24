@@ -47,6 +47,7 @@
     <Reference Include="System.Core">
       <HintPath>$(PATH_7D2D_MANAGED)\System.Core.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq">
       <HintPath>$(PATH_7D2D_MANAGED)\System.Xml.Linq.dll</HintPath>
     </Reference>
@@ -65,19 +66,38 @@
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>$(PATH_7D2D_MANAGED)\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>$(PATH_7D2D_MANAGED)\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(PATH_7D2D_MANAGED)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\blocks.a20.xml" />
+    <Content Include="Config\blocks.xml" />
     <Compile Include="Harmony\LawnMowing.cs" />
     <Compile Include="Harmony\AssemblyInfo.cs" />
+    <Compile Include="Harmony\ModXmlPatcher.cs" />
     <Compile Include="Library\ItemActionScythe.cs" />
     <Compile Include="Library\VPMower.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\entityclasses.xml" />
+    <Content Include="Config\items.a20.xml" />
     <Content Include="Config\items.xml" />
+    <Content Include="Config\item_modifiers.xml" />
+    <Content Include="Config\Localization.txt" />
+    <Content Include="Config\loot.a20.xml" />
+    <Content Include="Config\loot.xml" />
+    <Content Include="Config\nav_objects.xml" />
+    <Content Include="Config\progression.a20.xml" />
+    <Content Include="Config\progression.xml" />
+    <Content Include="Config\recipes.a20.xml" />
+    <Content Include="Config\recipes.xml" />
+    <Content Include="Config\sounds.xml" />
+    <Content Include="Config\traders.a20.xml" />
+    <Content Include="Config\traders.xml" />
     <Content Include="Config\vehicles.xml" />
     <Content Include="ModInfo.xml" />
   </ItemGroup>

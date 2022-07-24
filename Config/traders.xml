@@ -1,0 +1,16 @@
+<configs patcher-version="1">
+
+	<!--
+	<modif condition="UndeadLegacy_CoreModule">
+		<include path="traders.ulm.xml"/>
+	</modif>
+	<modelsif condition="Darkness Falls Core">
+		<include path="traders.df.xml"/>
+	</modelsif>
+	<modelse>
+	</modelse>
+	-->
+
+	<include path="traders.a20.xml"/>
+
+</configs>
