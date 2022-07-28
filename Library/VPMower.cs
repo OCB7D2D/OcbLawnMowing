@@ -21,6 +21,9 @@ public class VPMower : VehiclePart
 
 	private readonly HashSet<string> HarvestTags = new HashSet<string>();
 
+	private HashSet<string> OldShownModTransforms = new HashSet<string>();
+	private HashSet<string> NewShownModTransforms = new HashSet<string>();
+
 	public override void InitPrefabConnections()
 	{
 		base.InitPrefabConnections();
@@ -55,15 +58,50 @@ public class VPMower : VehiclePart
 	public void UpdateModifications(ItemValue[] modifications)
 	{
 		HarvestTags.Clear();
+		NewShownModTransforms.Clear();
 		// Collect `MowerHarvestTags` from all modifiers
 		foreach (ItemValue mod in modifications)
 		{
 			var props = mod?.ItemClass?.Properties?.Values;
-			if (props != null && props.TryGetString("MowerHarvestTags", out string tags))
+			if (props == null) continue;
+			if (props.TryGetString("MowerHarvestTags", out string tags))
 			{
 				foreach (string tag in tags.Split(','))
 					HarvestTags.Add(tag);
 			}
+			if (props != null && props.TryGetString("ShowTransforms", out string shows))
+			{
+				foreach (string show in shows.Split(','))
+					NewShownModTransforms.Add(show);
+			}
+		}
+		// Check if there are any changes to any transforms
+		if (OldShownModTransforms.Count > 0 || NewShownModTransforms.Count > 0)
+		{
+			var mesh = vehicle.GetMeshTransform();
+			// Hide transforms of now removed mods
+			foreach (string showing in OldShownModTransforms)
+			{
+				// Hide if not still shown by new modifiers
+				if (NewShownModTransforms.Contains(showing)) continue;
+				// Hide transform no longer equipped
+				if (mesh.Find(showing) is Transform shown)
+					shown.gameObject.SetActive(false);
+
+			}
+			// Show transforms of all current mods
+			foreach (string showing in NewShownModTransforms)
+			{
+				// Show transforms that are currently equipped
+				if (mesh.Find(showing) is Transform shown)
+					shown.gameObject.SetActive(true);
+			}
+			// Update the state to remember what we showed
+			// We need to reset that when mod is unequipped
+			// Swap the objects to avoid memory allocations
+			var swap = OldShownModTransforms;
+			OldShownModTransforms = NewShownModTransforms;
+			NewShownModTransforms = swap;
 		}
 		// Cache states for faster run-time during update calls
 		ProtectPlayerPlants = HarvestTags.Contains("protect");

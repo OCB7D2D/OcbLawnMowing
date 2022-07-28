@@ -42,6 +42,7 @@
 		<property name="UnlockedBy" value="modVehicleMowerCropsProtectorSchematic"/>
 		<property name="CustomIcon" value="modVehicleMowerCropsProtector"/>
 		<property name="MowerHarvestTags" value="protect"/>
+		<!-- <property name="ShowTransforms" value="engine_small/MowerParticles"/> -->
 	</item_modifier>
 
 	<item_modifier name="modVehicleMowerCropsReseeder" installable_tags="vmower" modifier_tags="mowerReseed" type="attachment" blocked_tags="mowerReseed">
