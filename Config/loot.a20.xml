@@ -5,12 +5,12 @@
 		<item name="vehicleLawnMowerAccessoriesSchematic"/>
 	</append>
 
-	<append xpath="//lootgroup[@name='4x4Parts']">
+	<append xpath="//lootgroup[@name='minibike']">
 		<item name="vehicleLawnMowerChassis"/>
 		<item name="vehicleLawnMowerAccessories"/>
 	</append>
 
-	<append xpath="//lootgroup[@name='twitch_4x4Major']">
+	<append xpath="//lootgroup[@name='twitch_minibike']">
 		<item name="vehicleLawnMowerChassis"/>
 		<item name="vehicleLawnMowerAccessories"/>
 	</append>

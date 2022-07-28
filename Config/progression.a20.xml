@@ -9,6 +9,7 @@
 		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3" value="1" tags="modVehicleMowerCropsCollector"/>
 	</append>
 
+
 	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,5']/@tags">,modVehicleMowerCropsProtector</append>
 	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='4,5']/@tags">,modVehicleMowerCropsReseeder</append>
 

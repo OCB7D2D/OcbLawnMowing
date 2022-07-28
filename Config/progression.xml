@@ -1,16 +1,10 @@
 <configs patcher-version="1">
 
-	<!--
-	<modif condition="UndeadLegacy_CoreModule">
-		<include path="progression.ulm.xml"/>
-	</modif>
-	<modelsif condition="Darkness Falls Core">
+	<modif condition="Darkness Falls Core">
 		<include path="progression.df.xml"/>
-	</modelsif>
+	</modif>
 	<modelse>
+		<include path="progression.a20.xml"/>
 	</modelse>
-	-->
-
-	<include path="progression.a20.xml"/>
 
 </configs>
