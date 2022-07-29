@@ -3,7 +3,7 @@
 <append xpath="/Sounds">
 
 <SoundDataNode name="lawnmower_start"> <AudioSource name="Sounds/AudioSource_Vehicle"/>
-	<AudioClip ClipName="#@modfolder:Resources/LawnMower_Z.unity3d?LawnMowerStart"/>
+	<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?AudioLawnMowerStart"/>
 	<LocalCrouchVolumeScale value="1.0"/> 
 	<CrouchNoiseScale value="0.5"/> 
 	<NoiseScale value="1"/> 
@@ -12,7 +12,7 @@
 </SoundDataNode>
 
 <SoundDataNode name="lawnmower_idle_lp"> <AudioSource name="Sounds/AudioSource_Vehicle"/>
-	<AudioClip ClipName="#@modfolder:Resources/LawnMower_Z.unity3d?LawnMowerIdle" Loop="True"/>
+	<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?AudioLawnMowerIdle" Loop="True"/>
 	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> 
 	<NoiseScale value="1"/> 
 	<MaxVoices value="10"/> 
@@ -20,7 +20,7 @@
 </SoundDataNode>
 
 <SoundDataNode name="lawnmower_max_speed_lp"> <AudioSource name="Sounds/AudioSource_Vehicle"/>
-	<AudioClip ClipName="#@modfolder:Resources/LawnMower_Z.unity3d?LawnMowerDrive" Loop="True"/>
+	<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?AudioLawnMowerDrive" Loop="True"/>
 	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> 
 	<MaxVoices value="10"/> 
 	<MaxRepeatRate value="0.01"/> 

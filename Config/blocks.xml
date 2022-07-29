@@ -14,7 +14,7 @@
 			<property name="LootList" value="mowers"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="IsTerrainDecoration" value="true"/>
-			<property name="Model" value="#@modfolder:Resources/LawnMower_Y.unity3d?LawnMowerDefect.prefab"/>
+			<property name="Model" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDefect"/>
 			<property name="Place" value="TowardsPlacer"/>
 			<property name="ModelOffset" value="0,0,0.25"/>
 			<property name="TintColor" value="B0B0B0"/>

@@ -8,7 +8,7 @@
 	<property name="Tags" value="vehicle"/>
 	<property name="Class" value="EntityVJeep"/>
 	<property name="Parent" value="Cars"/>
-	<property name="Prefab" value="#@modfolder:Resources/LawnMower_Z.unity3d?RideOnLawnMower.prefab"/>	
+	<property name="Prefab" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDriveable.prefab"/>	
 	<property name="ModelType" value="Standard"/>
 	<property name="SurfaceCategory" value="metal"/>
 	<property name="IgnoreTrigger" value="true"/>

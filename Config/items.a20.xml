@@ -7,7 +7,7 @@
 	<item name="vehicleLawnMowerPlaceable">
 		<property name="Extends" value="vehicleMinibikePlaceable"/>
 		<property name="Tags" value="vehicle,vengine,vfuel,vmower,vlight,vseat,canHaveCosmetic"/>
-		<property name="Meshfile" value="#@modfolder:Resources/LawnMower_Z.unity3d?RideOnLawnMower.prefab"/>
+		<property name="Meshfile" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDriveable.prefab"/>
 		<property name="EconomicValue" value="7000"/>
 		<property class="Action1">
 			<property name="Vehicle" value="vehicleLawnMower"/>
