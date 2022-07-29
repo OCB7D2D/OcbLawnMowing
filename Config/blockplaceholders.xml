@@ -1,0 +1,13 @@
+<configs>
+
+	<append xpath="/blockplaceholders/placeholder[@name='carsRandomHelper']">
+		<block name="cntCarLawnMower0v01" prob=".2"/>
+		<block name="cntCarLawnMower0v02" prob=".2"/>
+		<block name="cntCarLawnMower0v03" prob=".2"/>
+		<block name="cntCarLawnMower0v04" prob=".2"/>
+		<block name="cntCarLawnMower0v05" prob=".2"/>
+		<block name="cntCarLawnMower0v06" prob=".2"/>
+		<block name="cntCarLawnMower0v07" prob=".2"/>
+	</append>
+
+</configs>

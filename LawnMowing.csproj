@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\blockplaceholders.xml" />
     <Content Include="Config\blocks.a20.xml" />
     <Content Include="Config\blocks.xml" />
     <Compile Include="Harmony\LawnMowing.cs" />
@@ -85,18 +86,27 @@
   <ItemGroup>
     <Content Include="Config\entityclasses.xml" />
     <Content Include="Config\items.a20.xml" />
+    <Content Include="Config\items.df.xml" />
     <Content Include="Config\items.xml" />
+    <Content Include="Config\item_modifiers.a20.xml" />
+    <Content Include="Config\item_modifiers.df.xml" />
     <Content Include="Config\item_modifiers.xml" />
     <Content Include="Config\Localization.txt" />
     <Content Include="Config\loot.a20.xml" />
+    <Content Include="Config\loot.df.xml" />
     <Content Include="Config\loot.xml" />
     <Content Include="Config\nav_objects.xml" />
     <Content Include="Config\progression.a20.xml" />
+    <Content Include="Config\progression.df.xml" />
     <Content Include="Config\progression.xml" />
     <Content Include="Config\recipes.a20.xml" />
+    <Content Include="Config\recipes.df.xml" />
+    <Content Include="Config\recipes.ulm.xml" />
     <Content Include="Config\recipes.xml" />
     <Content Include="Config\sounds.xml" />
     <Content Include="Config\traders.a20.xml" />
+    <Content Include="Config\traders.df.xml" />
+    <Content Include="Config\traders.ulm.xml" />
     <Content Include="Config\traders.xml" />
     <Content Include="Config\vehicles.xml" />
     <Content Include="ModInfo.xml" />
