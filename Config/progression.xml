@@ -1,0 +1,10 @@
+<configs patcher-version="2">
+
+	<modif condition="Darkness Falls Core">
+		<include path="progression.df.xml"/>
+	</modif>
+	<modelse>
+		<include path="progression.a20.xml"/>
+	</modelse>
+
+</configs>

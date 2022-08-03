@@ -1,0 +1,119 @@
+<configs>
+
+<append xpath="/items">
+
+	<!-- VEHICLES -->
+
+	<item name="vehicleLawnMowerPlaceable">
+		<property name="TintColor" value="229,110,0"/>
+		<property name="Extends" value="vehicleMinibikePlaceable"/>
+		<property name="Tags" value="vehicle,vengine,vfuel,vmower,vlight,canHaveCosmetic"/>
+		<property name="Meshfile" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDriveable.prefab"/>
+		<property name="EconomicValue" value="7000"/>
+		<property class="Action1">
+			<property name="Vehicle" value="vehicleLawnMower"/>
+			<property name="VehicleSize" value="2.5, 2.1, 5"/>
+		</property>
+		<effect_group name="vehicleLawnMowerPlaceable" tiered="false">
+			<passive_effect name="ModSlots" operation="base_set" value="6"/>
+			<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+			<passive_effect name="DegradationMax" operation="base_set" value="5000"/>
+		</effect_group>
+		<property name="PickupJournalEntry" value="lawnMowerTip"/>
+	</item>
+
+	<item name="vehicleLawnMowerChassis">
+		<property name="Extends" value="vehicleWheels" param1="DescriptionKey"/>
+		<property name="DescriptionKey" value="vehicleLawnMowerChassisDesc"/>
+		<property name="EconomicValue" value="3000"/>
+		<property name="UnlockedBy" value="perkGreaseMonkey,vehicleLawnMowerChassisSchematic"/>
+	</item>
+
+	<item name="vehicleLawnMowerAccessories">
+		<property name="Extends" value="vehicleBicycleHandlebars" param1="DescriptionKey"/>
+		<property name="DescriptionKey" value="vehicleLawnMowerAccessoriesDesc"/>
+		<property name="EconomicValue" value="3000"/>
+		<property name="UnlockedBy" value="perkGreaseMonkey,vehicleLawnMowerAccessoriesSchematic"/>
+	</item>
+
+	<item name="vehicleLawnMowerChassisSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="vehicleLawnMowerChassis"/>
+		<property name="Unlocks" value="vehicleLawnMowerChassis"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="vehicleLawnMowerChassis" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="vehicleWheels" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+	<item name="vehicleLawnMowerAccessoriesSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="vehicleLawnMowerAccessories"/>
+		<property name="Unlocks" value="vehicleLawnMowerAccessories"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="vehicleLawnMowerAccessories" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="vehicleWheels" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+	<item name="modVehicleMowerGrassCollectorSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="modVehicleMowerGrassCollector"/>
+		<property name="Unlocks" value="modVehicleMowerGrassCollector"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleMowerGrassCollector" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+	<item name="modVehicleMowerPlantCollectorSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="modVehicleMowerPlantCollector"/>
+		<property name="Unlocks" value="modVehicleMowerPlantCollector"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleMowerPlantCollector" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+	<item name="modVehicleMowerCropsCollectorSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="modVehicleMowerCropsCollector"/>
+		<property name="Unlocks" value="modVehicleMowerCropsCollector"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleMowerCropsCollector" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+	<item name="modVehicleMowerCropsProtectorSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="modVehicleMowerCropsProtector"/>
+		<property name="Unlocks" value="modVehicleMowerCropsProtector"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleMowerCropsProtector" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+	<item name="modVehicleMowerCropsReseederSchematic">
+		<property name="Extends" value="schematicNoQualityMaster"/>
+		<property name="CreativeMode" value="Player"/>
+		<property name="CustomIcon" value="modVehicleMowerCropsReseeder"/>
+		<property name="Unlocks" value="modVehicleMowerCropsReseeder"/>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleMowerCropsReseeder" operation="set" value="1"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+		</effect_group>
+	</item>
+
+</append>
+</configs>

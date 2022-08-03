@@ -1,0 +1,154 @@
+<Configs>
+
+<append xpath="/vehicles">
+
+	<vehicle name="vehicleLawnMower">
+
+		<property name="cameraDistance" value="5.5, 6"/>
+		<property name="cameraTurnRate" value=".2, .35"/>
+		<property name="motorTorqueMinQ" value="5000"/>
+		<property name="motorTorqueMaxQ" value="5000"/>
+		<property name="brakeTorque" value="5000"/>
+		<property name="upAngleMax" value="70"/>
+		<property name="upForce" value="1"/>
+		<property name="steerRate" value="130"/>
+		<property name="steerCenteringRate" value="90"/>
+		<property name="tiltAngleMax" value="80"/>
+		<property name="tiltThreshold" value="3"/>
+		<property name="tiltDampening" value=".22"/>
+		<property name="tiltDampenThreshold" value="8"/>
+		<property name="tiltUpForce" value="0"/>
+		<property name="unstickForce" value="1"/>
+		<property name="velocityMax" value="5, 7"/>
+		<property name="waterDrag_y_velScale_velMaxScale" value="1.8, .9, .1"/>
+		<property name="wheelPtlScale" value="1"/>
+
+		<property name="hornSound" value="vehicle/minibike/minibike_horn"/>
+
+		<property class="battery">
+			<property name="class" value="Battery"/>
+			<property name="slot_type" value="battery"/>
+			<property name="mesh" value="battery"/>
+			<property name="transform" value="battery"/>
+		</property>
+
+		<property class="chassis">
+			<property name="class" value="Chassis"/>
+			<property name="display_name" value="chassis"/>
+			<property name="slot_type" value="chassis"/>
+			<property name="mesh" value="chassis"/>
+			<property name="transform" value="Origin"/>
+			<property name="paint" value="car_mesh"/>
+		</property>
+
+		<property class="engine">
+			<property name="class" value="Engine"/>
+			<property name="slot_type" value="engine"/>
+			<property name="mesh" value="engine_small"/>
+			<property name="transform" value="engine_small"/>
+			<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire"/>
+			<property name="fuelKmPerL" value=".1"/>
+			<property name="foodDrain" value=".002,.00811"/><!-- driving/turbo, truck -->
+
+			<!-- rpmMin, rpmMax, rpmDecel, rpmDownShiftPoint, rpmDownShiftTo, rpmAccel, rpmUpShiftPoint, rpmUpShiftTo -->
+			<!-- accelSoundName, decelSoundName -->
+			<!-- pitchMin, pitchMax, volumeMin, volumeMax, pitchFadeMin, pitchFadeMax, pitchFadeRange, soundRangeName -->
+			<property name="gear1" value="
+					500,2500, -1400,800,0, 1500,9999,9999,
+					lawnmower_engine_accel,
+					,
+					-.05, .05,  2.0, .5,  -9, .1, .1, lawnmower_engine_idle_lp,
+					-.1, .1,  .25, 1.75,  0, 9, .1, lawnmower_mower_running_lp
+					"/>
+			<property name="sound_start" value="lawnmower_engine_start"/>
+			<property name="sound_shut_off" value="lawnmower_engine_stop"/>
+			<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/minibike_empty_"/>
+		</property>
+
+		<property class="headlight">
+			<property name="class" value="Headlight"/>
+			<property name="transform" value="Origin/headlight"/>
+			<property name="bright" value=".75"/>
+		</property>
+
+		<property class="mower">
+			<property name="class" value="Mower, LawnMowing" />
+			<property name="particle_transform" value="engine_small/MowerParticles/p_blades"/>
+			<property name="particle_per_grass" value="25"/>
+			<property name="fuel_per_second" value="0.1" />
+			<property name="plant_interval" value="0.5" />
+			<property name="blade_interval" value="0.3" />
+			<property name="reach" value="-1,2" />
+			<property name="area" value="1,1" />
+			<property name="sound_start" value="lawnmower_blades_start"/>
+			<property name="sound_loop" value="lawnmower_blades_run_lp"/>
+			<property name="sound_shut_off" value="lawnmower_blades_stop"/>
+			<property name="paint" value="mower_bag"/>
+		</property>
+
+		<property class="fuelTank">
+			<property name="class" value="FuelTank"/>
+			<property name="capacity" value="200"/>
+		</property>
+
+		<property class="handlebars">
+			<property name="parent_part" value="chassis"/>
+			<property name="class" value="Steering"/>
+			<property name="slot_type" value="handlebars"/>
+			<property name="transform" value="Origin/steering_joint/SteeringWheel"/>
+			<property name="steerMaxAngle" value="35"/>
+			<property name="IKHandLPosition" value="-0.145, 0.213, -0.07"/>
+			<property name="IKHandLRotation" value="60, -45, -310"/>
+			<property name="IKHandRPosition" value="0.145, 0.213, -0.07"/>
+			<property name="IKHandRRotation" value="60, 45, 310"/>
+		</property>
+
+		<property class="seat0">
+			<property name="class" value="Seat"/>		
+			<property name="position" value="0, .12, -.12"/>
+			<property name="rotation" value="-18, 0, 0"/>
+			<property name="exit" value="-1.6,0,0 ~ 1.6,0,-1 ~ -.4,0,-2.8 ~ -.4,0,2.6 ~ -.4,2.1,0"/>
+			<property name="IKFootLPosition" value="-.34, .35, .30"/>
+			<property name="IKFootLRotation" value="-30, 0, 0"/>
+			<property name="IKFootRPosition" value=".34, .35, .30"/>
+			<property name="IKFootRRotation" value="-30, 0, 0"/>			
+		</property>
+
+		<property class="wheel0">
+			<property name="steerTransform" value="Origin/frontLeftWheelStear_joint"/>
+			<property name="tireTransform" value="Origin/frontLeftWheelStear_joint/frontLeftWheel_joint"/>
+			<property name="tireSuspensionPercent" value="1"/>
+			<property name="torqueScale_motor_brake" value="1, .8"/>
+		</property>
+
+		<property class="wheel1">
+			<property name="steerTransform" value="Origin/frontRightWheelStear_joint"/>
+			<property name="tireTransform" value="Origin/frontRightWheelStear_joint/frontRightWheel_joint"/>
+			<property name="tireSuspensionPercent" value="1"/>
+			<property name="torqueScale_motor_brake" value="1, .8"/>
+		</property>
+
+		<property class="wheel2">
+			<property name="tireTransform" value="Origin/backLeftWheelJoint"/>
+			<property name="tireSuspensionPercent" value="1"/>
+			<property name="torqueScale_motor_brake" value="1, 1"/>
+		</property>
+
+		<property class="wheel3">
+			<property name="tireTransform" value="Origin/backRightWheelJoint"/>
+			<property name="tireSuspensionPercent" value="1"/>
+			<property name="torqueScale_motor_brake" value="1, 1"/>
+		</property>
+
+		<property class="storage">
+			<property name="class" value="Storage"/>
+			<property name="display_name" value="basket"/>
+			<property name="slot_type" value="basket"/>
+			<property name="mesh" value="basket"/>
+			<property name="transform" value="basket"/>
+		</property>
+
+	</vehicle>	
+
+</append>	
+</Configs>

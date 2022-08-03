@@ -1,0 +1,32 @@
+<Configs>
+
+	<append xpath="//trader_item_group[@name='rareBooks']">
+		<item name="vehicleLawnMowerChassisSchematic"/>
+		<item name="vehicleLawnMowerAccessoriesSchematic"/>
+		<item name="modVehicleMowerGrassCollectorSchematic" prob="0.85"/>
+		<item name="modVehicleMowerPlantCollectorSchematic" prob="0.45"/>
+		<item name="modVehicleMowerCropsCollectorSchematic" prob="0.15"/>
+		<item name="modVehicleMowerCropsProtectorSchematic" prob="0.65"/>
+		<item name="modVehicleMowerCropsReseederSchematic" prob="0.05"/>
+	</append>
+
+	<!-- Increase amount in the world a tiny little bit -->
+	<!-- Note: no trader sells any of the `modMeleeTn` groups -->
+	<append xpath="//trader_item_group[@name='modGunT3']">
+		<item name="modMeleeClubMetalChain"/>
+		<item name="modMeleeTemperedBlade"/>
+	</append>
+
+	<append xpath="//trader_item_group[@name='traderBobMechanicRare']">
+		<item name="modVehicleMowerGrassCollector" prob="0.85"/>
+		<item name="modVehicleMowerCropsProtector" prob="0.65"/>
+		<item name="modVehicleMowerPlantCollector" prob="0.45"/>
+	</append>
+
+	<append xpath="//trader_item_group[@name='traderBobMechanicSuperRare']">
+		<item name="vehicleLawnMowerPlaceable" prob="0.65"/>
+		<item name="modVehicleMowerCropsCollector" prob="0.85"/>
+		<item name="modVehicleMowerCropsReseeder" prob="0.45"/>
+	</append>
+
+</Configs>

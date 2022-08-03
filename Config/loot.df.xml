@@ -1,0 +1,21 @@
+<configs>
+
+	<append xpath="//lootgroup[@name='minibikeParts']">
+		<item name="vehicleLawnMowerChassis"/>
+		<item name="vehicleLawnMowerAccessories"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='twitch_minibike']">
+		<item name="vehicleLawnMowerChassis"/>
+		<item name="vehicleLawnMowerAccessories"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='schematicsVehiclesCommon']">
+		<item name="modVehicleMowerGrassCollector" loot_prob_template="ProbT1"/>
+		<item name="modVehicleMowerPlantCollector" loot_prob_template="ProbT2"/>
+		<item name="modVehicleMowerCropsCollector" loot_prob_template="ProbT3"/>
+		<item name="modVehicleMowerCropsProtector" loot_prob_template="ProbT2"/>
+		<item name="modVehicleMowerCropsReseeder" loot_prob_template="ProbT3"/>
+	</append>
+
+</configs>

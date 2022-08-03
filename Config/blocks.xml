@@ -1,0 +1,16 @@
+﻿<configs patcher-version="2">
+
+	<include path="blocks.damaged.xml"/>
+
+	<modif condition="Darkness Falls Core">
+	</modif>
+	<modelse>
+		<append xpath="/blocks/block[@name='cntCarLawnMowerDamaged0Master']">
+			<drop event="Harvest" name="meleeToolAxeT3ChainsawParts" count="1" prob="0.05" tag="salvageHarvest"/>
+			<drop event="Harvest" name="gunBotRoboticsParts" count="1" prob="0.025" tag="salvageHarvest"/>
+		</append>
+	</modelse>
+
+	<include path="blocks.a20.xml"/>
+
+</configs>

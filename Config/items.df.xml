@@ -1,0 +1,6 @@
+<configs>
+
+	<setattribute xpath="/items/item[@name='vehicleLawnMowerChassis']/property[@name='UnlockedBy']" name="value">attClassMechanic,perkMinibike</setattribute>
+	<setattribute xpath="/items/item[@name='vehicleLawnMowerAccessories']/property[@name='UnlockedBy']" name="value">attClassMechanic,perkMinibike</setattribute>
+
+</configs>

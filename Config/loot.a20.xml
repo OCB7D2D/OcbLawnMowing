@@ -1,0 +1,41 @@
+<config>
+
+	<append xpath="//lootgroup[@name='schematicsVehiclesT2']">
+		<item name="vehicleLawnMowerChassisSchematic"/>
+		<item name="vehicleLawnMowerAccessoriesSchematic"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='minibikeParts']">
+		<item name="vehicleLawnMowerChassis"/>
+		<item name="vehicleLawnMowerAccessories"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='twitch_minibike']">
+		<item name="vehicleLawnMowerChassis"/>
+		<item name="vehicleLawnMowerAccessories"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='vehicleModSchematics01']">
+		<item name="modVehicleMowerGrassCollectorSchematic" loot_prob_template="med"/>
+		<item name="modVehicleMowerCropsProtectorSchematic" loot_prob_template="low"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='vehicleModSchematics02']">
+		<item name="modVehicleMowerCropsProtectorSchematic" loot_prob_template="med"/>
+		<item name="modVehicleMowerPlantCollectorSchematic" loot_prob_template="med"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='vehicleModSchematics03']">
+		<item name="modVehicleMowerCropsCollectorSchematic" loot_prob_template="med"/>
+		<item name="modVehicleMowerCropsReseederSchematic" loot_prob_template="low"/>
+	</append>
+
+	<append xpath="//lootgroup[@name='vehicleMods']">
+		<item name="modVehicleMowerGrassCollector" loot_prob_template="ProbT1Cap"/>
+		<item name="modVehicleMowerPlantCollector" loot_prob_template="ProbT2Cap"/>
+		<item name="modVehicleMowerCropsCollector" loot_prob_template="ProbT3"/>
+		<item name="modVehicleMowerCropsProtector" loot_prob_template="ProbT2Cap"/>
+		<item name="modVehicleMowerCropsReseeder" loot_prob_template="ProbT3"/>
+	</append>
+
+</config>

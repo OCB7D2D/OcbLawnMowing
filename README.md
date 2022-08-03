@@ -1,2 +1,137 @@
-# LawnMower
-Lawn Tractor Mod - 7 Days to Die (A20) Addon 
+# Lawn Mowing Mod - 7 Days to Die (A20) Addon
+
+What started as a small Proof of concept has grown into a feature rich
+Mod, that should satisfy a few of your farming sim desires. I've added
+a few treats here and there to make it a better overall experience.
+
+Needs to be installed client and server side. And both need EAC (Easy Anti-Cheat) to be
+turned off! There is no server-side only version of this mod as it contains custom code.
+
+Currently there is only the Ride-On Lawn Tractor Model from Zilox.
+There might be more in the distant future, like a manual lawn mower.
+
+Special Thanks to all the people that made this mod possible!
+
+[![GitHub CI Compile Status][3]][2]
+
+## Lawn Tractor
+
+This placeable vehicle is unlocked either by finding (or buying) the schematics for
+the chassis and the accessories, or by unlocking Grease Monkey Level 3. In its base
+configuration, it can only remove grass and bushes, but doesn't collect any items.
+
+![Lawn Tractor Bare Config](Screens/lawn-mower-bare.jpg)
+
+Lawn Tractor with equipped Crop Protector and Collector:
+
+![Lawn Tractor Full Config](Screens/lawn-mower-full.jpg)
+
+## Copyright Notice
+
+The assets used in this mod are paid and are not to be re-used under any circumstance
+without you acquiring the proper licenses yourself. The unity models and textures are
+only provided for educational purpose and for easier collaboration. These assets would
+be included anyway in the final unity3d file. Please support and respect content creators.
+
+- https://rescue3d.com/2020/12/30/riding-lawn-mower-low-poly-3d-model/
+- https://www.soundjay.com/lawn-mower-sound-effect.html
+
+### Toggling Lawn Tractor Features
+
+In order to enable the mowing/harvesting, you have to press F. The function will toggle
+alternating with the light, so to only toggle mowing/harvesting, press it twice.
+
+### Lawn Tractor Recipes
+
+![Lawn Tractor Chassis](Screens/recipe-tractor-chassis.png)
+
+![Lawn Tractor Accessories](Screens/recipe-tractor-accessories.png)
+
+![Lawn Tractor Recipe](Screens/recipe-lawn-tractor.png)
+
+### Journal Entry
+
+Once you equip your first Lawn Mower, a journal entry will be added:
+
+![Journal Entry](Screens/journal-entry.jpg)
+
+## Vehicle Modifiers
+
+The Lawn Tractor has various modifiers to upgrade its capabilities.
+
+### Grass Collector
+
+![Grass Collector Recipe](Screens/recipe-grass-collector.png)
+
+This is the simplest modifier that you should be able to get quite early.
+It will only collect items from grass and bushes, and the yield will be
+significantly lower than when harvesting by hand/tool. You can get a fully
+functional grass collector from harvesting pristine lawn mowers. Otherwise
+you can find or buy the schematics, or unlock Living Off the Land Level 1.
+
+### Plant Collector
+
+![Plant Collector Recipe](Screens/recipe-plant-collector.png)
+
+With this modifier you will also harvest and collect items from various other
+small plants, like cotton, coffee or mushrooms. Yield is also significantly
+lower than when harvested by hand/tool. You can get a fully functional plant
+collector from harvesting pristine lawn mowers. Otherwise you can find or
+buy the schematics, or unlock Living Off the Land Level 2.
+
+### Crop Harvester
+
+![Crop Harvester Recipe](Screens/recipe-crop-harvester.png)
+
+Upgrade for the plant collector, that gives much better yield, a bit less when
+harvested by hand/tool though. It should be able to collect every growing crop
+and also gives seeds back. You can get a fully functional plant collector from
+harvesting pristine lawn mowers. Otherwise you can find or buy the schematics,
+or unlock Living Off the Land Level 3.
+
+### Crop Protector
+
+![Crop Protector Recipe](Screens/recipe-crop-protector.png)
+
+Basic mod that protects all player plants, so you don't have to worry that
+you accidentally mow down your own plants when tiding up the surroundings.
+You can get a fully functional plant collector from harvesting pristine
+lawn mowers. Otherwise you can find or buy the schematics, or unlock
+Advanced Engineering Level 2.
+
+### Crop Reseeder
+
+![Crop Reseeder Recipe](Screens/recipe-crop-reseeder.png)
+
+Upgrade for the crop protector, that will automatically reseed player plants
+when harvesting. Seeds must be filled into the vehicle inventory, as you will
+not get enough seeds back from harvesting mostly. Speed for harvesting and
+reseeding has been limited to make it a bit more realistic and to make it
+not too overpowered.
+
+### Harvestable Prefabs
+
+![Harvestable Lawn Tractors](Screens/harvestable-vehicles.jpg)
+
+There are 3 different damage level variations of the Lawn Tractor, which all
+come in 7 different colors, so 21 new randomly placed vehicles in the world.
+They can all be harvested for parts and give the same resources as regular
+cars, plus a few additional items. Pristine Lawn Tractors have a good chance
+to drop either a fully functional modifier part or one of the other rare
+resources you need to build the recipes. A damaged Lawn Tractor sill has
+a small chance to give you a rare resource for the recipes, while a wrecked
+vehicle will only give the usual scrap that cars would give you.
+
+## Download and Install
+
+Simply [download here from GitHub][1] and put into your A20 Mods folder:
+
+- https://github.com/OCB7D2D/LawnMower/releases (master branch)
+
+## Compatibility
+
+I've developed and tested this Mod against version a20.6 (b8).
+
+[1]: https://github.com/OCB7D2D/LawnMower/releases
+[2]: https://github.com/OCB7D2D/LawnMower/actions/workflows/ci.yml
+[3]: https://github.com/OCB7D2D/LawnMower/actions/workflows/ci.yml/badge.svg

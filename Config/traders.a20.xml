@@ -1,0 +1,32 @@
+<Configs>
+
+	<!-- You can buy the mower, but not the mods -->
+	<!-- You can buy schematics for everything though -->
+
+	<append xpath="//trader_item_group[@name='rareBooks']">
+		<item name="vehicleLawnMowerChassisSchematic"/>
+		<item name="vehicleLawnMowerAccessoriesSchematic"/>
+	</append>
+
+	<append xpath="//trader_item_group[@name='vehiclePartsT1']">
+		<item name="vehicleLawnMowerPlaceable"/>
+		<item name="vehicleLawnMowerChassis"/>
+		<item name="vehicleLawnMowerAccessories"/>
+	</append>
+
+	<append xpath="//trader_item_group[@name='schematicsVehiclesMods']">
+		<item name="modVehicleMowerGrassCollectorSchematic" prob="0.8"/>
+		<item name="modVehicleMowerPlantCollectorSchematic" prob="0.5"/>
+		<item name="modVehicleMowerCropsCollectorSchematic" prob="0.2"/>
+		<item name="modVehicleMowerCropsProtectorSchematic" prob="0.6"/>
+		<item name="modVehicleMowerCropsReseederSchematic" prob="0.2"/>
+	</append>
+
+	<!-- Increase amount in the world a tiny little bit -->
+	<!-- Note: no trader sells any of the `modMeleeTn` groups -->
+	<append xpath="//trader_item_group[@name='modGunT3']">
+		<item name="modMeleeClubMetalChain"/>
+		<item name="modMeleeTemperedBlade"/>
+	</append>
+
+</Configs>

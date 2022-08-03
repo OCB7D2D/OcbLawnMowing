@@ -1,0 +1,11 @@
+<configs patcher-version="2">
+
+	<modif condition="Darkness Falls Core">
+		<include path="items.a20.xml"/>
+		<include path="items.df.xml"/>
+	</modif>
+	<modelse>
+		<include path="items.a20.xml"/>
+	</modelse>
+
+</configs>

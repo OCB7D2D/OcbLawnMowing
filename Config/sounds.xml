@@ -1,0 +1,94 @@
+<Configs>
+
+	<append xpath="/Sounds">
+
+		<!-- used by engine sound_start -->
+		<SoundDataNode name="lawnmower_engine_start">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-start"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by engine sound_shut_off-->
+		<SoundDataNode name="lawnmower_engine_stop">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-stop"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by mower gear 1 sound A -->
+		<SoundDataNode name="lawnmower_engine_idle_lp">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-idle-lp" Loop="True"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by mower gear 1 sound B -->
+		<SoundDataNode name="lawnmower_mower_running_lp">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-run-lp" Loop="True"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by mower engine acceleration -->
+		<SoundDataNode name="lawnmower_engine_accel">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-accel"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by mower sound_start-->
+		<SoundDataNode name="lawnmower_blades_start">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?blades-start"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by mower sound_shut_off-->
+		<SoundDataNode name="lawnmower_blades_stop">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?blades-stop"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<!-- used by mower sound_loop -->
+		<SoundDataNode name="lawnmower_blades_run_lp">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?blades-run-lp" Loop="True"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+	</append>
+</Configs>
