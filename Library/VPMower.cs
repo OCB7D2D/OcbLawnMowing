@@ -166,6 +166,7 @@ public class VPMower : VehiclePart
 
 	private void StartMower()
 	{
+		if (loop != null) return;
 		if (vehicle.GetHealth() <= 0) return;
 		if (vehicle.GetFuelLevel() <= 0.0) return;
 		PlaySound(properties.Values["sound_start"]);
@@ -181,9 +182,11 @@ public class VPMower : VehiclePart
 		if (vehicle.GetHealth() <= 0) enable = false;
 		if (vehicle.GetFuelLevel() <= 0.0) enable = false;
 		if (IsOn == enable) return;
+		IsOn = enable;
+		if (vehicle?.entity == null) return;
+		if (vehicle.entity.isEntityRemote) return;
 		if (enable) StartMower();
 		else StopMower();
-		IsOn = enable;
 	}
 
 	private void PlaySound(string _sound)
@@ -205,9 +208,13 @@ public class VPMower : VehiclePart
 		}
 	}
 
+	private float LastLightState = 0f;
+
 	public override void HandleEvent(Event evt, VehiclePart part, float arg)
 	{
 		if (evt != Event.LightsOn) return;
+		if (LastLightState == arg) return;
+		LastLightState = arg;
 		if (ClickCount == 3)
 			ClickCount = 0;
 		else ClickCount += 1;
@@ -251,6 +258,7 @@ public class VPMower : VehiclePart
 		World world = vehicle.entity.world;
 		GameRandom random = world.GetGameRandom();
 		bool hasStorage = vehicle.HasStorage();
+		bool hasInventoryChanges = false;
 
 		Vector3i offset = Vector3i.zero;
 		for (offset.x = -Area.x; offset.x <= Area.x; offset.x++)
@@ -299,7 +307,8 @@ public class VPMower : VehiclePart
 						{
 							// Try to get seed, assigns reseed if successful
 							// Otherwise we still re-seed, but with air ;)
-							GetAndDecrementItem(vehicle.entity.bag, bv, ref reseed);
+							hasInventoryChanges |= GetAndDecrementItem(
+								vehicle.entity.bag, bv, ref reseed);
 						}
 					}
 					else if (ProtectPlayerPlants && playerPlant) continue;
@@ -312,8 +321,8 @@ public class VPMower : VehiclePart
 					// Nothing more to do if vehicle has no storage
 					if (hasStorage == false) continue;
 					// Otherwise put harvested items into bag
-					HarvestBlockToBag(block.Block,
-						vehicle.entity.bag, random);
+					hasInventoryChanges |= HarvestBlockToBag(
+						block.Block, vehicle.entity.bag, random);
 
 				}
 			}
@@ -323,32 +332,39 @@ public class VPMower : VehiclePart
 		if (_blockChangeInfo.Count == 0) return;
 		// Pass the whole batch back to the system
 		vehicle.entity.world.SetBlocksRPC(_blockChangeInfo);
+		// Call sync to server (throttle?)
+		if (hasInventoryChanges == false) return;
+		vehicle.entity.StopUIInteraction();
 	}
 
 	// Helper function to get `wanted` item from `bag`, and if OK, updates `reseed`
-	private void GetAndDecrementItem(Bag bag, BlockValue wanted, ref BlockValue reseed)
+	private bool GetAndDecrementItem(Bag bag, BlockValue wanted, ref BlockValue reseed)
 	{
-		if (wanted.type == BlockValue.Air.type) return;
+		if (wanted.type == BlockValue.Air.type) return false;
 		ItemValue iv = wanted.ToItemValue();
-		if (bag.DecItem(iv, 1, true) == 0) return;
+		if (bag.DecItem(iv, 1, true) == 0) return false;
 		reseed = wanted;
+		return true;
 	}
 
 	// Helper function to evaluate and collect harvest/destroy drops
-	private void HarvestBlockToBag(Block block, Bag bag, GameRandom random)
+	private bool HarvestBlockToBag(Block block, Bag bag, GameRandom random)
 	{
+		bool changes = false;
 		if (block.itemsToDrop.TryGetValue(EnumDropEvent.Harvest,
 			out List<Block.SItemDropProb> harvests))
-			AddDropToBag(harvests, bag, random);
+			changes |= AddDropToBag(harvests, bag, random);
 		if (block.itemsToDrop.TryGetValue(EnumDropEvent.Destroy,
 			out List<Block.SItemDropProb> destroys))
-			AddDropToBag(destroys, bag, random);
+			changes |= AddDropToBag(destroys, bag, random);
+		return changes;
 	}
 
 	// Helper function to evaluate probabilities for `drops` and puts them into `bag`
 	// Items that don't fit into the inventory bag are lost (vanilla drops them to ground)
-	private void AddDropToBag(List<Block.SItemDropProb> drops, Bag bag, GameRandom random)
+	private bool AddDropToBag(List<Block.SItemDropProb> drops, Bag bag, GameRandom random)
 	{
+		bool changes = false;
 		foreach (Block.SItemDropProb drop in drops)
 		{
 			// Only allow to get harvestable items
@@ -361,17 +377,19 @@ public class VPMower : VehiclePart
 			// Skip if no luck with RNG
 			if (count <= 0) continue;
 			// Finally try to add the items to the bag (if there is space left)
-			AddItemsToBag(bag, ItemClass.GetItem(drop.name), count);
+			changes |= AddItemsToBag(bag, ItemClass.GetItem(drop.name), count);
 		}
+		return changes;
 	}
 
 	// Add `count` items of `iv` to `bag`
 	// Items that don't fit will be wasted!
-	private void AddItemsToBag(Bag bag, ItemValue iv, int count)
+	private bool AddItemsToBag(Bag bag, ItemValue iv, int count)
 	{
-		if (iv == null) return;
-		if (bag == null) return;
-		if (count <= 0) return;
+		if (iv == null) return false;
+		if (bag == null) return false;
+		if (count <= 0) return false;
+		bool hasChanges = false;
 		// Get all current slots
 		// ToDo: avoid too many copies
 		ItemStack[] slots = bag.GetSlots();
@@ -388,6 +406,7 @@ public class VPMower : VehiclePart
 			space = Utils.FastMin(space, count);
 			sidebar?.AddItemStack(new ItemStack(iv, space));
 			slots[i].count += space;
+			hasChanges = true;
 			count -= space;
 		}
 		// Try to add items into new slots until all is full
@@ -400,10 +419,15 @@ public class VPMower : VehiclePart
 			sidebar?.AddItemStack(new ItemStack(iv, space));
 			slots[i].itemValue = iv;
 			slots[i].count = space;
+			hasChanges = true;
 			count -= space;
 		}
+		// Nothing to do really!?
+		if (!hasChanges) return false;
 		// Update inventory
 		bag.SetSlots(slots);
+		// Had changes
+		return true;
 	}
 
 }

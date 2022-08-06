@@ -128,6 +128,24 @@ Simply [download here from GitHub][1] and put into your A20 Mods folder:
 
 - https://github.com/OCB7D2D/LawnMower/releases (master branch)
 
+## Changelog
+
+### Version 2.0.1
+
+- Fixes dedicated server issues
+
+### Version 2.0.0
+
+- Renames "Lawn Mower" to "Lawn Tractor" (more fitting by now)
+- Lowers necessary Grease Monkey Level from 4 to 3 (same as minibike)
+- Adds multiple item modifiers for advanced capabilities (see README).
+- Adds harvestable prefab variants to spawn like other cars in the world.
+- Adds Initial Darkness Falls compatibility (needs more testing).
+
+### Version 1.0.0
+
+- Initial working version
+
 ## Compatibility
 
 I've developed and tested this Mod against version a20.6 (b8).
