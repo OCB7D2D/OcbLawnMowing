@@ -133,6 +133,7 @@ Simply [download here from GitHub][1] and put into your A20 Mods folder:
 ### Version 2.0.1
 
 - Fixes dedicated server issues
+- Adjust blade and reseed intervals
 
 ### Version 2.0.0
 
