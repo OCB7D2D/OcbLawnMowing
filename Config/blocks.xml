@@ -3,6 +3,7 @@
 	<include path="blocks.damaged.xml"/>
 
 	<modif condition="Darkness Falls Core">
+		<!-- Don't do anything for UL here -->
 	</modif>
 	<modelse>
 		<append xpath="/blocks/block[@name='cntCarLawnMowerDamaged0Master']">
@@ -12,5 +13,9 @@
 	</modelse>
 
 	<include path="blocks.a20.xml"/>
+
+	<modif condition="FoodExpansion">
+		<include path="blocks.foodexp.xml"/>
+	</modif>
 
 </configs>

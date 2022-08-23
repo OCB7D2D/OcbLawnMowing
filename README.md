@@ -130,6 +130,12 @@ Simply [download here from GitHub][1] and put into your A20 Mods folder:
 
 ## Changelog
 
+### Version 2.0.2
+
+- Add support for "FoodExpansion" mod  
+  Harvest wheat, tomato, onion and cabbage crops  
+  Plant Collector will only collect some Wheat
+
 ### Version 2.0.1
 
 - Fixes dedicated server issues
