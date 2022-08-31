@@ -8,7 +8,7 @@
 
 	<append xpath="/blocks/block[@name='treeGrassMaster']">
 		<!-- not sure why we can't overload the Harvest event here again, destroy will do -->
-		<drop event="Destroy" name="resourceYuccaFibers" count="1,2" prob="0.125" tag="grassMowing"/>
+		<drop event="Harvest" name="resourceYuccaFibers" count="1,2" prob="0.125" tag="grassMowing"/>
 	</append>
 
 	<insertafter xpath="/blocks/block/property[@value='Mleaves']">
@@ -28,7 +28,7 @@
 
 	<append xpath="/blocks/block[@name='plantedCotton3HarvestPlayer']">
 		<drop event="Harvest" name="resourceCropCottonPlant" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedCotton1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedCotton1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- CHRYSANTHEMUM -->
@@ -40,7 +40,7 @@
 
 	<append xpath="/blocks/block[@name='plantedChrysanthemum3HarvestPlayer']">
 		<drop event="Harvest" name="resourceCropChrysanthemumPlant" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedChrysanthemum1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedChrysanthemum1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- GOLDEN ROD -->
@@ -52,7 +52,7 @@
 
 	<append xpath="/blocks/block[@name='plantedGoldenrod3HarvestPlayer']">
 		<drop event="Harvest" name="resourceCropGoldenrodPlant" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedGoldenrod1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedGoldenrod1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- BLUEBERRY -->
@@ -64,7 +64,7 @@
 
 	<append xpath="/blocks/block[@name='plantedBlueberry3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropBlueberries" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedBlueberry1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedBlueberry1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- ALOE -->
@@ -76,7 +76,7 @@
 
 	<append xpath="/blocks/block[@name='plantedAloe3HarvestPlayer']">
 		<drop event="Harvest" name="resourceCropAloeLeaf" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedAloe1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedAloe1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- COFFEE -->
@@ -88,7 +88,7 @@
 
 	<append xpath="/blocks/block[@name='plantedCoffee3HarvestPlayer']">
 		<drop event="Harvest" name="resourceCropCoffeeBeans" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedCoffee1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedCoffee1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- HOP -->
@@ -100,7 +100,7 @@
 
 	<append xpath="/blocks/block[@name='plantedHop3HarvestPlayer']">
 		<drop event="Harvest" name="resourceCropHopsFlower" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedHop1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedHop1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- MUSHROOM -->
@@ -112,7 +112,7 @@
 
 	<append xpath="/blocks/block[@name='plantedMushroom3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropMushrooms" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedMushroom1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedMushroom1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- ############################################################################ -->
@@ -128,7 +128,7 @@
 
 	<append xpath="/blocks/block[@name='plantedCorn3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropCorn" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedCorn1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedCorn1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- GRACE CORN -->
@@ -140,7 +140,7 @@
 
 	<append xpath="/blocks/block[@name='plantedGraceCorn3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropGraceCorn" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedGraceCorn1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedGraceCorn1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- POTATO -->
@@ -152,7 +152,7 @@
 
 	<append xpath="/blocks/block[@name='plantedPotato3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropPotato" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedPotato1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedPotato1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- PUMPKIN -->
@@ -164,7 +164,7 @@
 
 	<append xpath="/blocks/block[@name='plantedPumpkin3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropPumpkin" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedPumpkin1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedPumpkin1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- YUCCA -->
@@ -176,7 +176,7 @@
 
 	<append xpath="/blocks/block[@name='plantedYucca3HarvestPlayer']">
 		<drop event="Harvest" name="foodCropYuccaFruit" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="plantedYucca1" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Harvest" name="plantedYucca1" count="1,2" prob="0.775" tag="cropMowing" />
 	</append>
 
 	<!-- EASTER EGG -->

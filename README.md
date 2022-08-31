@@ -130,6 +130,12 @@ Simply [download here from GitHub][1] and put into your A20 Mods folder:
 
 ## Changelog
 
+### Version 2.0.3
+
+- Change drop destroy to harvest, since it doesn't obey tags  
+  Additional seeds for Harvester were also given on manual harvest
+- Add automated translations for 27 languages via DeepL
+
 ### Version 2.0.2
 
 - Add support for "FoodExpansion" mod  
