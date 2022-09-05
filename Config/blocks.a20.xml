@@ -7,7 +7,11 @@
 	<!-- ############################################################################ -->
 
 	<append xpath="/blocks/block[@name='treeGrassMaster']">
-		<!-- not sure why we can't overload the Harvest event here again, destroy will do -->
+		<!-- Enable prober extending of harvest drop -->
+		<property name="ExtendHarvestDrops" value="true"/>
+		<!-- Vanilla will check if the same name of a drop event is already present and -->
+		<!-- only inherit the first unique one, which is not correct if we want to have -->
+		<!-- the same item harvestable by different tags and probabilities. -->
 		<drop event="Harvest" name="resourceYuccaFibers" count="1,2" prob="0.125" tag="grassMowing"/>
 	</append>
 

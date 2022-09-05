@@ -71,17 +71,17 @@ public class VPMower : VehiclePart
 			if (props.TryGetString("MowerHarvestTags", out string tags))
 			{
 				foreach (string tag in tags.Split(','))
-					HarvestTags.Add(tag);
+					HarvestTags.Add(tag.Trim());
 			}
 			if (props.TryGetString("EnablePhysics", out string physics))
 			{
 				foreach (string physic in physics.Split(','))
-					NewShownModPhysics.Add(physic);
+					NewShownModPhysics.Add(physic.Trim());
 			}
 			if (props.TryGetString("ShowTransforms", out string shows))
 			{
 				foreach (string show in shows.Split(','))
-					NewShownModTransforms.Add(show);
+					NewShownModTransforms.Add(show.Trim());
 			}
 		}
 		// Check if there are any changes to any physics
