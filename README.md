@@ -130,6 +130,10 @@ Simply [download here from GitHub][1] and put into your A20 Mods folder:
 
 ## Changelog
 
+### Version 2.0.5
+
+- Improve Undead Legacy Compatibility (thx @Ivinedra)
+
 ### Version 2.0.4
 
 - Fix regression with grass harvester not harvesting fibers  
