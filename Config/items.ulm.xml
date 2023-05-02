@@ -1,0 +1,8 @@
+<configs>
+
+<!-- Using the Cargo Capacity of the Quad as an inital reference. -->
+<append xpath="/items/item[@name='vehicleLawnMowerPlaceable']/effect_group[@name='vehicleLawnMowerPlaceable']">
+			<passive_effect name="VehicleCargoCapacity" operation="base_set" value="700"/>
+</append>
+
+</configs>
