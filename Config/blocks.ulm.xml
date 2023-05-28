@@ -1,0 +1,136 @@
+﻿<configs>
+
+  <append xpath="/blocks">
+
+
+    <block name="ulmLawnTractorVariantHelper">
+
+      <property name="CreativeMode" value="Dev"/>
+      <property name="Material" value="Mmetal"/>
+      <property name="Class" value="ULM_DynamicVehicle,UndeadLegacy"/>
+      <property name="MaxDamage" value="750"/>
+      <!-- cars explode when destroyed by a tool without harvest settings -->
+      <property name="CustomIcon" value="vehicleLawnMowerTintable"/>
+      <property name="ItemTypeIcon" value="explosion"/>
+      <property name="LootList" value="mowers"/>
+      <property name="Shape" value="ModelEntity"/>
+      <property name="IsTerrainDecoration" value="true"/>
+      <property name="Model" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDamaged0"/>
+      <property name="Place" value="TowardsPlacer"/>
+      <property name="ModelOffset" value="0,0,0.25"/>
+      <property name="TintColor" value="B0B0B0"/>
+      <property name="DisplayType" value="blockMulti"/>
+      <property name="MultiBlockDim" value="1,1,3"/>
+      <property name="ImposterDontBlock" value="true"/>
+      <property name="ShowModelOnFall" value="false"/>
+      <property name="PassThroughDamage" value="true"/>
+      <!-- <property name="ParticleOnDeath" value="car_destruction_dmg1"/> -->
+      <drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+      <drop event="Harvest" name="resourceHeadlight" count="1" prob="0.2" tag="salvageHarvest"/>
+      <drop event="Harvest" name="resourceMechanicalParts" count="1,2" prob="0.1" tag="salvageHarvest"/>
+      <drop event="Harvest" name="resourceElectricParts" count="0,4" prob="0.1" tag="salvageHarvest"/>
+      <drop event="Harvest" name="resourceLeather" count="1,3" prob="0.2" tag="salvageHarvest"/>
+      <drop event="Harvest" name="resourceScrapIron" count="10,20" tag="allHarvest"/>
+      <drop event="Destroy" count="0"/>
+      <drop event="Fall" name="cntCarLawnMowerDamaged1Master" count="1" prob="1.0" stick_chance="1"/>
+      <property name="DowngradeBlock" value="cntCarLawnMowerDamaged1Master"/>
+      <property name="BigDecorationRadius" value="5"/>
+      <property name="CanDecorateOnSlopes" value="false"/>
+      <property class="Explosion">
+        <property name="ParticleIndex" value="4"/>
+        <!-- which prefab/particle is used -->
+        <property name="RadiusBlocks" value="3.5"/>
+        <!-- damage radius for blocks -->
+        <property name="BlockDamage" value="500"/>
+        <!-- damage for blocks in the center of the explosion -->
+        <property name="RadiusEntities" value="5"/>
+        <!-- damage radius for entities -->
+        <property name="EntityDamage" value="250"/>
+        <!-- damage for entities in the center of the explosion -->
+      </property>
+      <property name="PlacementDistance" value="6"/>
+      <property name="FilterTags" value="MC_building,SC_automotive"/>
+      <drop event="Harvest" name="modMeleeClubMetalChain" count="1" prob="0.055" tag="salvageHarvest"/>
+      <drop event="Harvest" name="modMeleeTemperedBlade" count="1" prob="0.075" tag="salvageHarvest"/>
+      <drop event="Harvest" name="modVehicleMowerGrassCollector" count="1" prob="0.035" tag="salvageHarvest"/>
+      <drop event="Harvest" name="modVehicleMowerPlantCollector" count="1" prob="0.015" tag="salvageHarvest"/>
+      <drop event="Harvest" name="modVehicleMowerCropsCollector" count="1" prob="0.008" tag="salvageHarvest"/>
+      <drop event="Harvest" name="modVehicleMowerCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
+      <drop event="Harvest" name="modVehicleMowerCropsReseeder" count="1" prob="0.004" tag="salvageHarvest"/>
+      <!-- properties for UL - doesn't hurt to include here -->
+      <property name="CarryWeight" value="5"/>
+
+      <property class="DynamicVehicle">
+        <property name="ItemPrefix" value=""/>
+        <property name="ItemSuffix" value=""/>
+        <property name="ItemName" value="vehicleLawnMowerPlaceable"/>
+        <property name="Variants" value="Default"/>
+        <property name="DedicatedDamageStates" value="false"/>
+        <property name="VariantsAsDyes" value="true"/>
+        <property name="Variants" value="White,Gray,Black,LightBlue,DarkBlue,Cyan,RetroGreen,LimeGreen,ForestGreen,Purple,Pink,Yellow,Orange,Brown,Red,Cherry"/>
+        <property name="States" value="Damage0"/>
+        <property name="Prob" value=".17"/>
+        <property name="Lootable" value="0"/>
+        <property name="Offsets" value="-0.05"/>
+        <property name="Repairable" value="0"/>
+        <property name="RepairTime" value="10"/>
+
+      </property>
+
+      
+      <!--
+      <property name="CreativeMode" value="Dev"/>
+      <property name="Group" value="Vehicles,Blocks"/>
+      <property name="LootList" value="ambulance"/>
+      <property name="Material" value="matIron"/>
+      <property name="MaxDamage" value="2500"/>
+      <property name="CustomIcon" value="ulmVehicleAmbulance1"/>
+      <property name="IsTerrainDecoration" value="true"/>
+      <property name="MultiBlockDim" value="3,3,7"/>
+      <property name="ModelOffset" value="0,0,0"/>
+      <property name="ImposterDontBlock" value="true"/>
+      <property name="ShowModelOnFall" value="false"/>
+      <property name="PassThroughDamage" value="true"/>
+      <property name="CanDecorateOnSlopes" value="false"/>
+      <property name="StabilitySupport" value="false"/>
+      <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+      <property name="Shape" value="ModelEntity"/>
+      <property name="Model" value="#Mods/UndeadLegacy/Resources/Subquake_Vehicles.ulm?Subquake_Ambulance_1_NG_Block.prefab"/>
+      <property name="Place" value="TowardsPlacer"/>
+      <property name="PlacementDistance" value="6"/>
+      <property name="BigDecorationRadius" value="5"/>
+      <property name="CarryWeight" value="1"/>
+      <property name="GndAlign" value="1"/>
+      <drop event="Harvest" name="air" count="0" tool_category="Disassemble"/>
+      <drop event="Harvest" name="ulmResourceCarWheel"			count="1"		prob=".25"	tag="salvage0,salvageHarvest"/>
+      <drop event="Harvest" name="ulmResourceBallBearings"		count="2,3"					tag="salvage0,salvageHarvest"/>
+      <drop event="Harvest" name="resourceHeadlight"				count="3,5"					tag="salvage0,salvageHarvest"/>
+      <drop event="Harvest" name="ulmResourceElectronicLCDScreen"	count="1,2"		prob=".2"	tag="salvage0,salvageHarvest"/>
+      <drop event="Harvest" name="ulmResourceGears"				count="1,2"		prob=".5"	tag="salvage0,salvageHarvest"/>
+      <drop event="Harvest" name="resourceLeather"				count="1,3"		prob=".2"	tag="salvage0,salvageHarvest"/>
+
+      <drop event="Harvest" name="resourceRadiator"				count="1"		prob=".5"	tag="salvage1,salvageHarvest"/>
+      <drop event="Harvest" name="resourceElectricParts"			count="1,2"		prob=".1"	tag="salvage1,salvageHarvest"/>
+      <drop event="Harvest" name="ulmResourceEngineV8"			count="1"		prob=".15"	tag="salvage1,salvageHarvest"/>
+      <drop event="Harvest" name="carBattery"						count="1"		prob=".2"	tag="salvage1,salvageHarvest"/>
+      <drop event="Harvest" name="ulmResourceElectronicSwitch"	count="1,3"					tag="salvage1,salvageHarvest"/>
+      <drop event="Harvest" name="resourceBrokenGlass"			count="1,2"					tag="salvage1,salvageHarvest"/>
+
+      <drop event="Harvest" name="resourceMechanicalParts"		count="1,4"		prob=".5"	tag="salvage2,salvageHarvest"/>
+      <drop event="Harvest" name="resourceOil"					count="0,2"					tag="salvage2,salvageHarvest"/>
+      <drop event="Harvest" name="resourceSpring"					count="1,3"					tag="salvage2,salvageHarvest"/>
+      <drop event="Harvest" name="resourceMetalPipe"				count="5"		prob=".5"	tag="salvage2,salvageHarvest"/>
+      <drop event="Harvest" name="resourceCloth"					count="2,5"					tag="salvage2,salvageHarvest"/>
+      <drop event="Harvest" name="ulmResourceScrapRubber"			count="5,10"				tag="salvage2,salvageHarvest"/>
+
+      <drop event="Harvest" name="resourceAcid"					count="1"		prob=".06"	tag="WasteTreasuresAcidHarvest"/>
+      <drop event="Harvest" name="ulmResourceScrapWires"			count="1,2"					tag="allHarvest"/>
+      <drop event="Harvest" name="resourceScrapPolymers"			count="1,4"					tag="allHarvest"/>
+      <drop event="Harvest" name="resourceScrapIron"				count="10,20"				tag="allHarvest"/>
+      <drop event="Destroy" count="0"/>
+      -->
+    </block>
+
+  </append>
+
+</configs>

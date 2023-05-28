@@ -1,8 +1,11 @@
-<configs patcher-version="2">
+<configs patcher-version="4">
 
-	<modif condition="Darkness Falls Core">
-		<include path="progression.df.xml"/>
-	</modif>
+  <modif condition="UndeadLegacy_CoreModule">
+    <include path="progression.ulm.xml"/>
+  </modif>
+  <modelsif condition="Darkness Falls Core">
+    <include path="progression.df.xml"/>
+	</modelsif>
 	<modelse>
 		<include path="progression.a20.xml"/>
 	</modelse>

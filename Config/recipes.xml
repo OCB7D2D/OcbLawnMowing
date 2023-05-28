@@ -1,7 +1,7 @@
-<configs patcher-version="2">
+<configs patcher-version="4">
 
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="recipes.ulm.xml"/>
+    <include path="recipes.ulm.xml"/>
 	</modif>
 	<modelsif condition="Darkness Falls Core">
 		<include path="recipes.a20.xml"/>

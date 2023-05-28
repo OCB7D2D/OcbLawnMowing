@@ -1,0 +1,36 @@
+<configs>
+
+  <append xpath="//lootgroup[@name='booksVehicleModsT0']">
+    <item name="modVehicleMowerGrassCollectorSchematic"/>
+  </append>
+
+  <append xpath="//lootgroup[@name='booksVehicleModsT1']">
+    <item name="modVehicleMowerPlantCollectorSchematic"/>
+    <item name="modVehicleMowerCropsProtectorSchematic"/>
+  </append>
+
+  <append xpath="//lootgroup[@name='booksVehicleModsT2']">
+    <item name="modVehicleMowerCropsCollectorSchematic"/>
+    <item name="modVehicleMowerCropsReseederSchematic"/>
+  </append>
+
+  <insertAfter xpath="//lootgroup[@name='booksBicycle']">
+    <lootgroup name="booksLawnTractor" count="1">
+      <item name="vehicleLawnMowerChassisSchematic"/>
+      <item name="vehicleLawnMowerAccessoriesSchematic"/>
+      <!-- <item name="ulmResourceMinibikeWheelBlueprint"/> -->
+      <item name="ulmBookMaintenanceLawnTractor" prob=".25"/>
+    </lootgroup>
+  </insertAfter>
+
+  <append xpath="//lootgroup[@name='booksVehiclesT0']">
+    <item group="booksLawnTractor" loot_prob_template="medLow"/>
+  </append>
+
+  <append xpath="//lootgroup[@name='vehicleWheels']">
+    <item name="ulmResourceLawnTractorWheel"/>
+  </append>
+
+  
+
+</configs>

@@ -1,4 +1,4 @@
-<configs patcher-version="2">
+<configs patcher-version="4">
 
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="traders.ulm.xml"/>

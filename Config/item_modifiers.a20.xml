@@ -1,4 +1,4 @@
-<configs>
+<configs patcher-version="4">
 	<append xpath="/item_modifiers">
 
 		<!-- First basic attachment that will harvest grass and bushes -->

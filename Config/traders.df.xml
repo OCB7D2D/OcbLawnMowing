@@ -1,4 +1,4 @@
-<Configs>
+<configs patcher-version="4">
 
 	<append xpath="//trader_item_group[@name='rareBooks']">
 		<item name="vehicleLawnMowerChassisSchematic"/>
@@ -29,4 +29,4 @@
 		<item name="modVehicleMowerCropsReseeder" prob="0.45"/>
 	</append>
 
-</Configs>
+</configs>

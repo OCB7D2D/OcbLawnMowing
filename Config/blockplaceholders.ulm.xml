@@ -1,0 +1,89 @@
+<configs>
+
+	<set xpath="/blockplaceholders/randomizer[@name='carsRandomHelper']">
+
+    <block name="ulmLawnTractorVariantHelper" prob="3333.72"/>
+
+    <!-- These give good stuff to build lawn mowers -->
+    <!--
+    <block name="cntCarLawnMowerDamaged0v01" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged0v02" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged0v03" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged0v04" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged0v05" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged0v06" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged0v07" prob=".12"/>
+    -->
+
+  </set>
+
+  <set xpath="/blockplaceholders/randomizer[@name='carWrecksRandomHelper']">
+
+    <block name="ulmLawnTractorVariantHelper" prob="3333.72"/>
+
+    <!-- These give mostly scrap materials -->
+    <!--
+    <block name="cntCarLawnMowerDamaged1v01" prob=".09"/>
+    <block name="cntCarLawnMowerDamaged1v02" prob=".09"/>
+    <block name="cntCarLawnMowerDamaged1v03" prob=".09"/>
+    <block name="cntCarLawnMowerDamaged1v04" prob=".09"/>
+    <block name="cntCarLawnMowerDamaged1v05" prob=".09"/>
+    <block name="cntCarLawnMowerDamaged1v06" prob=".09"/>
+    <block name="cntCarLawnMowerDamaged1v07" prob=".09"/>
+    -->
+
+    <!-- These give only scrap materials -->
+    <!--
+    <block name="cntCarLawnMowerDamaged2v01" prob=".05"/>
+    <block name="cntCarLawnMowerDamaged2v02" prob=".05"/>
+    <block name="cntCarLawnMowerDamaged2v03" prob=".05"/>
+    <block name="cntCarLawnMowerDamaged2v04" prob=".05"/>
+    <block name="cntCarLawnMowerDamaged2v05" prob=".05"/>
+    <block name="cntCarLawnMowerDamaged2v06" prob=".05"/>
+    <block name="cntCarLawnMowerDamaged2v07" prob=".05"/>
+    -->
+
+  </set>
+
+  <!-- used on POI[terrAsphalt] and POI[terrGravel] and wasteland.subbiome[prop=0.3] -->
+  <set xpath="/blockplaceholders/randomizer[@name='ulmVehiclesGenericRandomHelper']">
+
+    <block name="ulmLawnTractorVariantHelper" prob="3333.72"/>
+    
+
+    <!-- These give good stuff to build lawn mowers -->
+    <!--
+    <block name="cntCarLawnMowerDamaged0v01" prob=".72"/>
+    <block name="cntCarLawnMowerDamaged0v02" prob=".72"/>
+    <block name="cntCarLawnMowerDamaged0v03" prob=".72"/>
+    <block name="cntCarLawnMowerDamaged0v04" prob=".72"/>
+    <block name="cntCarLawnMowerDamaged0v05" prob=".72"/>
+    <block name="cntCarLawnMowerDamaged0v06" prob=".72"/>
+    <block name="cntCarLawnMowerDamaged0v07" prob=".72"/>
+    -->
+
+    <!-- These give mostly scrap materials -->
+    <!--
+		<block name="cntCarLawnMowerDamaged1v01" prob=".9"/>
+		<block name="cntCarLawnMowerDamaged1v02" prob=".9"/>
+		<block name="cntCarLawnMowerDamaged1v03" prob=".9"/>
+		<block name="cntCarLawnMowerDamaged1v04" prob=".9"/>
+		<block name="cntCarLawnMowerDamaged1v05" prob=".9"/>
+		<block name="cntCarLawnMowerDamaged1v06" prob=".9"/>
+		<block name="cntCarLawnMowerDamaged1v07" prob=".9"/>
+    -->
+
+    <!-- These give only scrap materials -->
+    <!--
+    <block name="cntCarLawnMowerDamaged2v01" prob=".5"/>
+    <block name="cntCarLawnMowerDamaged2v02" prob=".5"/>
+    <block name="cntCarLawnMowerDamaged2v03" prob=".5"/>
+    <block name="cntCarLawnMowerDamaged2v04" prob=".5"/>
+    <block name="cntCarLawnMowerDamaged2v05" prob=".5"/>
+    <block name="cntCarLawnMowerDamaged2v06" prob=".5"/>
+    <block name="cntCarLawnMowerDamaged2v07" prob=".5"/>
+    -->
+
+  </set>
+
+</configs>

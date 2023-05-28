@@ -1,3 +1,31 @@
-<Configs>
+<configs>
 
-</Configs>
+
+  <append xpath="//trader_item_group[@name='groupBooksVehiclesCommon']">
+    <item name="vehicleLawnMowerChassisSchematic"/>
+    <item name="vehicleLawnMowerAccessoriesSchematic"/>
+    <item name="ulmResourceLawnTractorWheelBlueprint"/>
+    <item name="ulmBookMaintenanceLawnTractor" prob=".25"/>
+  </append>
+
+  <append xpath="//trader_item_group[@name='groupBooksVehiclesRare']">
+    <item name="modVehicleMowerGrassCollectorSchematic" prob="0.8"/>
+    <item name="modVehicleMowerPlantCollectorSchematic" prob="0.5"/>
+    <item name="modVehicleMowerCropsCollectorSchematic" prob="0.2"/>
+    <item name="modVehicleMowerCropsProtectorSchematic" prob="0.6"/>
+    <item name="modVehicleMowerCropsReseederSchematic" prob="0.2"/>
+  </append>
+
+  <insertAfter xpath="//trader_item_group[@name='groupEngines']">
+    <trader_item_group name="groupVehicleLawnTractor">
+      <item name="vehicleLawnMowerChassis"/>
+      <item name="vehicleLawnMowerAccessories"/>
+      <item name="vehicleLawnMowerPlaceable"/>
+    </trader_item_group>
+  </insertAfter>
+
+  <append xpath="//trader_item_group[@name='groupVehiclesCommon']">
+    <item group="groupVehicleLawnTractor"/>
+  </append>
+
+</configs>

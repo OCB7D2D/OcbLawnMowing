@@ -1,8 +1,39 @@
-<configs>
+<configs patcher-version="4">
 
-	<!-- Using the Cargo Capacity of the Quad as an inital reference. -->
-	<append xpath="/items/item[@name='vehicleLawnMowerPlaceable']/effect_group[@name='vehicleLawnMowerPlaceable']">
-		<passive_effect name="VehicleCargoCapacity" operation="base_set" value="700"/>
-	</append>
+  <!-- Using the Cargo Capacity of the Quad as an inital reference. -->
+  <append xpath="/items/item[@name='vehicleLawnMowerPlaceable']/effect_group[@name='vehicleLawnMowerPlaceable']">
+    <passive_effect name="VehicleCargoCapacity" operation="base_set" value="700"/>
+  </append>
+
+  <insertafter xpath="/items/item[@name='ulmBookMaintenanceBicycle']">
+    <item name="ulmBookMaintenanceLawnTractor">
+      <property name="Extends" value="ulmBookMaintenanceBicycle"/>
+      <property name="EconomicValue" value="500"/>
+      <property class="Action0">
+        <requirement name="CVarCompare" cvar="ulmBookMaintenanceBicycle" operation="Equals" value="1"/>
+      </property>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="ulmBookMaintenanceLawnTractor" operation="set" value="1"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+      </effect_group>
+    </item>
+    <item name="ulmResourceLawnTractorWheel">
+      <property name="Extends" value="ulmResourceMaster"/>
+      <property name="Material" value="matRubber"/>
+      <property name="EconomicValue" value="500"/>
+      <property name="CarryWeight" value="3"/>
+      <property name="UnlockedBy" value="ulmResourceLawnTractorWheelBlueprint"/>
+    </item>
+    <item name="ulmResourceLawnTractorWheelBlueprint">
+      <property name="Extends" value="schematicNoQualityMaster"/>
+      <property name="CustomIcon" value="ulmResourceLawnTractorWheel"/>
+      <property name="Group" value="Schematics,BPScience,Books,Items"/>
+      <property name="Unlocks" value="ulmResourceLawnTractorWheel"/>
+      <effect_group tiered="false">
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="ulmResourceLawnTractorWheel" operation="set" value="1"/>
+        <triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+      </effect_group>
+    </item>
+  </insertafter>
 
 </configs>

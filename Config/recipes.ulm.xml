@@ -1,3 +1,249 @@
-<configs>
+<configs patcher-version="4">
+
+  <append xpath="/recipes">
+
+    <!-- ACCESSORIES -->
+
+    <recipe name="vehicleLawnMowerAccessoriesSchematic"
+            time="60" area="ulmStationResearch_1">
+      <ingredient name="ulmResourceResearch" count="300"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="resourceScrapPolymers" count="8"/>
+      <ingredient name="resourceMetalPipe" count="8"/>
+      <ingredient name="resourceDuctTape" count="4"/>
+      <ingredient name="resourceLeather" count="8"/>
+    </recipe>
+
+    <recipe name="vehicleLawnMowerAccessories" tags="learnable"
+            time="120" area="ulmStationMechanic_1">
+      <ingredient name="resourceScrapPolymers" count="12"/>
+      <ingredient name="resourceMetalPipe" count="12"/>
+      <ingredient name="resourceDuctTape" count="8"/>
+      <ingredient name="resourceLeather" count="16"/>
+      <ingredient name="resourceMechanicalParts" count="3"/>
+      <ingredient name="ulmResourceHingeIron" count="2"/>
+      <ingredient name="ulmResourceGears" count="2"/>
+      <ingredient name="resourceSpring" count="2"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="resourceScrapPolymers,resourceMetalPipe,resourceDuctTape,resourceLeather"/>
+      </effect_group>
+    </recipe>
+
+    <!-- CHASSIS -->
+
+    <recipe name="vehicleLawnMowerChassisSchematic"
+            time="60" area="ulmStationResearch_1">
+      <ingredient name="ulmResourceResearch" count="300"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="resourceForgedIron" count="12"/>
+      <ingredient name="resourceScrapPolymers" count="8"/>
+      <ingredient name="resourceMetalPipe" count="8"/>
+      <ingredient name="resourceDuctTape" count="4"/>
+      <ingredient name="resourceMechanicalParts" count="2"/>
+      <ingredient name="resourceElectricParts" count="2"/>
+    </recipe>
+
+    <recipe name="vehicleLawnMowerChassis" tags="learnable"
+            time="120" area="ulmStationMechanic_1">
+      <ingredient name="resourceForgedIron" count="16"/>
+      <ingredient name="resourceScrapPolymers" count="12"/>
+      <ingredient name="resourceMetalPipe" count="12"/>
+      <ingredient name="resourceDuctTape" count="8"/>
+      <ingredient name="resourceMechanicalParts" count="5"/>
+      <ingredient name="resourceElectricParts" count="3"/>
+      <ingredient name="ulmResourceScrapWires" count="3"/>
+      <ingredient name="ulmResourceElectronicCircuitboard" count="1"/>
+      <ingredient name="resourceSpring" count="4"/>
+      <ingredient name="resourceHeadlight" count="2"/>
+      <ingredient name="resourceRadiator" count="2"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="resourceForgedIron,resourceScrapPolymers,resourceMetalPipe,resourceDuctTape"/>
+      </effect_group>
+    </recipe>
+
+    <!-- LAWN MOWER -->
+
+    <recipe name="vehicleLawnMowerPlaceable"
+            time="180" area="ulmStationMechanic_1">
+      <ingredient name="ulmResourceLawnTractorWheel" count="4"/>
+      <ingredient name="vehicleLawnMowerChassis" count="1"/>
+      <ingredient name="vehicleLawnMowerAccessories" count="1"/>
+      <ingredient name="carBattery" count="1"/>
+      <ingredient name="smallEngine" count="1"/>
+      <ingredient name="bladeTrap" count="1"/>
+    </recipe>
+
+    <!-- GRASS COLLECTOR -->
+
+    <recipe name="modVehicleMowerGrassCollectorSchematic"
+            time="60" area="ulmStationResearch_1">
+      <ingredient name="ulmResourceResearch" count="200"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="resourceCloth" count="12"/>
+      <ingredient name="resourceLeather" count="6"/>
+      <ingredient name="resourceDuctTape" count="6"/>
+      <ingredient name="resourceSpring" count="6"/>
+    </recipe>
+
+    <recipe name="modVehicleMowerGrassCollector"
+            time="90" area="ulmStationMechanic_1">
+      <ingredient name="modMeleeSerratedBlade" count="2"/>
+      <ingredient name="resourceCloth" count="16"/>
+      <ingredient name="resourceLeather" count="8"/>
+      <ingredient name="resourceDuctTape" count="8"/>
+      <ingredient name="resourceSpring" count="8"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="resourceCloth,resourceLeather,resourceDuctTape,resourceSpring"/>
+      </effect_group>
+    </recipe>
+
+    <!-- PLANT COLLECTOR -->
+
+    <recipe name="modVehicleMowerPlantCollectorSchematic"
+            time="60" area="ulmStationResearch_2">
+      <ingredient name="ulmResourceResearch" count="300"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="resourceForgedSteel" count="6"/>
+      <ingredient name="resourceMechanicalParts" count="8"/>
+      <ingredient name="resourceSpring" count="4"/>
+    </recipe>
+
+    <recipe name="modVehicleMowerPlantCollector"
+            time="90" area="ulmStationMechanic_2">
+      <ingredient name="meleeToolAxeT3ChainsawParts" count="2"/>
+      <ingredient name="meleeToolShovelT1IronShovel" count="2"/>
+      <ingredient name="resourceForgedSteel" count="8"/>
+      <ingredient name="resourceMechanicalParts" count="12"/>
+      <ingredient name="resourceSpring" count="8"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="resourceForgedSteel,resourceMechanicalParts,resourceSpring"/>
+      </effect_group>
+    </recipe>
+
+    <!-- CROP COLLECTOR -->
+
+    <recipe name="modVehicleMowerCropsCollectorSchematic"
+            time="60" area="ulmStationResearch_2">
+      <ingredient name="ulmResourceResearch" count="300"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="modMeleeGraveDigger" count="1"/>
+      <ingredient name="meleeToolAxeT3ChainsawParts" count="2"/>
+      <ingredient name="resourceElectricParts" count="16"/>
+    </recipe>
+
+    <recipe name="modVehicleMowerCropsCollector"
+        time="120" area="ulmStationMechanic_2">
+
+      <ingredient name="modVehicleMowerPlantCollector" count="1"/>
+      <ingredient name="gunBotRoboticsParts" count="1"/>
+      <ingredient name="modMeleeGraveDigger" count="2"/>
+      <ingredient name="meleeToolAxeT3ChainsawParts" count="4"/>
+      <ingredient name="resourceElectricParts" count="16"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="meleeToolAxeT3ChainsawParts,resourceElectricParts"/>
+      </effect_group>
+    </recipe>
+
+    <!-- CROP PROTECTOR -->
+
+    <recipe name="modVehicleMowerCropsProtectorSchematic"
+            time="60" area="ulmStationResearch_2">
+      <ingredient name="ulmResourceResearch" count="300"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="resourceForgedSteel" count="8"/>
+      <ingredient name="resourceMechanicalParts" count="12"/>
+      <ingredient name="resourceLeather" count="12"/>
+    </recipe>
+
+    <recipe name="modVehicleMowerCropsProtector"
+        time="90" area="ulmStationMechanic_2">
+      <ingredient name="modMeleeClubMetalChain" count="2"/>
+      <ingredient name="meleeToolAxeT3ChainsawParts" count="2"/>
+      <ingredient name="resourceForgedSteel" count="8"/>
+      <ingredient name="resourceMechanicalParts" count="12"/>
+      <ingredient name="resourceLeather" count="16"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="resourceForgedSteel,resourceMechanicalParts,resourceLeather"/>
+      </effect_group>
+    </recipe>
+
+    <!-- CROP RESEEDER -->
+
+    <recipe name="modVehicleMowerCropsReseederSchematic"
+            time="60" area="ulmStationResearch_3">
+      <ingredient name="ulmResourceResearch" count="400"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="resourceElectricParts" count="6"/>
+      <ingredient name="resourceSpring" count="12"/>
+    </recipe>
+
+    <recipe name="modVehicleMowerCropsReseeder"
+        time="180" area="ulmStationMechanic_2">
+      <ingredient name="modVehicleMowerCropsProtector" count="1"/>
+      <ingredient name="modArmorWaterPurifier" count="2"/>
+      <ingredient name="gunBotRoboticsParts" count="2"/>
+      <ingredient name="resourceElectricParts" count="8"/>
+      <ingredient name="resourceSpring" count="16"/>
+      <effect_group>
+        <passive_effect name="CraftingIngredientCount"
+                operation="perc_add" level="0,3" value=".5,.5"
+                tags="resourceElectricParts,resourceSpring"/>
+      </effect_group>
+    </recipe>
+
+  </append>
+
+  <insertbefore xpath="/recipes/vehicle[@block='ulmVehicleAmbulance1VariantHelper' and @damage='0']">
+    <vehicle block="ulmLawnTractorVariantHelper" damage="0" learnable="ulmBookMaintenanceVan"
+             tools="meleeToolSalvageT1Wrench,meleeToolSalvageT2Ratchet,meleeToolSalvageT3ImpactDriver">
+      <ingredient name="ulmResourceAdvancedRepairKit" count="2"/>
+      <ingredient name="carBattery"/>
+      <ingredient name="ulmResourceCarWheel" count="2"/>
+      <ingredient name="resourceForgedSteel" count="50"/>
+      <ingredient name="resourceSpring" count="8"/>
+      <ingredient name="resourceMechanicalParts" count="12"/>
+      <ingredient name="ulmResourceGlass" count="10"/>
+      <ingredient name="resourceHeadlight" count="20"/>
+      <ingredient name="ulmResourceScrapWires" count="16"/>
+      <ingredient name="resourceDuctTape" count="4"/>
+      <ingredient name="resourceOil" count="5"/>
+    </vehicle>
+  </insertbefore>
+
+  <insertafter xpath="/recipes/recipe[@name='ulmBookMaintenanceBicycle']">
+    <recipe name="ulmBookMaintenanceLawnTractor" time="60" area="ulmStationResearch_1">
+      <ingredient name="ulmResourceResearch" count="250"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="smallEngine"/>
+      <ingredient name="resourceScrapIron" count="50"/>
+      <ingredient name="ulmResourceNutsAndBolts" count="30"/>
+      <ingredient name="ulmResourceScrapRubber" count="40"/>
+      <ingredient name="resourceOil" count="2"/>
+      <ingredient name="resourceDuctTape" count="6"/>
+    </recipe>
+  </insertafter>
+
+  <insertafter xpath="/recipes/recipe[@name='ulmResourceBicycleWheelBlueprint']">
+    <recipe name="ulmResourceLawnTractorWheelBlueprint" time="60" area="ulmStationResearch_1">
+      <ingredient name="ulmResourceResearch" count="400"/>
+      <ingredient name="resourcePaper" count="10"/>
+      <ingredient name="ulmResourceScrapRubber" count="50"/>
+      <ingredient name="resourceForgedIron" count="20"/>
+      <ingredient name="ulmResourceBallBearings" count="5"/>
+      <ingredient name="ulmResourceAdhesive" count="5"/>
+    </recipe>
+  </insertafter>
 
 </configs>

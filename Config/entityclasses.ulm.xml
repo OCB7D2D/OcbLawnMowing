@@ -1,4 +1,4 @@
-<configs>
+<configs patcher-version="4">
 	
 	<append xpath="/entity_classes/entity_class[@name='vehicleLawnMower']">
 		<property name="Consumables" value="ulmAmmoFuelGasoline,ulmAmmoFuelGasolineBarrel"/>

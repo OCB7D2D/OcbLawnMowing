@@ -1,4 +1,4 @@
-<configs>
+<configs patcher-version="4">
 
 	<setattribute xpath="/recipes/recipe[@name='vehicleLawnMowerPlaceable']" name="craft_area">workstationMetal</setattribute>
 

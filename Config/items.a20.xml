@@ -1,4 +1,4 @@
-<configs>
+<configs patcher-version="4">
 
 <append xpath="/items">
 
@@ -16,11 +16,19 @@
 		</property>
 		<effect_group name="vehicleLawnMowerPlaceable" tiered="false">
 			<passive_effect name="ModSlots" operation="base_set" value="6"/>
-			<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
-			<passive_effect name="DegradationMax" operation="base_set" value="5000"/>
-		</effect_group>
+      <passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+      <passive_effect name="DegradationMax" operation="base_set" value="5000"/>
+      <!-- include UL setting here, doesn't reall hurt anybody otherwise -->
+      <passive_effect name="VehicleCargoCapacity" operation="base_set" value="700"/>
+    </effect_group>
 		<property name="PickupJournalEntry" value="lawnMowerTip"/>
-	</item>
+
+    <property name="CarryWeight" value="150" param1="4500"/>
+    <property name="EconomicValue" value="60000"/>
+    <property name="RepairTools" value="ulmResourceSuperiorRepairKit"/>
+    <property name="MaintenanceGroup" value="MG_CarRepair"/>
+    
+  </item>
 
 	<item name="vehicleLawnMowerChassis">
 		<property name="Extends" value="vehicleWheels" param1="DescriptionKey"/>
@@ -38,6 +46,7 @@
 
 	<item name="vehicleLawnMowerChassisSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="vehicleLawnMowerChassis"/>
 		<property name="Unlocks" value="vehicleLawnMowerChassis"/>
@@ -50,6 +59,7 @@
 
 	<item name="vehicleLawnMowerAccessoriesSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="vehicleLawnMowerAccessories"/>
 		<property name="Unlocks" value="vehicleLawnMowerAccessories"/>
@@ -62,6 +72,7 @@
 
 	<item name="modVehicleMowerGrassCollectorSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="modVehicleMowerGrassCollector"/>
 		<property name="Unlocks" value="modVehicleMowerGrassCollector"/>
@@ -73,6 +84,7 @@
 
 	<item name="modVehicleMowerPlantCollectorSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="modVehicleMowerPlantCollector"/>
 		<property name="Unlocks" value="modVehicleMowerPlantCollector"/>
@@ -84,6 +96,7 @@
 
 	<item name="modVehicleMowerCropsCollectorSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="modVehicleMowerCropsCollector"/>
 		<property name="Unlocks" value="modVehicleMowerCropsCollector"/>
@@ -95,6 +108,7 @@
 
 	<item name="modVehicleMowerCropsProtectorSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="modVehicleMowerCropsProtector"/>
 		<property name="Unlocks" value="modVehicleMowerCropsProtector"/>
@@ -106,6 +120,7 @@
 
 	<item name="modVehicleMowerCropsReseederSchematic">
 		<property name="Extends" value="schematicNoQualityMaster"/>
+    <property name="Group" value="Schematics,BPScience,Books,Items"/>
 		<property name="CreativeMode" value="Player"/>
 		<property name="CustomIcon" value="modVehicleMowerCropsReseeder"/>
 		<property name="Unlocks" value="modVehicleMowerCropsReseeder"/>

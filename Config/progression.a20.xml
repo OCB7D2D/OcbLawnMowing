@@ -1,4 +1,4 @@
-<configs>
+<configs patcher-version="4">
 
 	<append xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,5']/@tags">,vehicleLawnMowerChassis,vehicleLawnMowerAccessories</append>
 
