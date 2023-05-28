@@ -84,6 +84,7 @@
     <Content Include="Config\blockplaceholders.xml" />
     <Content Include="Config\blocks.damaged.xml" />
     <Content Include="Config\blocks.a20.xml" />
+    <Content Include="Config\blocks.foodexp.xml" />
     <Content Include="Config\blocks.xml" />
     <Compile Include="Harmony\LawnMowing.cs" />
     <Compile Include="Harmony\AssemblyInfo.cs" />
@@ -92,9 +93,11 @@
     <Compile Include="Library\VPMower.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\entityclasses.ulm.xml" />
     <Content Include="Config\entityclasses.xml" />
     <Content Include="Config\items.a20.xml" />
     <Content Include="Config\items.df.xml" />
+    <Content Include="Config\items.ulm.xml" />
     <Content Include="Config\items.xml" />
     <Content Include="Config\item_modifiers.a20.xml" />
     <Content Include="Config\item_modifiers.df.xml" />
