@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9aafab5ec24e3a468cbf65f5c7e23b0, type: 3}
+  m_Name: AssetBundle
+  m_EditorClassIdentifier: 
+  Path: ..\..\..\Resources\LawnMowers.unity3d
+  IncludeAssetsFromFolders: 0
+  SearchFoldersRecursively: 0
+  CreateDeterministicAssetBundle: 1
+  AppendHashToAssetBundleName: 1
+  Compression: 1
+  VerboseLogging: 0
+  Objects:
+  - {fileID: 3582434321329062483, guid: 56090f1021b8a31428e783a00e9ca61b, type: 3}
+  - {fileID: 5958406075279694133, guid: ffebb9a93a1e488409b14140dfb724f0, type: 3}
+  - {fileID: 8882675805486922456, guid: 471160c92552be94d8624f143597af7e, type: 3}
+  - {fileID: 5628077902815294448, guid: 8c30bba0ef5a60d4da247a1e0296e035, type: 3}
+  - {fileID: 8300000, guid: 547a65e635d46894cb4bd6a652c9c1af, type: 3}
+  - {fileID: 8300000, guid: f64e609d96baaa044a39b7bd97b3f6a9, type: 3}
+  - {fileID: 8300000, guid: 35cf939effb397c4ea1dab8846cd4747, type: 3}
+  - {fileID: 8300000, guid: e6bf72aba15956e4f928601e21833a1a, type: 3}
+  - {fileID: 8300000, guid: 4963c08123cca0f41a6520a2bb93605d, type: 3}
+  - {fileID: 8300000, guid: 5781febf1d1918b4797392869c6c4302, type: 3}
+  - {fileID: 8300000, guid: d6b169b1626f2df4098792e87e0991c3, type: 3}
+  - {fileID: 8300000, guid: 66156c2330c004a4598f743684a80630, type: 3}
