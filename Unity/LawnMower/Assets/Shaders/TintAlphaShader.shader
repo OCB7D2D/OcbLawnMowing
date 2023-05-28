@@ -3,8 +3,8 @@ Shader "Custom/TintAlphaShader"
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _AOTex("AO", 2D) = "white" {}
+        _MainTex ("Albedo(rgb)/Paintable(a)", 2D) = "white" {}
+        _EAOTex("Emissive(rgb)/AO(a)", 2D) = "black" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
     }
@@ -14,6 +14,12 @@ Shader "Custom/TintAlphaShader"
         LOD 200
 
         CGPROGRAM
+
+        // Create two shader variants to toggle emission
+        // Serves as an example how this feature works
+        // As textures are merged, not much is saved
+        #pragma multi_compile_local __ EMISSION_ON
+
         // Physically based Standard lighting model, and enable shadows on all light types
         #pragma surface surf Standard fullforwardshadows
 
@@ -21,12 +27,12 @@ Shader "Custom/TintAlphaShader"
         #pragma target 3.0
 
         sampler2D _MainTex;
-        sampler2D _AOTex;
+        sampler2D _EAOTex;
 
         struct Input
         {
             float2 uv_MainTex;
-            float2 uv_AOTex;
+            float2 uv_EAOTex;
         };
 
         half _Glossiness;
@@ -43,13 +49,17 @@ Shader "Custom/TintAlphaShader"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
-            o.Occlusion = tex2D(_AOTex, IN.uv_AOTex.xy).r;
+            fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
+            fixed4 eao = tex2D(_EAOTex, IN.uv_EAOTex.xy);
+            o.Occlusion = eao.a;
             c.rgb *= lerp(half4 (1, 1, 1, 1), _Color, 1 - c.a);
             o.Albedo = c.rgb;
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
+            #ifdef EMISSION_ON
+            o.Emission = eao.rgb;
+            #endif
         }
         ENDCG
     }

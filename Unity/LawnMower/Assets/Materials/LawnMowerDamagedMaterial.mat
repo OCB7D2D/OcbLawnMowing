@@ -19,8 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AOTex:
-        m_Texture: {fileID: 2800000, guid: 5be5ef9344f59f14b9af89c776b41be9, type: 3}
+    - _EAOTex:
+        m_Texture: {fileID: 2800000, guid: 3ba9c52b171319a41821fe11de70cf93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:

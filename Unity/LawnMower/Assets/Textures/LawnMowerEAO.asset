@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ec27c436db6ea4e88fc283198745b6, type: 3}
+  m_Name: LawnMowerEAO
+  m_EditorClassIdentifier: 
+  TextureSize: 4
+  ChannelRed:
+    value: 0
+    invert: 0
+    factor: {r: 1, g: 0, b: 0, a: 0}
+    mode: 0
+    src: {fileID: 2800000, guid: a60f92f6af1737b41a60fc23d9dd200f, type: 3}
+  ChannelGreen:
+    value: 0
+    invert: 0
+    factor: {r: 0, g: 1, b: 0, a: 0}
+    mode: 0
+    src: {fileID: 2800000, guid: a60f92f6af1737b41a60fc23d9dd200f, type: 3}
+  ChannelBlue:
+    value: 0
+    invert: 0
+    factor: {r: 0, g: 0, b: 1, a: 0}
+    mode: 0
+    src: {fileID: 2800000, guid: a60f92f6af1737b41a60fc23d9dd200f, type: 3}
+  ChannelAlpha:
+    value: 0
+    invert: 0
+    factor: {r: 0, g: 1, b: 0, a: 0}
+    mode: 0
+    src: {fileID: 2800000, guid: 5be5ef9344f59f14b9af89c776b41be9, type: 3}

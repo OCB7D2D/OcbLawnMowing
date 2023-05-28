@@ -210,10 +210,21 @@ public class VPMower : VehiclePart
 
 	private float LastLightState = 0f;
 
-	public override void HandleEvent(Event evt, VehiclePart part, float arg)
+	private void ToggleEmission(bool state)
+	{
+        Transform transform = vehicle.GetMeshTransform();
+        if (transform == null) return; // Play safe in case of bad data
+		foreach (var renderer in transform.GetComponentsInChildren<Renderer>())
+			// Switch between shader variants (mainly serves as an example)
+            if (state) renderer.material.EnableKeyword("EMISSION_ON");
+            else renderer.material.DisableKeyword("EMISSION_ON");
+    }
+
+    public override void HandleEvent(Event evt, VehiclePart part, float arg)
 	{
 		if (evt != Event.LightsOn) return;
-		if (LastLightState == arg) return;
+        ToggleEmission(arg != 0.0);
+        if (LastLightState == arg) return;
 		LastLightState = arg;
 		if (ClickCount == 3)
 			ClickCount = 0;
