@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ch.ocbnet.texturechannelpacker": "https://github.com/OCB7D2D/UnityTextureChannelPacker.git#upm@master",
     "ch.ocbnet.unityassetexporter": "https://github.com/OCB7D2D/UnityAssetExporter.git#upm@master",
     "com.unity.collab-proxy": "1.9.0",
     "com.unity.ide.rider": "2.0.7",
