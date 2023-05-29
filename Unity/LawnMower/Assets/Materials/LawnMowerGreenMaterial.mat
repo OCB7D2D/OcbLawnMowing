@@ -81,4 +81,5 @@ Material:
     - _Color: {r: 0, g: 0.5, b: 0.015848637, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _LightColor: {r: 1, g: 0.7882353, b: 0.5921569, a: 1}
+    - _MowerOnColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

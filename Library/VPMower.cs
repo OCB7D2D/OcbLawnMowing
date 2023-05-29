@@ -223,27 +223,36 @@ public class VPMower : VehiclePart
 	private Color ColorBrakeLight =
 		new Color(.89f, .09f, .03f, 1);
 
+	private Color ColorMowerOn =
+	new Color(.09f, .89f, .03f, 1);
+
 	private void ToggleEmission(bool state)
 	{
 		Transform transform = vehicle.GetMeshTransform();
 		if (transform == null) return; // Play safe in case of bad data
 		foreach (var material in Materials)
+		{
 			// Switch between shader variants (mainly serves as an example)
 			if (state) material.EnableKeyword("EMISSION_ON");
 			else material.DisableKeyword("EMISSION_ON");
+			var color = IsOn ? ColorMowerOn : Color.black;
+			material.SetColor("_MowerOnColor", color);
+		}
 	}
 
 	public override void HandleEvent(Event evt, VehiclePart part, float arg)
 	{
 		if (evt != Event.LightsOn) return;
+		if (LastLightState != arg)
+		{
+			LastLightState = arg;
+			if (ClickCount == 3)
+				ClickCount = 0;
+			else ClickCount += 1;
+			EnableMower(ClickCount == 1
+				|| ClickCount == 2);
+		}
 		ToggleEmission(arg != 0.0);
-		if (LastLightState == arg) return;
-		LastLightState = arg;
-		if (ClickCount == 3)
-			ClickCount = 0;
-		else ClickCount += 1;
-		EnableMower(ClickCount == 1
-			|| ClickCount == 2);
 	}
 
 	// Remember if brakes have been on

@@ -28,9 +28,9 @@ MonoBehaviour:
   ChannelBlue:
     value: 0
     invert: 0
-    factor: {r: 0, g: 0, b: 0, a: 0}
+    factor: {r: 0, g: 0, b: 1, a: 0}
     mode: 0
-    src: {fileID: 0}
+    src: {fileID: 2800000, guid: 1808af140c8a8484a9a6a308c46b4497, type: 3}
   ChannelAlpha:
     value: 0
     invert: 0

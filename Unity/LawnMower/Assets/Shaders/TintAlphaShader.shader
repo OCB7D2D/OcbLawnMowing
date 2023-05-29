@@ -9,6 +9,7 @@ Shader "Custom/TintAlphaShader"
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _LightColor("Light Color", Color) = (1.09, .82, .65, 1)
         _BrakeColor("Brake Color", Color) = (0.7265, 0.095, 0, 1)
+        _MowerOnColor("Mower On Color", Color) = (0.095, 0.7265, 0, 1)
     }
     SubShader
     {
@@ -42,6 +43,7 @@ Shader "Custom/TintAlphaShader"
         fixed4 _Color;
         fixed3 _LightColor;
         fixed3 _BrakeColor;
+        fixed3 _MowerOnColor;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -61,7 +63,8 @@ Shader "Custom/TintAlphaShader"
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
-            o.Emission = eao.r * _BrakeColor;
+            o.Emission = eao.r * _BrakeColor
+                       + eao.b * _MowerOnColor;
             #ifdef EMISSION_ON
                 o.Emission += eao.g * _LightColor;
             #endif
