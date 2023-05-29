@@ -3,32 +3,45 @@
 	<append xpath="/blockplaceholders/placeholder[@name='carsRandomHelper']">
 
 		<!-- These give good stuff to build lawn mowers -->
-		<block name="cntCarLawnMowerDamaged0v01" prob=".15"/>
-		<block name="cntCarLawnMowerDamaged0v02" prob=".15"/>
-		<block name="cntCarLawnMowerDamaged0v03" prob=".15"/>
-		<block name="cntCarLawnMowerDamaged0v04" prob=".15"/>
-		<block name="cntCarLawnMowerDamaged0v05" prob=".15"/>
-		<block name="cntCarLawnMowerDamaged0v06" prob=".15"/>
-		<block name="cntCarLawnMowerDamaged0v07" prob=".15"/>
+		<block name="cntCarLawnMowerDamaged0v01" prob=".05"/>
+		<block name="cntCarLawnMowerDamaged0v02" prob=".05"/>
+		<block name="cntCarLawnMowerDamaged0v03" prob=".05"/>
+		<block name="cntCarLawnMowerDamaged0v04" prob=".05"/>
+		<block name="cntCarLawnMowerDamaged0v05" prob=".05"/>
+		<block name="cntCarLawnMowerDamaged0v06" prob=".05"/>
+		<block name="cntCarLawnMowerDamaged0v07" prob=".05"/>
 
 		<!-- These give mostly scrap materials -->
-		<block name="cntCarLawnMowerDamaged1v01" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged1v02" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged1v03" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged1v04" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged1v05" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged1v06" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged1v07" prob=".1"/>
+		<block name="cntCarLawnMowerDamaged1v01" prob=".07"/>
+		<block name="cntCarLawnMowerDamaged1v02" prob=".07"/>
+		<block name="cntCarLawnMowerDamaged1v03" prob=".07"/>
+		<block name="cntCarLawnMowerDamaged1v04" prob=".07"/>
+		<block name="cntCarLawnMowerDamaged1v05" prob=".07"/>
+		<block name="cntCarLawnMowerDamaged1v06" prob=".07"/>
+		<block name="cntCarLawnMowerDamaged1v07" prob=".07"/>
 
 		<!-- These give only scrap materials -->
-		<block name="cntCarLawnMowerDamaged2v01" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged2v02" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged2v03" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged2v04" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged2v05" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged2v06" prob=".1"/>
-		<block name="cntCarLawnMowerDamaged2v07" prob=".1"/>
+		<block name="cntCarLawnMowerDamaged2v01" prob=".09"/>
+		<block name="cntCarLawnMowerDamaged2v02" prob=".09"/>
+		<block name="cntCarLawnMowerDamaged2v03" prob=".09"/>
+		<block name="cntCarLawnMowerDamaged2v04" prob=".09"/>
+		<block name="cntCarLawnMowerDamaged2v05" prob=".09"/>
+		<block name="cntCarLawnMowerDamaged2v06" prob=".09"/>
+		<block name="cntCarLawnMowerDamaged2v07" prob=".09"/>
 
 	</append>
+
+  <append xpath="/blockplaceholders/placeholder[@name='carWrecksRandomHelper']">
+
+    <!-- These give only scrap materials -->
+    <block name="cntCarLawnMowerDamaged2v01" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged2v02" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged2v03" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged2v04" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged2v05" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged2v06" prob=".12"/>
+    <block name="cntCarLawnMowerDamaged2v07" prob=".12"/>
+
+  </append>
 
 </configs>
