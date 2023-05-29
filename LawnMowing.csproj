@@ -92,6 +92,8 @@
     <Compile Include="Harmony\LawnMowing.cs" />
     <Compile Include="Harmony\AssemblyInfo.cs" />
     <Compile Include="Harmony\ModXmlPatcher.cs" />
+    <Compile Include="Library\HarmonyFieldProxy.cs" />
+    <Compile Include="Library\HarmonyPropertyProxy.cs" />
     <Compile Include="Library\ItemActionScythe.cs" />
     <Compile Include="Library\VPMower.cs" />
   </ItemGroup>

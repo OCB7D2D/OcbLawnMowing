@@ -19,6 +19,8 @@ public class VPMower : VehiclePart
 	private bool DoReseed = false;
 	private bool ProtectPlayerPlants = false;
 
+	private readonly List<Material> Materials = new List<Material>();
+
 	private readonly HashSet<string> HarvestTags = new HashSet<string>();
 
 	private HashSet<string> OldShownModPhysics = new HashSet<string>();
@@ -60,9 +62,18 @@ public class VPMower : VehiclePart
 	// Check modifications and pre-cache some information for later
 	public void UpdateModifications(ItemValue[] modifications)
 	{
+		Materials.Clear();
 		HarvestTags.Clear();
 		NewShownModPhysics.Clear();
 		NewShownModTransforms.Clear();
+
+		// Collect all materials (in a unique fashion)
+		Transform transform = vehicle.GetMeshTransform();
+		foreach (var renderer in transform?.GetComponentsInChildren<Renderer>(true))
+			if (!Materials.Contains(renderer.material)) Materials.Add(renderer.material);
+		// Reset brake lights on initialization
+		foreach (var material in Materials)
+			material.SetVector("_BrakeColor", Color.black);
 		// Collect `MowerHarvestTags` from all modifiers
 		foreach (ItemValue mod in modifications)
 		{
@@ -138,9 +149,8 @@ public class VPMower : VehiclePart
 			// Update the state to remember what we showed
 			// We need to reset that when mod is unequipped
 			// Swap the objects to avoid memory allocations
-			var swap = OldShownModTransforms;
-			OldShownModTransforms = NewShownModTransforms;
-			NewShownModTransforms = swap;
+			(NewShownModTransforms, OldShownModTransforms) =
+				(OldShownModTransforms, NewShownModTransforms);
 		}
 
 		// Cache states for faster run-time during update calls
@@ -210,21 +220,24 @@ public class VPMower : VehiclePart
 
 	private float LastLightState = 0f;
 
+	private Color ColorBrakeLight =
+		new Color(.89f, .09f, .03f, 1);
+
 	private void ToggleEmission(bool state)
 	{
-        Transform transform = vehicle.GetMeshTransform();
-        if (transform == null) return; // Play safe in case of bad data
-		foreach (var renderer in transform.GetComponentsInChildren<Renderer>())
+		Transform transform = vehicle.GetMeshTransform();
+		if (transform == null) return; // Play safe in case of bad data
+		foreach (var material in Materials)
 			// Switch between shader variants (mainly serves as an example)
-            if (state) renderer.material.EnableKeyword("EMISSION_ON");
-            else renderer.material.DisableKeyword("EMISSION_ON");
-    }
+			if (state) material.EnableKeyword("EMISSION_ON");
+			else material.DisableKeyword("EMISSION_ON");
+	}
 
-    public override void HandleEvent(Event evt, VehiclePart part, float arg)
+	public override void HandleEvent(Event evt, VehiclePart part, float arg)
 	{
 		if (evt != Event.LightsOn) return;
-        ToggleEmission(arg != 0.0);
-        if (LastLightState == arg) return;
+		ToggleEmission(arg != 0.0);
+		if (LastLightState == arg) return;
 		LastLightState = arg;
 		if (ClickCount == 3)
 			ClickCount = 0;
@@ -233,9 +246,29 @@ public class VPMower : VehiclePart
 			|| ClickCount == 2);
 	}
 
+	// Remember if brakes have been on
+	// Update material as little as possible
+	private float LastBrakes = 0f;
+
+	// Helper to query current vehicle brake state
+	static private readonly HarmonyFieldProxy<float> WheelBrakes = new
+		HarmonyFieldProxy<float>(typeof(EntityVehicle), "wheelBrakes");
+
 	// Main function to drive the lawn mower
 	public override void Update(float dt)
 	{
+		// Check brake state on every update!?
+		// ToDo: maybe debounce if too expensive
+		// Although the dynamic call should be ok!?
+		float HasBrakes = WheelBrakes.Get(vehicle.entity);
+		// Update material if state changed
+		if (HasBrakes != LastBrakes)
+		{
+			Color color = ColorBrakeLight * HasBrakes * 0.5f;
+			foreach (var material in Materials)
+				material.SetVector("_BrakeColor", color);
+			LastBrakes = HasBrakes;
+		}
 
 		// Check if mower is on
 		if (IsOn == false) return;

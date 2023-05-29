@@ -7,6 +7,8 @@ Shader "Custom/TintAlphaShader"
         _EAOTex("Emissive(rgb)/AO(a)", 2D) = "black" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        _LightColor("Light Color", Color) = (1.09, .82, .65, 1)
+        _BrakeColor("Brake Color", Color) = (0.7265, 0.095, 0, 1)
     }
     SubShader
     {
@@ -38,6 +40,8 @@ Shader "Custom/TintAlphaShader"
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
+        fixed3 _LightColor;
+        fixed3 _BrakeColor;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -57,8 +61,9 @@ Shader "Custom/TintAlphaShader"
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
+            o.Emission = eao.r * _BrakeColor;
             #ifdef EMISSION_ON
-            o.Emission = eao.rgb;
+                o.Emission += eao.g * _LightColor;
             #endif
         }
         ENDCG
