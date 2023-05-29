@@ -1,14 +1,15 @@
-<configs patcher-version="2">
+<configs patcher-version="4">
 
-	<modif condition="Darkness Falls Core">
+	<modif condition="UndeadLegacy_CoreModule">
+		<include path="items.a20.xml"/>
+		<include path="items.ulm.xml"/>
+	</modif>
+	<modelsif condition="Darkness Falls Core">
 		<include path="items.a20.xml"/>
 		<include path="items.df.xml"/>
-	</modif>
+	</modelsif>
 	<modelse>
 		<include path="items.a20.xml"/>
 	</modelse>
-	<modif condition="UndeadLegacy_CoreModule">
-		<include path="items.ulm.xml"/>
-	</modif>
 	
 </configs>

@@ -1,4 +1,4 @@
-<Configs>
+<configs>
 
 	<!-- You can buy the mower, but not the mods -->
 	<!-- You can buy schematics for everything though -->
@@ -29,4 +29,4 @@
 		<item name="modMeleeTemperedBlade"/>
 	</append>
 
-</Configs>
+</configs>

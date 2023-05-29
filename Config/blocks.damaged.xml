@@ -56,6 +56,8 @@
 			<drop event="Harvest" name="modVehicleMowerCropsCollector" count="1" prob="0.008" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modVehicleMowerCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modVehicleMowerCropsReseeder" count="1" prob="0.004" tag="salvageHarvest"/>
+			<!-- properties for UL - doesn't hurt to include here -->
+			<property name="CarryWeight" value="1"/>
 		</block>
 
 		<!-- NOT_A_SHAPE -->
@@ -107,6 +109,8 @@
 			<drop event="Harvest" name="modVehicleMowerCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modMeleeClubMetalChain" count="1" prob="0.012" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modMeleeTemperedBlade" count="1" prob="0.035" tag="salvageHarvest"/>
+			<!-- properties for UL - doesn't hurt to include here -->
+			<property name="CarryWeight" value="1"/>
 		</block>
 
 		<!-- NOT_A_SHAPE -->
@@ -155,6 +159,8 @@
 			</property>
 			<property name="PlacementDistance" value="6"/>
 			<property name="FilterTags" value="MC_building,SC_automotive"/>
+			<!-- properties for UL - doesn't hurt to include here -->
+			<property name="CarryWeight" value="1"/>
 		</block>
 
 		<!-- Blue -->

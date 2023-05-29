@@ -1,4 +1,4 @@
-<Configs>
+<configs>
 
 	<append xpath="/Sounds">
 
@@ -91,4 +91,4 @@
 		</SoundDataNode>
 
 	</append>
-</Configs>
+</configs>

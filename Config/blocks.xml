@@ -1,10 +1,13 @@
-﻿<configs patcher-version="2">
+﻿<configs patcher-version="4">
 
 	<include path="blocks.damaged.xml"/>
 
-	<modif condition="Darkness Falls Core">
-		<!-- Don't do anything for UL here -->
+	<modif condition="UndeadLegacy_CoreModule">
+		<include path="blocks.ulm.xml"/>
 	</modif>
+	<modelsif condition="Darkness Falls Core">
+		<!-- Don't do anything for DF here -->
+	</modelsif>
 	<modelse>
 		<append xpath="/blocks/block[@name='cntCarLawnMowerDamaged0Master']">
 			<drop event="Harvest" name="meleeToolAxeT3ChainsawParts" count="1" prob="0.05" tag="salvageHarvest"/>

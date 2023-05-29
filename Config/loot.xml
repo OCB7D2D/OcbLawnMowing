@@ -1,4 +1,4 @@
-<configs patcher-version="2">
+<configs patcher-version="4">
 
 	<append xpath="/lootcontainers">
 
@@ -18,9 +18,12 @@
 
 	</append>
 
-	<modif condition="Darkness Falls Core">
-		<include path="loot.df.xml"/>
+	<modif condition="UndeadLegacy_CoreModule">
+		<include path="loot.ulm.xml"/>
 	</modif>
+	<modelsif condition="Darkness Falls Core">
+		<include path="loot.df.xml"/>
+	</modelsif>
 	<modelse>
 		<include path="loot.a20.xml"/>
 	</modelse>
