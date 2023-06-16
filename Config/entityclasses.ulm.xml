@@ -1,7 +1,5 @@
 <configs>
-	
-	<append xpath="/entity_classes/entity_class[@name='vehicleLawnMower']">
+	<append xpath="/entity_classes/entity_class[@name='vehicleLawnTractor']">
 		<property name="Consumables" value="ulmAmmoFuelGasoline,ulmAmmoFuelGasolineBarrel"/>
 	</append>
-
 </configs>

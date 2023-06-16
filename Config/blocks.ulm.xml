@@ -1,6 +1,3 @@
 ﻿<configs>
-
-	<append xpath="/blocks">
-	</append>
-
+	<append xpath="/blocks"/>
 </configs>

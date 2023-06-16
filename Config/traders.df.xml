@@ -1,13 +1,12 @@
 <configs>
-
 	<append xpath="//trader_item_group[@name='rareBooks']">
-		<item name="vehicleLawnMowerChassisSchematic"/>
-		<item name="vehicleLawnMowerAccessoriesSchematic"/>
-		<item name="modVehicleMowerGrassCollectorSchematic" prob="0.85"/>
-		<item name="modVehicleMowerPlantCollectorSchematic" prob="0.45"/>
-		<item name="modVehicleMowerCropsCollectorSchematic" prob="0.15"/>
-		<item name="modVehicleMowerCropsProtectorSchematic" prob="0.65"/>
-		<item name="modVehicleMowerCropsReseederSchematic" prob="0.05"/>
+		<item name="vehicleLawnTractorChassisSchematic"/>
+		<item name="vehicleLawnTractorAccessoriesSchematic"/>
+		<item name="modVehicleLawnTractorGrassCollectorSchematic" prob="0.85"/>
+		<item name="modVehicleLawnTractorPlantCollectorSchematic" prob="0.45"/>
+		<item name="modVehicleLawnTractorCropsCollectorSchematic" prob="0.15"/>
+		<item name="modVehicleLawnTractorCropsProtectorSchematic" prob="0.65"/>
+		<item name="modVehicleLawnTractorCropsReseederSchematic" prob="0.05"/>
 	</append>
 
 	<!-- Increase amount in the world a tiny little bit -->
@@ -18,15 +17,14 @@
 	</append>
 
 	<append xpath="//trader_item_group[@name='traderBobMechanicRare']">
-		<item name="modVehicleMowerGrassCollector" prob="0.85"/>
-		<item name="modVehicleMowerCropsProtector" prob="0.65"/>
-		<item name="modVehicleMowerPlantCollector" prob="0.45"/>
+		<item name="modVehicleLawnTractorGrassCollector" prob="0.85"/>
+		<item name="modVehicleLawnTractorCropsProtector" prob="0.65"/>
+		<item name="modVehicleLawnTractorPlantCollector" prob="0.45"/>
 	</append>
 
 	<append xpath="//trader_item_group[@name='traderBobMechanicSuperRare']">
-		<item name="vehicleLawnMowerPlaceable" prob="0.65"/>
-		<item name="modVehicleMowerCropsCollector" prob="0.85"/>
-		<item name="modVehicleMowerCropsReseeder" prob="0.45"/>
+		<item name="vehicleLawnTractorPlaceable" prob="0.65"/>
+		<item name="modVehicleLawnTractorCropsCollector" prob="0.85"/>
+		<item name="modVehicleLawnTractorCropsReseeder" prob="0.45"/>
 	</append>
-
 </configs>

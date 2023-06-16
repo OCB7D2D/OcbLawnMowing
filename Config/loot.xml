@@ -1,23 +1,4 @@
 <configs patcher-version="4">
-
-	<append xpath="/lootcontainers">
-
-		<lootcontainer id="4826" name="mowers" count="1,2" size="7,4"
-					   sound_open="UseActions/open_vehicle"
-					   sound_close="UseActions/close_vehicle"
-					   open_time="4" loot_quality_template="qualBaseTemplate">
-			<item group="groupCars"/>
-			<item name="vehicleLawnMowerChassisSchematic" mod_chance="1" prob="0.035"/>
-			<item name="vehicleLawnMowerAccessoriesSchematic" mod_chance="1" prob="0.035"/>
-			<item name="modVehicleMowerGrassCollectorSchematic" mod_chance="1" prob="0.035"/>
-			<item name="modVehicleMowerPlantCollectorSchematic" mod_chance="1" prob="0.025"/>
-			<item name="modVehicleMowerCropsCollectorSchematic" mod_chance="1" prob="0.015"/>
-			<item name="modVehicleMowerCropsProtectorSchematic" mod_chance="1" prob="0.035"/>
-			<item name="modVehicleMowerCropsReseederSchematic" mod_chance="1" prob="0.005"/>
-		</lootcontainer>
-
-	</append>
-
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="loot.ulm.xml"/>
 	</modif>
@@ -25,7 +6,6 @@
 		<include path="loot.df.xml"/>
 	</modelsif>
 	<modelse>
-		<include path="loot.a20.xml"/>
+		<include path="loot.a21.xml"/>
 	</modelse>
-
 </configs>

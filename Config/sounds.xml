@@ -1,7 +1,5 @@
 <configs>
-
 	<append xpath="/Sounds">
-
 		<!-- used by engine sound_start -->
 		<SoundDataNode name="lawnmower_engine_start">
 			<AudioSource name="Sounds/AudioSource_Vehicle"/>
@@ -89,6 +87,5 @@
 			<MaxVoices value="10"/>
 			<MaxRepeatRate value="0.01"/>
 		</SoundDataNode>
-
 	</append>
 </configs>

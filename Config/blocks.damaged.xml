@@ -1,17 +1,14 @@
 ﻿<configs>
-
 	<append xpath="/blocks">
-
-		<block name="cntCarLawnMowerDamaged0Master">
-
+		<block name="cntCarLawnTractorDamaged0Master">
 			<property name="CreativeMode" value="None"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="Class" value="CarExplodeLoot"/>
 			<property name="MaxDamage" value="750"/>
 			<!-- cars explode when destroyed by a tool without harvest settings -->
-			<property name="CustomIcon" value="vehicleLawnMowerTintable"/>
+			<property name="CustomIcon" value="vehicleLawnTractorTintable"/>
 			<property name="ItemTypeIcon" value="explosion"/>
-			<property name="LootList" value="mowers"/>
+			<property name="LootList" value="LawnTractor"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="IsTerrainDecoration" value="true"/>
 			<property name="Model" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDamaged0"/>
@@ -31,8 +28,8 @@
 			<drop event="Harvest" name="resourceLeather" count="1,3" prob="0.2" tag="salvageHarvest"/>
 			<drop event="Harvest" name="resourceScrapIron" count="10,20" tag="allHarvest"/>
 			<drop event="Destroy" count="0"/>
-			<drop event="Fall" name="cntCarLawnMowerDamaged1Master" count="1" prob="1.0" stick_chance="1"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1Master"/>
+			<drop event="Fall" name="cntCarLawnTractorDamaged1Master" count="1" prob="1.0" stick_chance="1"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1Master"/>
 			<property name="BigDecorationRadius" value="5"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
 			<property class="Explosion">
@@ -48,25 +45,27 @@
 				<!-- damage for entities in the center of the explosion -->
 			</property>
 			<property name="PlacementDistance" value="6"/>
+			<property name="SortOrder1" value="B847"/>
+			<property name="SortOrder2" value="0000"/>
 			<property name="FilterTags" value="MC_building,SC_automotive"/>
 			<drop event="Harvest" name="modMeleeClubMetalChain" count="1" prob="0.055" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modMeleeTemperedBlade" count="1" prob="0.075" tag="salvageHarvest"/>
-			<drop event="Harvest" name="modVehicleMowerGrassCollector" count="1" prob="0.035" tag="salvageHarvest"/>
-			<drop event="Harvest" name="modVehicleMowerPlantCollector" count="1" prob="0.015" tag="salvageHarvest"/>
-			<drop event="Harvest" name="modVehicleMowerCropsCollector" count="1" prob="0.008" tag="salvageHarvest"/>
-			<drop event="Harvest" name="modVehicleMowerCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
-			<drop event="Harvest" name="modVehicleMowerCropsReseeder" count="1" prob="0.004" tag="salvageHarvest"/>
+			<drop event="Harvest" name="modVehicleLawnTractorGrassCollector" count="1" prob="0.035" tag="salvageHarvest"/>
+			<drop event="Harvest" name="modVehicleLawnTractorPlantCollector" count="1" prob="0.015" tag="salvageHarvest"/>
+			<drop event="Harvest" name="modVehicleLawnTractorCropsCollector" count="1" prob="0.008" tag="salvageHarvest"/>
+			<drop event="Harvest" name="modVehicleLawnTractorCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
+			<drop event="Harvest" name="modVehicleLawnTractorCropsReseeder" count="1" prob="0.004" tag="salvageHarvest"/>
 			<!-- properties for UL - doesn't hurt to include here -->
 			<property name="CarryWeight" value="1"/>
 		</block>
 
 		<!-- NOT_A_SHAPE -->
-		<block name="cntCarLawnMowerDamaged1Master">
+		<block name="cntCarLawnTractorDamaged1Master">
 			<property name="CreativeMode" value="None"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="Class" value="CarExplodeLoot"/>
 			<property name="ItemTypeIcon" value="explosion"/>
-			<property name="CustomIcon" value="vehicleLawnMowerTintable"/>
+			<property name="CustomIcon" value="vehicleLawnTractorTintable"/>
 			<property name="LootList" value="cars"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="ImposterDontBlock" value="true"/>
@@ -89,7 +88,7 @@
 			<drop event="Harvest" name="resourceAcid" prob=".08" count="1" tag="WasteTreasuresAcidHarvest"/>
 			<drop event="Harvest" name="resourceScrapIron" count="17,35" tag="allHarvest"/>
 			<drop event="Destroy" count="0"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2Master"/>
 			<property name="BigDecorationRadius" value="5"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
 			<property class="Explosion">
@@ -105,8 +104,10 @@
 				<!-- damage for entities in the center of the explosion -->
 			</property>
 			<property name="PlacementDistance" value="6"/>
+			<property name="SortOrder1" value="B848"/>
+			<property name="SortOrder2" value="0000"/>
 			<property name="FilterTags" value="MC_building,SC_automotive"/>
-			<drop event="Harvest" name="modVehicleMowerCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
+			<drop event="Harvest" name="modVehicleLawnTractorCropsProtector" count="1" prob="0.01" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modMeleeClubMetalChain" count="1" prob="0.012" tag="salvageHarvest"/>
 			<drop event="Harvest" name="modMeleeTemperedBlade" count="1" prob="0.035" tag="salvageHarvest"/>
 			<!-- properties for UL - doesn't hurt to include here -->
@@ -114,11 +115,11 @@
 		</block>
 
 		<!-- NOT_A_SHAPE -->
-		<block name="cntCarLawnMowerDamaged2Master">
+		<block name="carLawnTractorDamaged2Master">
 			<!-- car wreck -->
 			<property name="CreativeMode" value="None"/>
 			<property name="Class" value="CarExplode"/>
-			<property name="CustomIcon" value="vehicleLawnMowerTintable"/>
+			<property name="CustomIcon" value="vehicleLawnTractorTintable"/>
 			<property name="ItemTypeIcon" value="explosion"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="Shape" value="ModelEntity"/>
@@ -158,137 +159,155 @@
 				<!-- damage for entities in the center of the explosion -->
 			</property>
 			<property name="PlacementDistance" value="6"/>
+			<property name="SortOrder1" value="B849"/>
+			<property name="SortOrder2" value="0000"/>
 			<property name="FilterTags" value="MC_building,SC_automotive"/>
 			<!-- properties for UL - doesn't hurt to include here -->
 			<property name="CarryWeight" value="1"/>
 		</block>
 
 		<!-- Blue -->
-		<block name="cntCarLawnMowerDamaged0v01">
-			<property name="Extends" value="cntCarLawnMowerDamaged0Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1v01"/>
+		<block name="cntCarLawnTractorDamaged0v01">
+			<property name="Extends" value="cntCarLawnTractorDamaged0Master"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1v01"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#69718b"/>
 			<property name="TintColor" value="#69718b"/>
+			<property name="SortOrder2" value="0001"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged1v01">
-			<property name="Extends" value="cntCarLawnMowerDamaged1Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2v01"/>
+		<block name="cntCarLawnTractorDamaged1v01">
+			<property name="Extends" value="cntCarLawnTractorDamaged1Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2v01"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#69718b"/>
 			<property name="TintColor" value="#69718b"/>
+			<property name="SortOrder2" value="0001"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged2v01">
-			<property name="Extends" value="cntCarLawnMowerDamaged2Master"/>
+		<block name="carLawnTractorDamaged2v01">
+			<property name="Extends" value="carLawnTractorDamaged2Master"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#69718b"/>
 			<property name="TintColor" value="#69718b"/>
+			<property name="SortOrder2" value="0001"/>
 		</block>
 
 		<!-- Yellow -->
-		<block name="cntCarLawnMowerDamaged0v02">
-			<property name="Extends" value="cntCarLawnMowerDamaged0Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1v02"/>
+		<block name="cntCarLawnTractorDamaged0v02">
+			<property name="Extends" value="cntCarLawnTractorDamaged0Master"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1v02"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#fcd37d"/>
 			<property name="TintColor" value="#fcd37d"/>
+			<property name="SortOrder2" value="0002"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged1v02">
-			<property name="Extends" value="cntCarLawnMowerDamaged1Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2v02"/>
+		<block name="cntCarLawnTractorDamaged1v02">
+			<property name="Extends" value="cntCarLawnTractorDamaged1Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2v02"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#fcd37d"/>
 			<property name="TintColor" value="#fcd37d"/>
+			<property name="SortOrder2" value="0002"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged2v02">
-			<property name="Extends" value="cntCarLawnMowerDamaged2Master"/>
+		<block name="carLawnTractorDamaged2v02">
+			<property name="Extends" value="carLawnTractorDamaged2Master"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#fcd37d"/>
 			<property name="TintColor" value="#fcd37d"/>
+			<property name="SortOrder2" value="0002"/>
 		</block>
 
 		<!-- Mixed -->
-		<block name="cntCarLawnMowerDamaged0v04">
-			<property name="Extends" value="cntCarLawnMowerDamaged0Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1v04"/>
+		<block name="cntCarLawnTractorDamaged0v04">
+			<property name="Extends" value="cntCarLawnTractorDamaged0Master"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1v04"/>
 			<property name="CreativeMode" value="Player"/>
+			<property name="SortOrder2" value="0003"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged1v04">
-			<property name="Extends" value="cntCarLawnMowerDamaged1Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2v04"/>
+		<block name="cntCarLawnTractorDamaged1v04">
+			<property name="Extends" value="cntCarLawnTractorDamaged1Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2v04"/>
 			<property name="CreativeMode" value="Player"/>
+			<property name="SortOrder2" value="0003"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged2v04">
-			<property name="Extends" value="cntCarLawnMowerDamaged2Master"/>
+		<block name="carLawnTractorDamaged2v04">
+			<property name="Extends" value="carLawnTractorDamaged2Master"/>
 			<property name="CreativeMode" value="Player"/>
+			<property name="SortOrder2" value="0003"/>
 		</block>
 
 		<!-- Red -->
-		<block name="cntCarLawnMowerDamaged0v05">
-			<property name="Extends" value="cntCarLawnMowerDamaged0Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1v05"/>
+		<block name="cntCarLawnTractorDamaged0v05">
+			<property name="Extends" value="cntCarLawnTractorDamaged0Master"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1v05"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#f34f42"/>
 			<property name="TintColor" value="#f34f42"/>
+			<property name="SortOrder2" value="0004"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged1v05">
-			<property name="Extends" value="cntCarLawnMowerDamaged1Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2v05"/>
+		<block name="cntCarLawnTractorDamaged1v05">
+			<property name="Extends" value="cntCarLawnTractorDamaged1Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2v05"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#f34f42"/>
 			<property name="TintColor" value="#f34f42"/>
+			<property name="SortOrder2" value="0004"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged2v05">
-			<property name="Extends" value="cntCarLawnMowerDamaged2Master"/>
+		<block name="carLawnTractorDamaged2v05">
+			<property name="Extends" value="carLawnTractorDamaged2Master"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#f34f42"/>
 			<property name="TintColor" value="#f34f42"/>
+			<property name="SortOrder2" value="0004"/>
 		</block>
 
 		<!-- Green -->
-		<block name="cntCarLawnMowerDamaged0v06">
-			<property name="Extends" value="cntCarLawnMowerDamaged0Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1v06"/>
+		<block name="cntCarLawnTractorDamaged0v06">
+			<property name="Extends" value="cntCarLawnTractorDamaged0Master"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1v06"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#4b7d33"/>
 			<property name="TintColor" value="#4b7d33"/>
+			<property name="SortOrder2" value="0005"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged1v06">
-			<property name="Extends" value="cntCarLawnMowerDamaged1Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2v06"/>
+		<block name="cntCarLawnTractorDamaged1v06">
+			<property name="Extends" value="cntCarLawnTractorDamaged1Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2v06"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#4b7d33"/>
 			<property name="TintColor" value="#4b7d33"/>
+			<property name="SortOrder2" value="0005"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged2v06">
-			<property name="Extends" value="cntCarLawnMowerDamaged2Master"/>
+		<block name="carLawnTractorDamaged2v06">
+			<property name="Extends" value="carLawnTractorDamaged2Master"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#4b7d33"/>
 			<property name="TintColor" value="#4b7d33"/>
+			<property name="SortOrder2" value="0005"/>
 		</block>
 
 		<!-- Purple -->
-		<block name="cntCarLawnMowerDamaged0v07">
-			<property name="Extends" value="cntCarLawnMowerDamaged0Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged1v07"/>
+		<block name="cntCarLawnTractorDamaged0v07">
+			<property name="Extends" value="cntCarLawnTractorDamaged0Master"/>
+			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1v07"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#74516a"/>
 			<property name="TintColor" value="#74516a"/>
+			<property name="SortOrder2" value="0006"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged1v07">
-			<property name="Extends" value="cntCarLawnMowerDamaged1Master"/>
-			<property name="DowngradeBlock" value="cntCarLawnMowerDamaged2v07"/>
+		<block name="cntCarLawnTractorDamaged1v07">
+			<property name="Extends" value="cntCarLawnTractorDamaged1Master"/>
+			<property name="DowngradeBlock" value="carLawnTractorDamaged2v07"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#74516a"/>
 			<property name="TintColor" value="#74516a"/>
+			<property name="SortOrder2" value="0006"/>
 		</block>
-		<block name="cntCarLawnMowerDamaged2v07">
-			<property name="Extends" value="cntCarLawnMowerDamaged2Master"/>
+		<block name="carLawnTractorDamaged2v07">
+			<property name="Extends" value="carLawnTractorDamaged2Master"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIconTint" value="#74516a"/>
 			<property name="TintColor" value="#74516a"/>
+			<property name="SortOrder2" value="0006"/>
 		</block>
-
 	</append>
-
 </configs>

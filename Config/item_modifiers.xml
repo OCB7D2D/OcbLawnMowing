@@ -1,5 +1,4 @@
 <configs patcher-version="4">
-
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="item_modifiers.a20.xml"/>
 		<include path="item_modifiers.ulm.xml"/>
@@ -9,7 +8,6 @@
 		<include path="item_modifiers.df.xml"/>
 	</modelsif>
 	<modelse>
-		<include path="item_modifiers.a20.xml"/>
+		<include path="item_modifiers.a21.xml"/>
 	</modelse>
-
 </configs>

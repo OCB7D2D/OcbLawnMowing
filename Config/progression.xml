@@ -1,5 +1,4 @@
 <configs patcher-version="4">
-
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="progression.ulm.xml"/>
 	</modif>
@@ -7,7 +6,6 @@
 		<include path="progression.df.xml"/>
 	</modelsif>
 	<modelse>
-		<include path="progression.a20.xml"/>
+		<include path="progression.a21.xml"/>
 	</modelse>
-
 </configs>

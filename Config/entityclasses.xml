@@ -1,8 +1,6 @@
 <configs>
-
 	<append xpath="/entity_classes">
-
-		<entity_class name="vehicleLawnMower">
+		<entity_class name="vehicleLawnTractor">
 			<property name="Tags" value="vehicle"/>
 			<property name="Class" value="EntityVJeep"/>
 			<property name="Parent" value="Cars"/>
@@ -19,14 +17,12 @@
 			<property name="Explosion.EntityDamage" value="100"/>
 			<property name="RotateToGround" value="true"/>
 			<property name="Faction" value="none"/>
-			<property name="MapIcon" value="ui_game_symbol_mower"/>
-			<property name="NavObject" value="LawnMower" />
+			<property name="MapIcon" value="ui_game_symbol_lawn_tractor"/>
+			<property name="NavObject" value="LawnMower"/>
 		</entity_class>
-
 	</append>
 
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="entityclasses.ulm.xml"/>
 	</modif>
-
 </configs>

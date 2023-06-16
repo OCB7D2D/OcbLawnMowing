@@ -16,15 +16,15 @@ Special Thanks to all the people that made this mod possible!
 
 ## Lawn Tractor
 
-This placeable vehicle is unlocked either by finding (or buying) the schematics for
-the chassis and the accessories, or by unlocking Grease Monkey Level 3. In its base
-configuration, it can only remove grass and bushes, but doesn't collect any items.
+The required parts for the placeable vehicle are unlocked at Vehicle Crafting
+Skill Level 15. In its base configuration, it can only remove grass and bushes,
+but doesn't collect any items. You will need modifiers for advanced tasks.
 
-![Lawn Tractor Bare Config](Screens/lawn-mower-bare.jpg)
+![Lawn Tractor Bare Config](Screens/lawn-tractor-bare.jpg)
 
 Lawn Tractor with equipped Crop Protector and Collector:
 
-![Lawn Tractor Full Config](Screens/lawn-mower-full.jpg)
+![Lawn Tractor Full Config](Screens/lawn-tractor-full.jpg)
 
 ## Copyright Notice
 
@@ -66,7 +66,7 @@ The Lawn Tractor has various modifiers to upgrade its capabilities.
 This is the simplest modifier that you should be able to get quite early.
 It will only collect items from grass and bushes, and the yield will be
 significantly lower than when harvesting by hand/tool. You can get a fully
-functional grass collector from harvesting pristine lawn mowers. Otherwise
+functional grass collector from harvesting pristine lawn tractors. Otherwise
 you can find or buy the schematics, or unlock Living Off the Land Level 1.
 
 ### Plant Collector
@@ -76,7 +76,7 @@ you can find or buy the schematics, or unlock Living Off the Land Level 1.
 With this modifier you will also harvest and collect items from various other
 small plants, like cotton, coffee or mushrooms. Yield is also significantly
 lower than when harvested by hand/tool. You can get a fully functional plant
-collector from harvesting pristine lawn mowers. Otherwise you can find or
+collector from harvesting pristine lawn tractors. Otherwise you can find or
 buy the schematics, or unlock Living Off the Land Level 2.
 
 ### Crop Harvester
@@ -86,7 +86,7 @@ buy the schematics, or unlock Living Off the Land Level 2.
 Upgrade for the plant collector, that gives much better yield, a bit less when
 harvested by hand/tool though. It should be able to collect every growing crop
 and also gives seeds back. You can get a fully functional plant collector from
-harvesting pristine lawn mowers. Otherwise you can find or buy the schematics,
+harvesting pristine lawn tractors. Otherwise you can find or buy the schematics,
 or unlock Living Off the Land Level 3.
 
 ### Crop Protector
@@ -96,7 +96,7 @@ or unlock Living Off the Land Level 3.
 Basic mod that protects all player plants, so you don't have to worry that
 you accidentally mow down your own plants when tiding up the surroundings.
 You can get a fully functional plant collector from harvesting pristine
-lawn mowers. Otherwise you can find or buy the schematics, or unlock
+lawn tractors. Otherwise you can find or buy the schematics, or unlock
 Advanced Engineering Level 2.
 
 ### Crop Reseeder
@@ -126,9 +126,13 @@ vehicle will only give the usual scrap that cars would give you.
 
 Simply [download here from GitHub][1] and put into your A20 Mods folder:
 
-- https://github.com/OCB7D2D/LawnMower/releases (master branch)
+- https://github.com/OCB7D2D/OcbLawnMowing/releases (master branch)
 
 ## Changelog
+
+### Version 2.1.0
+
+- Update compatibility for 7D2D A21.0(b324)
 
 ### Version 2.0.5
 
@@ -173,8 +177,8 @@ Simply [download here from GitHub][1] and put into your A20 Mods folder:
 
 ## Compatibility
 
-I've developed and tested this Mod against version a20.6 (b8).
+Developed initially for version a20.6(b8), updated through A21.0(b324).
 
-[1]: https://github.com/OCB7D2D/LawnMower/releases
-[2]: https://github.com/OCB7D2D/LawnMower/actions/workflows/ci.yml
-[3]: https://github.com/OCB7D2D/LawnMower/actions/workflows/ci.yml/badge.svg
+[1]: https://github.com/OCB7D2D/OcbLawnMowing/releases
+[2]: https://github.com/OCB7D2D/OcbLawnMowing/actions/workflows/ci.yml
+[3]: https://github.com/OCB7D2D/OcbLawnMowing/actions/workflows/ci.yml/badge.svg

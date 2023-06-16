@@ -26,9 +26,12 @@ using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 static class ModXmlPatcher
 {
@@ -71,16 +74,16 @@ static class ModXmlPatcher
             foreach (string xpath in conditions.Split(','))
             {
                 bool negate = false;
-                XmlNodeList xmlNodeList;
+                List<System.Xml.Linq.XElement> xmlNodeList;
                 if (xpath.StartsWith("!"))
                 {
                     negate = true;
-                    xmlNodeList = xml.XmlDoc.SelectNodes(
-                        xpath.Substring(1));
+                    xmlNodeList = xml.XmlDoc.XPathSelectElements(
+                        xpath.Substring(1)).ToList();
                 }
                 else
                 {
-                    xmlNodeList = xml.XmlDoc.SelectNodes(xpath);
+                    xmlNodeList = xml.XmlDoc.XPathSelectElements(xpath).ToList();
                 }
                 bool result = true;
                 if (xmlNodeList == null) result = false;
@@ -111,7 +114,7 @@ static class ModXmlPatcher
                     if (ModManager.GetMod(name) is Mod mod)
                     {
                         string version = condition.Substring(notpos + length + 1);
-                        Version having = Version.Parse(mod.ModInfo?.Version?.Value);
+                        Version having = mod.Version;
                         Version testing = Version.Parse(version);
                         if (ltpos != -1) result = having < testing;
                         if (gtpos != -1) result = having > testing;
@@ -141,10 +144,10 @@ static class ModXmlPatcher
     private static readonly MethodInfo MethodSinglePatch = AccessTools.Method(typeof(XmlPatcher), "singlePatch");
 
     // Function to load another XML file and basically call the same PatchXML function again
-    private static bool IncludeAnotherDocument(XmlFile target, XmlFile parent, XmlElement element, string modName)
+    private static bool IncludeAnotherDocument(XmlFile target, XmlFile parent, XElement element, string modName)
     {
         bool result = true;
-        foreach (XmlAttribute attr in element.Attributes)
+        foreach (XAttribute attr in element.Attributes())
         {
             // Skip unknown attributes
             if (attr.Name != "path") continue;
@@ -195,17 +198,17 @@ static class ModXmlPatcher
 
     static int count = 0;
 
-    public static bool PatchXml(XmlFile xmlFile, XmlFile patchXml, XmlElement node, string patchName)
+    public static bool PatchXml(XmlFile xmlFile, XmlFile patchXml, XElement node, string patchName)
     {
         bool result = true;
         count++;
         ParserStack stack = new ParserStack();
         stack.count = count;
-        foreach (XmlNode child in node.ChildNodes)
+        foreach (XElement child in node.Elements())
         {
             if (child.NodeType == XmlNodeType.Element)
             {
-                if (!(child is XmlElement element)) continue;
+                if (!(child is XElement element)) continue;
                 // Patched to support includes
                 if (child.Name == "include")
                 {
@@ -214,7 +217,7 @@ static class ModXmlPatcher
                 }
                 else if (child.Name == "echo")
                 {
-                    foreach (XmlAttribute attr in child.Attributes)
+                    foreach (XAttribute attr in child.Attributes())
                     {
                         if (attr.Name == "log") Log.Out("{1}: {0}", attr.Value, xmlFile.Filename);
                         if (attr.Name == "warn") Log.Warning("{1}: {0}", attr.Value, xmlFile.Filename);
@@ -228,7 +231,7 @@ static class ModXmlPatcher
                 {
                     IXmlLineInfo lineInfo = (IXmlLineInfo)element;
                     Log.Warning(string.Format("XML patch for \"{0}\" from mod \"{1}\" did not apply: {2} (line {3} at pos {4})",
-                        xmlFile.Filename, patchName, element.GetElementString(), lineInfo.LineNumber, lineInfo.LinePosition));
+                        xmlFile.Filename, patchName, element.ToString(), lineInfo.LineNumber, lineInfo.LinePosition));
                     result = false;
                 }
             }
@@ -246,11 +249,11 @@ static class ModXmlPatcher
 
     // Entry point instead of (private) `XmlPatcher.singlePatch`
     // Implements conditional patching and also allows includes
-    private static bool ApplyPatchEntry(XmlFile _xmlFile, XmlFile _patchXml, XmlElement _patchElement, string _patchName, ref ParserStack stack)
+    private static bool ApplyPatchEntry(XmlFile _xmlFile, XmlFile _patchXml, XElement _patchElement, string _patchName, ref ParserStack stack)
     {
 
         // Only support root level
-        switch (_patchElement.Name)
+        switch (_patchElement.Name.ToString())
         {
 
             case "include":
@@ -266,7 +269,7 @@ static class ModXmlPatcher
                 stack.PreviousResult = false;
 
                 // Check if we have true conditions
-                foreach (XmlAttribute attr in _patchElement.Attributes)
+                foreach (XAttribute attr in _patchElement.Attributes())
                 {
                     // Ignore unknown attributes for now
                     if (attr.Name != "condition")
@@ -299,7 +302,7 @@ static class ModXmlPatcher
                 if (stack.PreviousResult) return true;
 
                 // Check if we have true conditions
-                foreach (XmlAttribute attr in _patchElement.Attributes)
+                foreach (XAttribute attr in _patchElement.Attributes())
                 {
                     // Ignore unknown attributes for now
                     if (attr.Name != "condition")
@@ -358,7 +361,7 @@ static class ModXmlPatcher
             // as the game uses a rather old HarmonyX version (2.2).
             // To address this we simply "consume" one of the args.
             if (_patchXml == null) return false;
-            XmlElement element = _patchXml.XmlDoc.DocumentElement;
+            XElement element = _patchXml.XmlDoc.Root;
             if (element == null) return false;
             string version = element.GetAttribute("patcher-version");
             if (!string.IsNullOrEmpty(version))

@@ -7,7 +7,7 @@
 			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorGrassCollectorSchematic"/>
 			<property name="CustomIcon" value="modVehicleLawnTractorGrassCollector"/>
 			<property name="ShowTransforms" value="mower_bag"/>
-			<property name="EnablePhysics" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
 			<!-- add comma to include untagged things, e.g. value=",allHarvest" -->
 			<property name="MowerHarvestTags" value="grassMowing"/>
 		</item_modifier>
@@ -19,7 +19,7 @@
 			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorPlantCollectorSchematic"/>
 			<property name="CustomIcon" value="modVehicleLawnTractorPlantCollector"/>
 			<property name="ShowTransforms" value="mower_bag"/>
-			<property name="EnablePhysics" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
 			<!-- harvest everything that is marked for wild mowing -->
 			<!-- this way we can easily adjust and nerf probabilities -->
 			<property name="MowerHarvestTags" value="wildMowing"/>
@@ -30,7 +30,7 @@
 			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorCropsCollectorSchematic"/>
 			<property name="CustomIcon" value="modVehicleLawnTractorCropsCollector"/>
 			<property name="ShowTransforms" value="mower_bag"/>
-			<property name="EnablePhysics" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
 			<!-- we allow both, since you don't get the same amount if only one is equipped -->
 			<!-- therefore people would anyway have to install both mods to get the best yield -->
 			<!-- makes it more clear, so people don't loose yield because it's too complex -->
@@ -48,7 +48,8 @@
 			<property name="CustomIcon" value="modVehicleLawnTractorCropsProtector"/>
 			<property name="MowerHarvestTags" value="protect"/>
 			<property name="ShowTransforms" value="mower_fender"/>
-			<property name="EnablePhysics" value="mower_fender"/>
+			<property name="EnablePhysics" value="p_mower_fender"/>
+			<property name="DamageModifier" value="0.4"/>
 		</item_modifier>
 
 		<item_modifier name="modVehicleLawnTractorCropsReseeder" installable_tags="vmower" modifier_tags="mowerReseed" type="attachment" blocked_tags="mowerReseed">
@@ -57,7 +58,8 @@
 			<property name="CustomIcon" value="modVehicleLawnTractorCropsReseeder"/>
 			<property name="MowerHarvestTags" value="protect,reseed"/>
 			<property name="ShowTransforms" value="mower_fender"/>
-			<property name="EnablePhysics" value="mower_fender"/>
+			<property name="EnablePhysics" value="p_mower_fender"/>
+			<property name="DamageModifier" value="0.4"/>
 		</item_modifier>
 	</append>
 </configs>

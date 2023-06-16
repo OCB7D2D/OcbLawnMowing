@@ -1,0 +1,24 @@
+<configs>
+	<insertafter xpath="/progression/crafting_skills/crafting_skill[@name='craftingVehicles']/display_entry[@name_key='vehiclesT1']">
+		<display_entry icon="vehicleLawnTractorPlaceable" name_key="vehicleLawnTractor" has_quality="false" unlock_level="15">
+			<unlock_entry item="vehicleLawnTractorChassis,vehicleLawnTractorAccessories" unlock_tier="1"/>
+		</display_entry>
+	</insertafter>
+
+	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingVehicles']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="15,100" value="1" tags="vehicleLawnTractorChassis,vehicleLawnTractorAccessories"/>
+	</append>
+
+	<!-- Still keep the old way of vehile mod recipes still being unlock by perks -->
+	<!-- That way you can either gather the Schematics to build it or use the perks -->
+	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,3" value="1" tags="modVehicleLawnTractorGrassCollector"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3" value="1" tags="modVehicleLawnTractorPlantCollector"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3" value="1" tags="modVehicleLawnTractorCropsCollector"/>
+	</append>
+
+	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,5" value="1" tags="modVehicleLawnTractorCropsProtector"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="modVehicleLawnTractorCropsReseeder"/>
+	</append>
+</configs>

@@ -1,6 +1,6 @@
 @echo off
 
-SET NAME=LawnMower
+SET NAME=OcbLawnTractor
 
 if not exist build\ (
   mkdir build

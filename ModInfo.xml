@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xml>
-	<ModInfo>
-		<Name value="Lawn Mower" />
-		<Description value="Adds working ridable lawn mower with optional accessories" />
-		<Website value="https://github.com/OCB7D2D/LawnMower" />
-		<Author value="Zilox, ocbMaurice" />
-		<Version value="2.0.5" compat="A20"/>
-	</ModInfo>
+	<Name value="OcbLawnMowing" />
+	<DisplayName value="OCB Lawn Tractor and Mowing" />
+	<Description value="Adds working rideable lawn tractor with optional accessories" />
+	<Website value="https://github.com/OCB7D2D/OcbLawnMowing" />
+	<Author value="ocbMaurice, Zilox" />
+	<Version value="2.1.0" />
 </xml>

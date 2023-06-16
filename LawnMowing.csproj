@@ -81,9 +81,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Plugins\CopyTransform.cs" />
+    <Content Include="Config\blockplaceholders.a21.xml" />
     <Content Include="Config\blockplaceholders.a20.xml" />
     <Content Include="Config\blockplaceholders.ulm.xml" />
     <Content Include="Config\blockplaceholders.xml" />
+    <Content Include="Config\blocks.a21.xml" />
     <Content Include="Config\blocks.damaged.xml" />
     <Content Include="Config\blocks.a20.xml" />
     <Content Include="Config\blocks.foodexp.xml" />
@@ -100,29 +103,35 @@
   <ItemGroup>
     <Content Include="Config\entityclasses.ulm.xml" />
     <Content Include="Config\entityclasses.xml" />
+    <Content Include="Config\items.a21.xml" />
     <Content Include="Config\items.a20.xml" />
     <Content Include="Config\items.df.xml" />
     <Content Include="Config\items.ulm.xml" />
     <Content Include="Config\items.xml" />
+    <Content Include="Config\item_modifiers.a21.xml" />
     <Content Include="Config\item_modifiers.a20.xml" />
     <Content Include="Config\item_modifiers.df.xml" />
     <Content Include="Config\item_modifiers.ulm.xml" />
     <Content Include="Config\item_modifiers.xml" />
     <Content Include="Config\Localization.txt" />
+    <Content Include="Config\loot.a21.xml" />
     <Content Include="Config\loot.a20.xml" />
     <Content Include="Config\loot.df.xml" />
     <Content Include="Config\loot.ulm.xml" />
     <Content Include="Config\loot.xml" />
     <Content Include="Config\nav_objects.xml" />
+    <Content Include="Config\progression.a21.xml" />
     <Content Include="Config\progression.a20.xml" />
     <Content Include="Config\progression.df.xml" />
     <Content Include="Config\progression.ulm.xml" />
     <Content Include="Config\progression.xml" />
+    <Content Include="Config\recipes.a21.xml" />
     <Content Include="Config\recipes.a20.xml" />
     <Content Include="Config\recipes.df.xml" />
     <Content Include="Config\recipes.ulm.xml" />
     <Content Include="Config\recipes.xml" />
     <Content Include="Config\sounds.xml" />
+    <Content Include="Config\traders.a21.xml" />
     <Content Include="Config\traders.a20.xml" />
     <Content Include="Config\traders.df.xml" />
     <Content Include="Config\traders.ulm.xml" />

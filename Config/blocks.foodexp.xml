@@ -1,5 +1,4 @@
 ﻿<configs>
-
 	<!-- WHEAT -->
 
 	<append xpath="/blocks/block[@name='WheatPlant']">
@@ -9,9 +8,9 @@
 
 	<append xpath="/blocks/block[@name='WheatPlantPlayer']">
 		<drop event="Harvest" name="foodCropWheat" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedWheat" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Destroy" name="seedWheat" count="1,2" prob="0.775" tag="cropMowing"/>
 	</append>
-	
+
 	<!-- TOMATO -->
 
 	<append xpath="/blocks/block[@name='TomatoPlant']">
@@ -21,7 +20,7 @@
 
 	<append xpath="/blocks/block[@name='TomatoPlantPlayer']">
 		<drop event="Harvest" name="foodCropTomato" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedTomato" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Destroy" name="seedTomato" count="1,2" prob="0.775" tag="cropMowing"/>
 	</append>
 
 	<!-- ONION -->
@@ -33,7 +32,7 @@
 
 	<append xpath="/blocks/block[@name='OnionPlantPlayer']">
 		<drop event="Harvest" name="foodCropOnion" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedOnion" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Destroy" name="seedOnion" count="1,2" prob="0.775" tag="cropMowing"/>
 	</append>
 
 	<!-- CABBAGE -->
@@ -45,8 +44,6 @@
 
 	<append xpath="/blocks/block[@name='CabbagePlantPlayer']">
 		<drop event="Harvest" name="foodCropCabbage" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedCabbage" count="1,2" prob="0.775" tag="cropMowing" />
+		<drop event="Destroy" name="seedCabbage" count="1,2" prob="0.775" tag="cropMowing"/>
 	</append>
-
-
 </configs>

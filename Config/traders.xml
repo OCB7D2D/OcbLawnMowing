@@ -1,5 +1,4 @@
 <configs patcher-version="4">
-
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="traders.ulm.xml"/>
 	</modif>
@@ -7,7 +6,6 @@
 		<include path="traders.df.xml"/>
 	</modelsif>
 	<modelse>
-		<include path="traders.a20.xml"/>
+		<include path="traders.a21.xml"/>
 	</modelse>
-
 </configs>
