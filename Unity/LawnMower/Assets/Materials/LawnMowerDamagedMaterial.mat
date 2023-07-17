@@ -2,16 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LawnMowerDamagedMaterial
   m_Shader: {fileID: 4800000, guid: 14315175fc833574a9fd853b7da730e0, type: 3}
-  m_ShaderKeywords: _DETAIL_MULX2
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _DETAIL_MULX2
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -20,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 263380f14289acc439846e492d63a773, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -59,15 +61,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 0.094
-    - _Glossiness: 0.418
+    - _Glossiness: 0.1
     - _GlossyReflections: 1
-    - _Metallic: 0.16
+    - _Metallic: 0.025
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02

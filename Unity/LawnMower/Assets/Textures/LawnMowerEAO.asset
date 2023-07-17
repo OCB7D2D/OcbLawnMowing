@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ec27c436db6ea4e88fc283198745b6, type: 3}
   m_Name: LawnMowerEAO
   m_EditorClassIdentifier: 
-  TextureSize: 4
+  TextureWidth: 4
+  TextureHeight: 4
   ChannelRed:
     value: 0
     invert: 0

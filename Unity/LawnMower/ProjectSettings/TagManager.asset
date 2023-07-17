@@ -49,6 +49,15 @@ TagManager:
   - Moon
   - Physics
   - E_BP_Special
+  - E_Mesh
+  - SupplyLit
+  - SupplySmoke
+  - E_BP_Eye
+  - NoOcclude
+  - VisibleOnZoom
+  - SB_TriggerVolume
+  - SB_InfoVolume
+  - SB_WallVolume
   layers:
   - Default
   - TransparentFX
