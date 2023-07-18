@@ -74,7 +74,7 @@
 		<property class="mower">
 			<property name="class" value="Mower, LawnMowing" />
 			<property name="particle_transform" value="engine_small/MowerParticles/p_blades"/>
-			<property name="particle_per_grass" value="25"/>
+			<property name="particle_per_grass" value="11"/>
 			<property name="fuel_per_second" value="0.1" />
 			<property name="plant_interval" value="0.3" />
 			<property name="blade_interval" value="0.2" />

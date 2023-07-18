@@ -37,6 +37,9 @@ public class VPMower : VehiclePart
 		ParticlesSys = ps.GetComponentInChildren<ParticleSystem>();
 		if (ParticlesSys != null) ParticlesSys.Stop();
 		else Log.Warning("Particle System not found");
+		if (ParticlesSys == null) return;
+		var main = ParticlesSys.main;
+		main.maxParticles = 500;
 	}
 
 	public override void SetProperties(DynamicProperties properties)
@@ -263,6 +266,9 @@ public class VPMower : VehiclePart
 	static private readonly HarmonyFieldProxy<float> WheelBrakes = new
 		HarmonyFieldProxy<float>(typeof(EntityVehicle), "wheelBrakes");
 
+	// Offset for particle emission for mowed down grass (center above ground)
+	static private Vector3 particleOffset = new Vector3(0.5f, 0.25f, 0.5f);
+
 	// Main function to drive the lawn mower
 	public override void Update(float dt)
 	{
@@ -370,7 +376,15 @@ public class VPMower : VehiclePart
 					_blockChangeInfo.Add(new BlockChangeInfo(
 						0, blockPos + offset, reseed));
 					// Emit the particles for each mowed item
-					if (ParticlesSys) ParticlesSys.Emit(ParticlesPerGrass);
+					if (ParticlesSys)
+					{
+						// Emit (reduced) particles at lawn mower
+						ParticlesSys.Emit(ParticlesPerGrass / 3);
+						// Emit particles at old plant location
+						ParticleSystem.EmitParams parameters = new ParticleSystem.EmitParams
+						{ position = blockPos + offset - Origin.position + particleOffset };
+						ParticlesSys.Emit(parameters, ParticlesPerGrass);
+					}
 					// Nothing more to do if vehicle has no storage
 					if (hasStorage == false) continue;
 					// Otherwise put harvested items into bag
