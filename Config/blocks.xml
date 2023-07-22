@@ -20,6 +20,10 @@
 		<include path="blocks.foodexp.xml"/>
 	</modif>
 
+	<modif condition="Random_Regrowing_Wild_Crops">
+		<include path="blocks.regrow.xml"/>
+	</modif>
+
 	<!-- Enable Harvestable player blocks to be placed via dev console for testing purposes -->
 	<!-- <setattribute xpath="/blocks/block[contains(@name, '3HarvestPlayer')]/property[@name='CreativeMode' and @value='None']" name="name">Dev</setattribute> -->
 </configs>

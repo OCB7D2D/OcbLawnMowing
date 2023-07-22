@@ -1,0 +1,91 @@
+﻿<configs>
+	<!-- COTTON -->
+
+	<append xpath="/blocks/block[@name='plantedCotton3Regrow']">
+		<drop event="Harvest" name="resourceCropCottonPlant" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="resourceCropCottonPlant" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- CHRYSANTHEMUM -->
+
+	<append xpath="/blocks/block[@name='plantedChrysanthemum3Regrow']">
+		<drop event="Harvest" name="resourceCropChrysanthemumPlant" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="resourceCropChrysanthemumPlant" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- GOLDEN ROD -->
+
+	<append xpath="/blocks/block[@name='plantedGoldenrod3Regrow']">
+		<drop event="Harvest" name="resourceCropGoldenrodPlant" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="resourceCropGoldenrodPlant" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- BLUEBERRY -->
+
+	<append xpath="/blocks/block[@name='plantedBlueberry3Regrow']">
+		<drop event="Harvest" name="foodCropBlueberries" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="foodCropBlueberries" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- ALOE -->
+
+	<append xpath="/blocks/block[@name='plantedAloe3Regrow']">
+		<drop event="Harvest" name="resourceCropAloeLeaf" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="resourceCropAloeLeaf" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- COFFEE -->
+
+	<append xpath="/blocks/block[@name='plantedCoffee3Regrow']">
+		<drop event="Harvest" name="resourceCropCoffeeBeans" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="resourceCropCoffeeBeans" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- HOP -->
+
+	<append xpath="/blocks/block[@name='plantedHop3Regrow']">
+		<drop event="Harvest" name="resourceCropHopsFlower" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="resourceCropHopsFlower" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- MUSHROOM -->
+
+	<append xpath="/blocks/block[@name='plantedMushroom3Regrow']">
+		<drop event="Harvest" name="foodCropMushrooms" count="1" prob="0.35" tag="wildMowing"/>
+		<drop event="Harvest" name="foodCropMushrooms" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- ############################################################################ -->
+	<!-- ITEMS BELOW CAN ONLY BE HARVESTED WITH CROP MOWER ADDON (WILD IS NOT ENOUGH) -->
+	<!-- ############################################################################ -->
+
+	<!-- CORN -->
+
+	<append xpath="/blocks/block[@name='plantedCorn3Regrow']">
+		<drop event="Harvest" name="foodCropCorn" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- GRACE CORN -->
+
+	<append xpath="/blocks/block[@name='plantedGraceCorn3Regrow']">
+		<drop event="Harvest" name="foodCropGraceCorn" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- POTATO -->
+
+	<append xpath="/blocks/block[@name='plantedPotato3Regrow']">
+		<drop event="Harvest" name="foodCropPotato" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- PUMPKIN -->
+
+	<append xpath="/blocks/block[@name='plantedPumpkin3Regrow']">
+		<drop event="Harvest" name="foodCropPumpkin" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+
+	<!-- YUCCA -->
+
+	<append xpath="/blocks/block[@name='plantedYucca3Regrow']">
+		<drop event="Harvest" name="foodCropYuccaFruit" count="1" prob="0.75" tag="cropMowing"/>
+	</append>
+</configs>

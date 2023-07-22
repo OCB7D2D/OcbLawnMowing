@@ -394,60 +394,54 @@ public class VPMower : VehiclePart
                 {
                     // Get current block at position to check if mow-able
                     BlockValue block = world.GetBlock(blockPos + offset);
-
                     if (!ShouldHarvest(block)) continue;
                     bool isPlayerPlant = IsGrownPlayerPlant(
                         block.Block, out string replacement);
                     // Block to replace mowed block with
                     BlockValue reseed = BlockValue.Air;
-                    // Check if we should reseed the plant
-                    // Requires a few additional checks
-                    if (DoReseed && hasStorage && isPlayerPlant)
+                    // Do we need a seed for re-planting?
+                    bool isFreeReseed = false;
+                    // Keep downgrade path intact if there is one on the block
+                    if (block.Block.DowngradeBlock.type != BlockValue.Air.type)
+                    {
+                        // Only downgrade if player plants are protected
+                        // Otherwise will be mowed down again with next cut
+                        if (isFreeReseed = ProtectPlayerPlants == true)
+                            reseed = block.Block.DowngradeBlock;
+                    }
+                    if (DoReseed && isPlayerPlant)
                     {
                         // Implement own timer to slow down farming
                         if (LastPlant < PlantInterval) continue;
                         LastPlant = 0; // One at a time
-                        // Remove the last part from the name
-                        // Trying to find block for reseeding
-                        // There is no real link beside "drop" config
-                        // Or maybe the "GrowInto" references, but that
-                        // is the easiest check and works with name-system
-                        BlockValue bv = Block.GetBlockValue(replacement);
                         // Put harvested items into bag (for re-use)
-                        if (hasStorage) hasInventoryChanges |= HarvestBlockToBag(
-                            block.Block, vehicle.entity.bag, random);
-                        // Check that our assumptions are correct ;)
-                        if (bv.type != BlockValue.Air.type)
-                        {
-                            // Try to get seed, assigns reseed if successful
-                            // Otherwise we still re-seed, but with air ;)
-                            hasInventoryChanges |= GetAndDecrementItem(
-                                vehicle.entity.bag, bv, ref reseed);
-                        }
-                    }
-                    // Skip rest if plant is protected from mowing down
-                    else if (ProtectPlayerPlants && isPlayerPlant) continue;
-                    // Do the harvest for else branch
-                    else if (hasStorage)
-                    {
-                        // Put harvested items into bag
+                        // Must execute this before trying to get a seed
                         hasInventoryChanges |= HarvestBlockToBag(
                             block.Block, vehicle.entity.bag, random);
+                    }
+                    // Put harvested items into bag
+                    hasInventoryChanges |= HarvestBlockToBag(
+                        block.Block, vehicle.entity.bag, random);
+                    // Check if reseeding is an option and if it needs a seed
+                    if (!isFreeReseed && reseed.type != BlockValue.Air.type)
+                    {
+                        // Get the seed from the bag, if not there, use air
+                        if (DecrementBagItem(vehicle.entity.bag, reseed))
+                            hasInventoryChanges = true;
+                        else reseed = BlockValue.Air;
                     }
                     // Replace existing block with new one
                     // Either air or a new crop seed to grow
                     _blockChangeInfo.Add(new BlockChangeInfo(
                         0, blockPos + offset, reseed));
                     // Emit the particles for each mowed item
-                    if (ParticlesSys)
-                    {
-                        // Emit (reduced) particles at lawn mower
-                        ParticlesSys.Emit(ParticlesPerGrass / 3);
-                        // Emit particles at old plant location
-                        ParticleSystem.EmitParams parameters = new ParticleSystem.EmitParams
-                        { position = blockPos + offset - Origin.position + particleOffset };
-                        ParticlesSys.Emit(parameters, ParticlesPerGrass);
-                    }
+                    if (ParticlesSys == null) continue;
+                    // Emit (reduced) particles at lawn mower
+                    ParticlesSys.Emit(ParticlesPerGrass / 3);
+                    // Emit particles at old plant location
+                    ParticleSystem.EmitParams parameters = new ParticleSystem.EmitParams
+                    { position = blockPos + offset - Origin.position + particleOffset };
+                    ParticlesSys.Emit(parameters, ParticlesPerGrass);
                 }
             }
         }
@@ -518,10 +512,10 @@ public class VPMower : VehiclePart
     // ####################################################################
 
     // Helper function to get `wanted` item from `bag`, and if OK, updates `reseed`
-    private bool GetAndDecrementItem(Bag bag, BlockValue wanted, ref BlockValue reseed)
+    private bool DecrementBagItem(Bag bag, BlockValue bv)
     {
-        if (wanted.type == BlockValue.Air.type) return false;
-        ItemValue iv = wanted.ToItemValue();
+        if (bv.type == BlockValue.Air.type) return false;
+        ItemValue iv = bv.ToItemValue();
         bool reseeded = bag.DecItem(iv, 1, true) != 0;
         // Force lawn tractor bag to display inventory changes
         OcbLawnMowing.UseBagForItemCount = bag;
@@ -530,18 +524,17 @@ public class VPMower : VehiclePart
         sidebar?.AddItemStack(new ItemStack(iv,
             reseeded ? -1 : 0));
         OcbLawnMowing.UseBagForItemCount = null;
-        if (reseeded == false) return false;
-        reseed = wanted;
-        return true;
+        return reseeded;
     }
 
     // ####################################################################
     // ####################################################################
-    
+
     // Helper function to evaluate and collect harvest/destroy drops
     private bool HarvestBlockToBag(Block block, Bag bag, GameRandom random)
     {
         bool changes = false;
+        if (bag == null) return changes;
         if (block.itemsToDrop.TryGetValue(EnumDropEvent.Harvest,
             out List<Block.SItemDropProb> harvests))
             changes |= AddDropToBag(harvests, bag, random);
@@ -553,12 +546,13 @@ public class VPMower : VehiclePart
 
     // ####################################################################
     // ####################################################################
-    
+
     // Helper function to evaluate probabilities for `drops` and puts them into `bag`
     // Items that don't fit into the inventory bag are lost (vanilla drops them to ground)
     private bool AddDropToBag(List<Block.SItemDropProb> drops, Bag bag, GameRandom random)
     {
         bool changes = false;
+        if (bag == null) return changes;
         foreach (Block.SItemDropProb drop in drops)
         {
             // Only allow to get harvestable items
@@ -578,7 +572,7 @@ public class VPMower : VehiclePart
 
     // ####################################################################
     // ####################################################################
-    
+
     // Add `count` items of `iv` to `bag`
     // Items that don't fit will be wasted!
     private bool AddItemsToBag(Bag bag, ItemValue iv, int count)

@@ -93,6 +93,7 @@
     <Content Include="Config\blocks.a20.xml" />
     <Content Include="Config\blocks.foodexp.xml" />
     <Content Include="Config\blocks.a20.ulm.xml" />
+    <Content Include="Config\blocks.regrow.xml" />
     <Content Include="Config\blocks.xml" />
     <Compile Include="Harmony\LawnMowing.cs" />
     <Compile Include="Harmony\AssemblyInfo.cs" />
