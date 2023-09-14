@@ -3,8 +3,8 @@
 		<include path="items.a20.xml"/>
 		<include path="items.ulm.xml"/>
 	</modif>
-	<modelsif condition="Darkness Falls Core">
-		<include path="items.a20.xml"/>
+	<modelsif condition="DarknessFallsCore">
+		<include path="items.a21.xml"/>
 		<include path="items.df.xml"/>
 	</modelsif>
 	<modelse>

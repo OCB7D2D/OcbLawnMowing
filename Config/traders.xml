@@ -2,7 +2,7 @@
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="traders.ulm.xml"/>
 	</modif>
-	<modelsif condition="Darkness Falls Core">
+	<modelsif condition="DarknessFallsCoreX">
 		<include path="traders.df.xml"/>
 	</modelsif>
 	<modelse>

@@ -1,4 +1,5 @@
 <configs>
+  <!--
 	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorPlaceable']" name="craft_area">workstationMetal</setattribute>
 
 	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorAccessories']" name="craft_area">workstationMetal</setattribute>
@@ -35,7 +36,8 @@
 
 	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsReseeder']/ingredient[@name='gunBotRoboticsParts']" name="count">12</setattribute>
 	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsReseeder']/ingredient[@name='gunBotRoboticsParts']" name="name">resourceMechanicalParts</setattribute>
-
+-->
 	<!-- Darkness Falls does not have "dynamic" recipe ingredient amounts!? -->
-	<remove xpath="/recipes/recipe/effect_group/passive_effect[@name='CraftingIngredientCount']"/>
+<!--	<remove xpath="/recipes/recipe/effect_group/passive_effect[@name='CraftingIngredientCount']"/>
+-->
 </configs>

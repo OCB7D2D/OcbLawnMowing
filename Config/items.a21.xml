@@ -4,16 +4,18 @@
 			<property name="Extends" value="vehicleWheels" param1="DescriptionKey"/>
 			<property name="DescriptionKey" value="vehicleLawnTractorChassisDesc"/>
 			<property name="EconomicValue" value="3000"/>
-			<property name="UnlockedBy" value="craftingVehicles"/>
-			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+      <property name="UnlockedBy" value="craftingVehicles"/>
+      <property name="TraderStageTemplate" value="vehicleTier1"/>
+      <property name="PickupJournalEntry" value="lawnMowerTip"/>
 		</item>
 
 		<item name="vehicleLawnTractorAccessories">
 			<property name="Extends" value="vehicleWheels" param1="DescriptionKey"/>
 			<property name="DescriptionKey" value="vehicleLawnTractorAccessoriesDesc"/>
 			<property name="EconomicValue" value="3000"/>
-			<property name="UnlockedBy" value="craftingVehicles"/>
-			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+      <property name="UnlockedBy" value="craftingVehicles"/>
+      <property name="TraderStageTemplate" value="vehicleTier1"/>
+      <property name="PickupJournalEntry" value="lawnMowerTip"/>
 		</item>
 
 		<item name="vehicleLawnTractorPlaceable">

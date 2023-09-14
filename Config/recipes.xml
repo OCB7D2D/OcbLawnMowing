@@ -2,8 +2,8 @@
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="recipes.ulm.xml"/>
 	</modif>
-	<modelsif condition="Darkness Falls Core">
-		<include path="recipes.a20.xml"/>
+	<modelsif condition="DarknessFallsCore">
+		<include path="recipes.a21.xml"/>
 		<include path="recipes.df.xml"/>
 	</modelsif>
 	<modelse>

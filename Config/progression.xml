@@ -2,7 +2,7 @@
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="progression.ulm.xml"/>
 	</modif>
-	<modelsif condition="Darkness Falls Core">
+	<modelsif condition="DarknessFallsCore">
 		<include path="progression.df.xml"/>
 	</modelsif>
 	<modelse>

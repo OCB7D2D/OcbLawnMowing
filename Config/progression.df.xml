@@ -10,9 +10,9 @@
 	<append xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='1,3']/@tags">,modVehicleLawnTractorGrassCollector</append>
 	<append xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='2,3']/@tags">,modVehicleLawnTractorPlantCollector</append>
 	<append xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='3']/@tags">,modVehicleLawnTractorCropsCollector</append>
-
-	<!-- Mechanic class can build a lawn mower from the start -->
-	<append xpath="/progression/attributes/attribute[@name='attClassMechanic']/effect_group/passive_effect[@name='CraftingTier']/@tags">
+  /config/set/perks/perk[70]/effect_group/passive_effect[1]
+  <!-- Mechanic class can build a lawn mower from the start -->
+	<append xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,4']/@tags">
 		,vehicleLawnTractorChassis,vehicleLawnTractorAccessories,modVehicleLawnTractorCropsProtector
 	</append>
 
