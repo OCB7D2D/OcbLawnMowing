@@ -1,0 +1,25 @@
+<configs>
+	<append xpath="/blockplaceholders/placeholder[@name='carsRandomHelperDF']">
+		<block name="cntCarLawnTractorDamaged0v01" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v07" prob=".27"/>
+		<block name="carLawnTractorDamaged2v05" prob=".09"/>
+		<block name="cntCarLawnTractorDamaged0v02" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v04" prob=".27"/>
+		<block name="carLawnTractorDamaged2v06" prob=".09"/>
+		<block name="cntCarLawnTractorDamaged0v03" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v02" prob=".27"/>
+		<block name="carLawnTractorDamaged2v04" prob=".09"/>
+		<block name="cntCarLawnTractorDamaged0v04" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v03" prob=".27"/>
+		<block name="carLawnTractorDamaged2v01" prob=".09"/>
+		<block name="cntCarLawnTractorDamaged0v05" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v06" prob=".27"/>
+		<block name="carLawnTractorDamaged2v03" prob=".09"/>
+		<block name="cntCarLawnTractorDamaged0v06" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v05" prob=".27"/>
+		<block name="carLawnTractorDamaged2v07" prob=".09"/>
+		<block name="cntCarLawnTractorDamaged0v07" prob=".25"/>
+		<block name="cntCarLawnTractorDamaged1v01" prob=".27"/>
+		<block name="carLawnTractorDamaged2v02" prob=".09"/>
+	</append>
+</configs>

@@ -23,6 +23,6 @@
 	</append>
 
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="entityclasses.ulm.xml"/>
+		<include path="entityclasses.a20.ulm.xml"/>
 	</modif>
 </configs>

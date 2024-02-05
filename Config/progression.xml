@@ -1,9 +1,9 @@
 <configs patcher-version="4">
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="progression.ulm.xml"/>
+		<include path="progression.a20.ulm.xml"/>
 	</modif>
-	<modelsif condition="Darkness Falls Core">
-		<include path="progression.df.xml"/>
+	<modelsif condition="DarknessFallsCore">
+		<include path="progression.a21.df.xml"/>
 	</modelsif>
 	<modelse>
 		<include path="progression.a21.xml"/>

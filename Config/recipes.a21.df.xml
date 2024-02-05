@@ -1,0 +1,41 @@
+<configs>
+	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorPlaceable']" name="craft_area">workstationMetal</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorAccessories']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorAccessories']" name="tags">learnable,attClassMechanic,perkMinibike</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorChassis']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='vehicleLawnTractorChassis']" name="tags">learnable,attClassMechanic,perkMinibike</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorGrassCollector']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorGrassCollector']" name="tags">learnable,perkBasicFarming,perkLivingOffTheLand</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorPlantCollector']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorPlantCollector']" name="tags">learnable,perkBasicFarming,perkLivingOffTheLand</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsCollector']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsCollector']" name="tags">learnable,perkBasicFarming,perkLivingOffTheLand</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsProtector']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsProtector']" name="tags">learnable,attClassMechanic,perkLivingOffTheLand,perkMinibike</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsReseeder']" name="craft_area">workstationMetal</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsReseeder']" name="tags">learnable,perkLivingOffTheLand,perkAdvancedEngineering</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorPlantCollector']/ingredient[@name='meleeToolAxeT3ChainsawParts']" name="count">12</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorPlantCollector']/ingredient[@name='meleeToolAxeT3ChainsawParts']" name="name">resourceDuctTape</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsCollector']/ingredient[@name='gunBotRoboticsParts']" name="count">12</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsCollector']/ingredient[@name='gunBotRoboticsParts']" name="name">resourceDuctTape</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsCollector']/ingredient[@name='meleeToolAxeT3ChainsawParts']" name="count">12</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsCollector']/ingredient[@name='meleeToolAxeT3ChainsawParts']" name="name">resourceMechanicalParts</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsProtector']/ingredient[@name='meleeToolAxeT3ChainsawParts']" name="count">12</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsProtector']/ingredient[@name='meleeToolAxeT3ChainsawParts']" name="name">resourceElectricParts</setattribute>
+
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsReseeder']/ingredient[@name='gunBotRoboticsParts']" name="count">12</setattribute>
+	<setattribute xpath="/recipes/recipe[@name='modVehicleLawnTractorCropsReseeder']/ingredient[@name='gunBotRoboticsParts']" name="name">resourceMechanicalParts</setattribute>
+
+	<!-- Darkness Falls does not have "dynamic" recipe ingredient amounts!? -->
+	<remove xpath="/recipes/recipe/effect_group/passive_effect[@name='CraftingIngredientCount']"/>
+</configs>

@@ -1,8 +1,12 @@
 <configs patcher-version="4">
 	<modif condition="UndeadLegacy_CoreModule">
 		<include path="blockplaceholders.a20.xml"/>
-		<include path="blockplaceholders.ulm.xml"/>
+		<include path="blockplaceholders.a20.ulm.xml"/>
 	</modif>
+	<modelsif condition="DarknessFallsCore">
+		<include path="blockplaceholders.a21.xml"/>
+		<include path="blockplaceholders.a21.df.xml"/>
+	</modelsif>
 	<modelse>
 		<include path="blockplaceholders.a21.xml"/>
 	</modelse>

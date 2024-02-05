@@ -1,0 +1,7 @@
+<configs>
+	<setattribute xpath="/item_modifiers/item_modifier[@name='modVehicleLawnTractorGrassCollector']/property[@name='UnlockedBy']" name="value">perkBasicFarming,perkLivingOffTheLand</setattribute>
+	<setattribute xpath="/item_modifiers/item_modifier[@name='modVehicleLawnTractorPlantCollector']/property[@name='UnlockedBy']" name="value">perkBasicFarming,perkLivingOffTheLand</setattribute>
+	<setattribute xpath="/item_modifiers/item_modifier[@name='modVehicleLawnTractorCropsCollector']/property[@name='UnlockedBy']" name="value">perkBasicFarming,perkLivingOffTheLand</setattribute>
+	<setattribute xpath="/item_modifiers/item_modifier[@name='modVehicleLawnTractorCropsProtector']/property[@name='UnlockedBy']" name="value">attClassMechanic,perkLivingOffTheLand,perkMinibike</setattribute>
+	<setattribute xpath="/item_modifiers/item_modifier[@name='modVehicleLawnTractorCropsReseeder']/property[@name='UnlockedBy']" name="value">perkLivingOffTheLand,perkAdvancedEngineering</setattribute>
+</configs>

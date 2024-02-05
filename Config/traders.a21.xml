@@ -17,7 +17,6 @@
 	</append>
 
 	<!-- Add required mod to trader for users to buy -->
-
 	<append xpath="//trader_item_group[@name='groupMeleeMods']">
 		<item name="modMeleeClubMetalChain"/>
 	</append>

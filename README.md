@@ -130,6 +130,10 @@ Simply [download here from GitHub][1] and put into your A21 Mods folder:
 
 ## Changelog
 
+### Version 2.1.1
+
+- First Darkness Falls A21 compatibility
+
 ### Version 2.1.0
 
 - Update compatibility for 7D2D A21.0(b324)
@@ -177,7 +181,7 @@ Simply [download here from GitHub][1] and put into your A21 Mods folder:
 
 ## Compatibility
 
-Developed initially for version a20.6(b8), updated through A21.0(b324).
+Developed initially for version a20.6(b8), updated through A21.2(b37).
 
 [1]: https://github.com/OCB7D2D/OcbLawnMowing/releases
 [2]: https://github.com/OCB7D2D/OcbLawnMowing/actions/workflows/ci.yml

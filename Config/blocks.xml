@@ -2,9 +2,9 @@
 	<include path="blocks.damaged.xml"/>
 
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="blocks.ulm.xml"/>
+		<include path="blocks.a20.ulm.xml"/>
 	</modif>
-	<modelsif condition="Darkness Falls Core">
+	<modelsif condition="DarknessFallsCore">
 		<!-- Don't do anything for DF here -->
 	</modelsif>
 	<modelse>
