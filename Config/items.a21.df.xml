@@ -1,4 +1,5 @@
 <configs>
-	<setattribute xpath="/items/item[@name='vehicleLawnTractorChassis']/property[@name='UnlockedBy']" name="value">attClassMechanic,perkMinibike</setattribute>
-	<setattribute xpath="/items/item[@name='vehicleLawnTractorAccessories']/property[@name='UnlockedBy']" name="value">attClassMechanic,perkMinibike</setattribute>
+	<setattribute xpath="/items/item[@name='vehicleLawnTractorChassis']/property[@name='UnlockedBy']" name="value">perkLivingOffTheLand,perkGreaseMonkey,perkMinibike</setattribute>
+	<setattribute xpath="/items/item[@name='vehicleLawnTractorAccessories']/property[@name='UnlockedBy']" name="value">perkLivingOffTheLand,perkGreaseMonkey,perkMinibike</setattribute>
+	<setattribute xpath="/items/item/property[@name='PickupJournalEntry' and @value='lawnMowerTip']" name="value">lawnMowerDfTip</setattribute>
 </configs>

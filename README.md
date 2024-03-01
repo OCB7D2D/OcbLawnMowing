@@ -130,6 +130,11 @@ Simply [download here from GitHub][1] and put into your A21 Mods folder:
 
 ## Changelog
 
+### Version 2.1.2
+
+- Refactor Darkness Falls progression
+- Customize Darkness Falls Journal entry
+
 ### Version 2.1.1
 
 - First Darkness Falls A21 compatibility

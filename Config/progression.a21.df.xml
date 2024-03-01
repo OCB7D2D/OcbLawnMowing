@@ -1,36 +1,41 @@
 <configs>
-	<!-- Crop collector and reseeder are reserver for farmer class -->
 
-	<!-- Allow the lawn mower to be build when the minibike can be built (for all non mechanics) -->
-	<append xpath="/progression/perks/perk[@name='perkMinibike']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,3']/@tags">
-		,vehicleLawnTractorChassis,vehicleLawnTractorAccessories,modVehicleLawnTractorCropsProtector
-	</append>
-
-	<!-- Allow some collectors to be built with basic farming tips (if you don't have the farmer class) -->
-	<append xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='1,3']/@tags">,modVehicleLawnTractorGrassCollector</append>
-	<append xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='2,3']/@tags">,modVehicleLawnTractorPlantCollector</append>
-	<append xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='3']/@tags">,modVehicleLawnTractorCropsCollector</append>
-
-	<!-- Mechanic class can build a lawn mower from the start -->
-	<append xpath="/progression/attributes/attribute[@name='attClassMechanic']/effect_group/passive_effect[@name='CraftingTier']/@tags">
-		,vehicleLawnTractorChassis,vehicleLawnTractorAccessories,modVehicleLawnTractorCropsProtector
-	</append>
-
-	<!-- Farmer class can build the crop protector from the beginning -->
-	<append xpath="/progression/attributes/attribute[@name='attClassFarmer']/effect_group/passive_effect[@name='CraftingTier']/@tags">,modVehicleLawnTractorCropsProtector</append>
-	<!-- vehicle via minibike perk -->
+	<!-- Farmers class can build a lawn mower once class is finished -->
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags" op="add">vehicleLawnTractorChassis</csv>
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags" op="add">vehicleLawnTractorAccessories</csv>
+	<!-- Mechanics can unlock the lawn tractor with grease monkey level 3 -->
+	<csv xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,4']/@tags" op="add">vehicleLawnTractorChassis</csv>
+	<csv xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,4']/@tags" op="add">vehicleLawnTractorAccessories</csv>
+	<!-- Allow the lawn mower to be build when the minibike can be built (for all other classes) -->
+	<csv xpath="/progression/perks/perk[@name='perkMinibike']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,3']/@tags" op="add">vehicleLawnTractorChassis</csv>
+	<csv xpath="/progression/perks/perk[@name='perkMinibike']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,3']/@tags" op="add">vehicleLawnTractorAccessories</csv>
 
 	<!-- Farmers still need to enable other accessories with the living of the land perk -->
-	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags">,modVehicleLawnTractorGrassCollector</append>
-	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,5']/@tags">,modVehicleLawnTractorPlantCollector</append>
-	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,5']/@tags">,modVehicleLawnTractorCropsCollector</append>
-	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='4,5']/@tags">,modVehicleLawnTractorCropsReseeder</append>
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags" op="add">modVehicleLawnTractorCropsProtector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,5']/@tags" op="add">modVehicleLawnTractorGrassCollector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,5']/@tags" op="add">modVehicleLawnTractorPlantCollector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='4,5']/@tags" op="add">modVehicleLawnTractorCropsCollector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='5']/@tags" op="add">modVehicleLawnTractorCropsReseeder</csv>
 
-	<!-- Allow the crop reseeder also to be built by advanced engineering perk -->
-	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='4,5']/@tags">,modVehicleLawnTractorCropsReseeder</append>
+	<!-- Mechanics still need to enable other accessories with the robotic (turret) or grease monkey perk -->
+	<csv xpath="/progression/perks/perk[@name='perkTurrets']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags" op="add">modVehicleLawnTractorCropsProtector</csv>
+	<append xpath="/progression/perks/perk[@name='perkTurrets']/effect_group[@name='General and deployed turrets']">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,5" value="1" tags="modVehicleLawnTractorGrassCollector"/>
+	</append>
+	<csv xpath="/progression/perks/perk[@name='perkTurrets']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='3,5']/@tags" op="add">modVehicleLawnTractorPlantCollector</csv>
+	<append xpath="/progression/perks/perk[@name='perkTurrets']/effect_group[@name='General and deployed turrets']">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="modVehicleLawnTractorCropsCollector"/>
+	</append>
+	<append xpath="/progression/perks/perk[@name='perkTurrets']/effect_group[@name='General and deployed turrets']">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="5" value="1" tags="modVehicleLawnTractorCropsReseeder"/>
+	</append>
 
-	<!--	
-	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='2,5']/@tags">,modVehicleLawnTractorCropsProtector</append>
-	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,3']/@tags">,modVehicleLawnTractorGrassCollector</append>
-	-->
+	<!-- Allow the collectors to be built with basic farming tips (for all other classes) -->
+	<csv xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='1,3']/@tags" op="add">modVehicleLawnTractorGrassCollector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='2,3']/@tags" op="add">modVehicleLawnTractorPlantCollector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkBasicFarming']/effect_group/passive_effect[@level='3']/@tags" op="add">modVehicleLawnTractorCropsCollector</csv>
+	<!-- Allow the crop protector and reseeder also to be built by advanced engineering perk (for all other classes) -->
+	<csv xpath="/progression/perks/perk[@name='perkCraftTools']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags" op="add">modVehicleLawnTractorCropsProtector</csv>
+	<csv xpath="/progression/perks/perk[@name='perkCraftTools']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='4,5']/@tags" op="add">modVehicleLawnTractorCropsReseeder</csv>
+
 </configs>
