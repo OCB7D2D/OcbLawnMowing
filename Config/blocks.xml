@@ -5,7 +5,7 @@
 		<include path="blocks.a20.ulm.xml"/>
 	</modif>
 	<modelsif condition="DarknessFallsCore">
-		<!-- Don't do anything for DF here -->
+		<include path="blocks.a21.df.xml"/>
 	</modelsif>
 	<modelse>
 		<append xpath="/blocks/block[@name='cntCarLawnTractorDamaged0Master']">

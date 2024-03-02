@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class VPMower : VehiclePart
@@ -392,28 +394,15 @@ public class VPMower : VehiclePart
                 {
                     // Get current block at position to check if mow-able
                     BlockValue block = world.GetBlock(blockPos + offset);
-                    // Check for multi-dim blocks
-                    // Only work on master block
-                    if (block.ischild) continue;
-                    // Do fast check for air
-                    if (block.isair) continue;
-                    // Mushrooms are not marked `isPlant` so we use this check
-                    if (block.Block.blockMaterial.SurfaceCategory != "plant") continue;
-                    // Don't mow down things that support things (cactus only?)
-                    if (block.Block.blockMaterial.StabilitySupport) continue;
-                    // Check if we protect growing plants?
-                    if (ProtectPlayerPlants == true &&
-                        block.Block is BlockPlantGrowing) continue;
-                    // We simply match and mangle the name
-                    // At least that seems to have a system
-                    string bname = block.Block.GetBlockName();
-                    // This check is assuming a strict name schema
-                    bool playerPlant = bname.EndsWith("3HarvestPlayer");
+
+                    if (!ShouldHarvest(block)) continue;
+                    bool isPlayerPlant = IsGrownPlayerPlant(
+                        block.Block, out string replacement);
                     // Block to replace mowed block with
                     BlockValue reseed = BlockValue.Air;
                     // Check if we should reseed the plant
                     // Requires a few additional checks
-                    if (DoReseed && hasStorage && playerPlant)
+                    if (DoReseed && hasStorage && isPlayerPlant)
                     {
                         // Implement own timer to slow down farming
                         if (LastPlant < PlantInterval) continue;
@@ -423,8 +412,7 @@ public class VPMower : VehiclePart
                         // There is no real link beside "drop" config
                         // Or maybe the "GrowInto" references, but that
                         // is the easiest check and works with name-system
-                        bname = bname.Substring(0, bname.Length - 14);
-                        BlockValue bv = Block.GetBlockValue(bname + "1");
+                        BlockValue bv = Block.GetBlockValue(replacement);
                         // Put harvested items into bag (for re-use)
                         if (hasStorage) hasInventoryChanges |= HarvestBlockToBag(
                             block.Block, vehicle.entity.bag, random);
@@ -438,7 +426,7 @@ public class VPMower : VehiclePart
                         }
                     }
                     // Skip rest if plant is protected from mowing down
-                    else if (ProtectPlayerPlants && playerPlant) continue;
+                    else if (ProtectPlayerPlants && isPlayerPlant) continue;
                     // Do the harvest for else branch
                     else if (hasStorage)
                     {
@@ -473,9 +461,62 @@ public class VPMower : VehiclePart
         vehicle.entity.StopUIInteraction();
     }
 
+    private bool IsGrownPlayerPlant(Block block, out string replacement)
+    {
+        // We simply match and mangle the name
+        // At least that seems to have a system
+        string name = block.GetBlockName();
+        // Check for vanilla plant block names
+        if (name.EndsWith("3HarvestPlayer"))
+        {
+            // Assume vanilla replacement
+            replacement = name.Substring(
+                0, name.Length - 14) + "1";
+            return true;
+        }
+        // Check for DF plant block names
+        else if (name.EndsWith("HarvestPlayer"))
+        {
+            // Assume DF replacement schema
+            replacement = name.Substring(
+                0, name.Length - 13);
+            return true;
+        }
+        // Or fall-back to properties to support any plant
+        else if (block.Properties.Values.TryGetString(
+            "CropReplacement", out replacement)) {
+                return true;
+        }
+        // Not to be collected/replaced
+        return false;
+    }
+
+    private bool ShouldHarvest(BlockValue block)
+    {
+        // Check for multi-dim blocks
+        // Only work on master block
+        if (block.ischild) return false;
+        // Do fast check for air
+        if (block.isair) return false;
+        // Mushrooms are not marked `isPlant` so we use this check
+        if (block.Block.blockMaterial.SurfaceCategory != "plant") return false;
+        // Don't mow down things that support things (cactus only?)
+        if (block.Block.blockMaterial.StabilitySupport) return false;
+        // Check if we protect growing plants?
+        if (ProtectPlayerPlants == false) return true;
+        // Use custom property to mark plants to harvest
+        // Will have some CPU impact, but may be negigable
+        // Dedicating some CPU power when harvester is running
+        return block.Block.Properties.GetBool("HarvestCrop") ||
+            block.Block.Properties.Contains("CropReplacement");
+        // Check below was used before, but DF uses it also for
+        // fully grown plants, so no way around custom property
+        // if (block.Block is BlockPlantGrowing) return false;
+    }
+
     // ####################################################################
     // ####################################################################
-    
+
     // Helper function to get `wanted` item from `bag`, and if OK, updates `reseed`
     private bool GetAndDecrementItem(Bag bag, BlockValue wanted, ref BlockValue reseed)
     {

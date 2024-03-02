@@ -87,6 +87,7 @@
     <Content Include="Config\blockplaceholders.a20.xml" />
     <Content Include="Config\blockplaceholders.a20.ulm.xml" />
     <Content Include="Config\blockplaceholders.xml" />
+    <Content Include="Config\blocks.a21.df.xml" />
     <Content Include="Config\blocks.a21.xml" />
     <Content Include="Config\blocks.damaged.xml" />
     <Content Include="Config\blocks.a20.xml" />
