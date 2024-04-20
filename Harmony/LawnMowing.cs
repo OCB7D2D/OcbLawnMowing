@@ -24,8 +24,8 @@ public class OcbLawnMowing : IModApi
     // Set this static value to override behavior
     public static Bag UseBagForItemCount = null;
 
-    [HarmonyPatch(typeof(XUiM_PlayerInventory), "GetItemCount",
-        new System.Type[] { typeof(ItemValue) })]
+    [HarmonyPatch(typeof(XUiM_PlayerInventory))]
+    [HarmonyPatch("GetItemCountWithMods")]
     public class PlayerInventoryGetItemCountPatch
     {
         public static bool Prefix(ItemValue _itemValue, ref int __result)

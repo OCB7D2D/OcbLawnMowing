@@ -1,49 +1,38 @@
 ﻿<configs>
 	<!-- WHEAT -->
 
-	<append xpath="/blocks/block[@name='WheatPlant']">
-		<drop event="Harvest" name="foodCropWheat" count="1" prob="0.75" tag="wildMowing"/>
-		<drop event="Harvest" name="foodCropWheat" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-
-	<append xpath="/blocks/block[@name='WheatPlantPlayer']">
-		<drop event="Harvest" name="foodCropWheat" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedWheat" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="WheatPlant"
+		tmpl-plant-player-name="WheatPlantPlayer"
+		tmpl-item-name="foodCropWheat"
+		tmpl-seed-name="seedWheat"
+		tmpl-harvest-type="plant"
+	/>
 
 	<!-- TOMATO -->
 
-	<append xpath="/blocks/block[@name='TomatoPlant']">
-		<!-- <drop event="Harvest" name="foodCropTomato" count="1" prob="0.5" tag="wildMowing"/> -->
-		<drop event="Harvest" name="foodCropTomato" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-
-	<append xpath="/blocks/block[@name='TomatoPlantPlayer']">
-		<drop event="Harvest" name="foodCropTomato" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedTomato" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="TomatoPlant"
+		tmpl-plant-player-name="TomatoPlantPlayer"
+		tmpl-item-name="foodCropTomato"
+		tmpl-seed-name="seedTomato"
+		tmpl-harvest-type="crop"
+	/>
 
 	<!-- ONION -->
 
-	<append xpath="/blocks/block[@name='OnionPlant']">
-		<!-- <drop event="Harvest" name="foodCropOnion" count="1" prob="0.5" tag="wildMowing"/> -->
-		<drop event="Harvest" name="foodCropOnion" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-
-	<append xpath="/blocks/block[@name='OnionPlantPlayer']">
-		<drop event="Harvest" name="foodCropOnion" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedOnion" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include path="blocks.a21.tmpl.xml" tmpl-plant-wild-name="OnionPlant" tmpl-plant-player-name="OnionPlantPlayer" tmpl-item-name="foodCropOnion" tmpl-seed-name="seedOnion" tmpl-harvest-type="crop"/>
 
 	<!-- CABBAGE -->
 
-	<append xpath="/blocks/block[@name='CabbagePlant']">
-		<!-- <drop event="Harvest" name="foodCropCabbage" count="1" prob="0.5" tag="wildMowing"/> -->
-		<drop event="Harvest" name="foodCropCabbage" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-
-	<append xpath="/blocks/block[@name='CabbagePlantPlayer']">
-		<drop event="Harvest" name="foodCropCabbage" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="seedCabbage" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="CabbagePlant"
+		tmpl-plant-player-name="CabbagePlantPlayer"
+		tmpl-item-name="foodCropCabbage"
+		tmpl-seed-name="seedCabbage"
+		tmpl-harvest-type="crop"
+	/>
 </configs>

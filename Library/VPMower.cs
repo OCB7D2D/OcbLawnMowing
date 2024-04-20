@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using UnityEngine;
 
 public class VPMower : VehiclePart
@@ -57,14 +56,20 @@ public class VPMower : VehiclePart
     // ####################################################################
 
     private bool DoReseed = false;
-    private bool ProtectPlayerPlants = false;
+    private bool ProtectGrowingPlants = false;
+    // private bool IsWildHarvesterInstalled = false;
+    // private bool IsCropHarvesterInstalled = false;
 
     // ####################################################################
     // ####################################################################
-    
+
     private readonly List<Material> Materials = new List<Material>();
 
     private readonly HashSet<string> HarvestTags = new HashSet<string>();
+    private readonly HashSet<string> HarvestTools = new HashSet<string>();
+
+    // private readonly Dictionary<string, HashSet<string>> Requirements
+    //     = new Dictionary<string, HashSet<string>>();
 
     private HashSet<string> OldShownModPhysics = new HashSet<string>();
     private HashSet<string> NewShownModPhysics = new HashSet<string>();
@@ -114,11 +119,22 @@ public class VPMower : VehiclePart
     // ####################################################################
     // ####################################################################
     
+    static string[] SplitAndTrim(string str, char delim)
+    {
+        var splitted = str.Split(new char[] { delim },
+            StringSplitOptions.RemoveEmptyEntries);
+        for (int i = 0; i < splitted.Length; i++)
+            splitted[i] = splitted[i].Trim();
+        return splitted;
+    }
+
     // Check modifications and pre-cache some information for later
     public void UpdateModifications(ItemValue[] modifications)
     {
         Materials.Clear();
         HarvestTags.Clear();
+        HarvestTools.Clear();
+        // Requirements.Clear();
         NewShownModPhysics.Clear();
         NewShownModTransforms.Clear();
 
@@ -141,18 +157,33 @@ public class VPMower : VehiclePart
             props.ParseFloat("DamageModifier", ref DamageModifier);
             if (values.TryGetString("MowerHarvestTags", out string tags))
             {
-                foreach (string tag in tags.Split(','))
-                    HarvestTags.Add(tag.Trim());
+                var names = SplitAndTrim(tags, ',');
+                foreach (string tag in names) HarvestTags.Add(tag);
+                //if (values.TryGetString("HarvestRequirements", out tags))
+                //{
+                //    var reqs = SplitAndTrim(tags, ',');
+                //    foreach (string tag in names)
+                //    {
+                //        if (Requirements.TryGetValue(tag, out var requirement))
+                //            foreach (var req in reqs) requirement.Add(req);
+                //        else Requirements.Add(tag, new HashSet<string>(reqs));
+                //    }
+                //}
+            }
+            if (values.TryGetString("MowerHarvestTools", out string tools))
+            {
+                foreach (string tool in SplitAndTrim(tools, ','))
+                    HarvestTools.Add(tool);
             }
             if (values.TryGetString("EnablePhysics", out string physics))
             {
-                foreach (string physic in physics.Split(','))
-                    NewShownModPhysics.Add(physic.Trim());
+                foreach (string physic in SplitAndTrim(physics, ','))
+                    NewShownModPhysics.Add(physic);
             }
             if (values.TryGetString("ShowTransforms", out string shows))
             {
-                foreach (string show in shows.Split(','))
-                    NewShownModTransforms.Add(show.Trim());
+                foreach (string show in SplitAndTrim(shows, ','))
+                    NewShownModTransforms.Add(show);
             }
         }
         // Check if there are any changes to any physics
@@ -214,8 +245,10 @@ public class VPMower : VehiclePart
         }
 
         // Cache states for faster run-time during update calls
-        ProtectPlayerPlants = HarvestTags.Contains("protect");
-        DoReseed = HarvestTags.Contains("reseed");
+        ProtectGrowingPlants = HarvestTags.Contains("growProtector");
+        // IsWildHarvesterInstalled = HarvestTags.Contains("plantCollector");
+        // IsCropHarvesterInstalled = HarvestTags.Contains("cropMowing");
+        DoReseed = HarvestTags.Contains("tractorReseed");
     }
 
     // ####################################################################
@@ -394,42 +427,54 @@ public class VPMower : VehiclePart
                 {
                     // Get current block at position to check if mow-able
                     BlockValue block = world.GetBlock(blockPos + offset);
-                    if (!ShouldHarvest(block)) continue;
-                    bool isPlayerPlant = IsGrownPlayerPlant(
-                        block.Block, out string replacement);
-                    // Block to replace mowed block with
+                    // Check if block is harvestable by mower
+                    if (!ShouldMowDown(block)) continue;
+                    // Determine reseeding/replacement block 
+                    // Defaults to replace it with "nothing"
                     BlockValue reseed = BlockValue.Air;
-                    // Do we need a seed for re-planting?
-                    bool isFreeReseed = false;
-                    // Keep downgrade path intact if there is one on the block
-                    if (block.Block.DowngradeBlock.type != BlockValue.Air.type)
+
+                    // Check if block has a downgrade path
+                    bool hasDowngrade = BlockValue.Air.type
+                        != block.Block.DowngradeBlock.type;
+                    // Always downgrade if there is a path
+                    // Or reseed a replacement
+                    if (DoReseed)
                     {
-                        // Only downgrade if player plants are protected
-                        // Otherwise will be mowed down again with next cut
-                        if (isFreeReseed = ProtectPlayerPlants == true)
+                        if (hasDowngrade == true)
+                        {
                             reseed = block.Block.DowngradeBlock;
+                        }
+                        else
+                        {
+                            // Get explicit crop replacement for reseeding
+                            string replacement = GetCropReplacement(block.Block);
+                            // Fetch the BlockValue if property was found
+                            if (replacement != null) reseed =
+                                Block.GetBlockValue(replacement);
+                        }
+                        // Delay any repeated reseed actions
+                        if (reseed.type != BlockValue.Air.type)
+                        {
+                            // Implement own timer to slow down planting
+                            if (LastPlant < PlantInterval) continue;
+                            LastPlant = 0; // One at a time
+                        }
                     }
-                    if (DoReseed && isPlayerPlant)
+
+                    if (hasStorage)
                     {
-                        // Implement own timer to slow down farming
-                        if (LastPlant < PlantInterval) continue;
-                        LastPlant = 0; // One at a time
-                        // Put harvested items into bag (for re-use)
+                        // Put harvested items into bag (same tick re-use)
                         // Must execute this before trying to get a seed
+                        // Yield is determined by tags from modifiers
+                        // E.g. adjust yield (seeds) for downgradables
                         hasInventoryChanges |= HarvestBlockToBag(
                             block.Block, vehicle.entity.bag, random);
-                    }
-                    // Put harvested items into bag
-                    hasInventoryChanges |= HarvestBlockToBag(
-                        block.Block, vehicle.entity.bag, random);
-                    // Check if reseeding is an option and if it needs a seed
-                    if (!isFreeReseed && reseed.type != BlockValue.Air.type)
-                    {
                         // Get the seed from the bag, if not there, use air
                         if (DecrementBagItem(vehicle.entity.bag, reseed))
                             hasInventoryChanges = true;
                         else reseed = BlockValue.Air;
                     }
+
                     // Replace existing block with new one
                     // Either air or a new crop seed to grow
                     _blockChangeInfo.Add(new BlockChangeInfo(
@@ -455,7 +500,7 @@ public class VPMower : VehiclePart
         vehicle.entity.StopUIInteraction();
     }
 
-    private bool IsGrownPlayerPlant(Block block, out string replacement)
+    private string GetCropReplacement(Block block)
     {
         // We simply match and mangle the name
         // At least that seems to have a system
@@ -464,48 +509,66 @@ public class VPMower : VehiclePart
         if (name.EndsWith("3HarvestPlayer"))
         {
             // Assume vanilla replacement
-            replacement = name.Substring(
-                0, name.Length - 14) + "1";
-            return true;
+            return name.Substring(0,
+                name.Length - 14) + "1";
         }
         // Check for DF plant block names
         else if (name.EndsWith("HarvestPlayer"))
         {
             // Assume DF replacement schema
-            replacement = name.Substring(
-                0, name.Length - 13);
-            return true;
+            return name.Substring(0,
+                name.Length - 13);
         }
         // Or fall-back to properties to support any plant
         else if (block.Properties.Values.TryGetString(
-            "CropReplacement", out replacement)) {
-                return true;
+            "CropReplacement", out string replacement)) {
+                return replacement;
         }
-        // Not to be collected/replaced
-        return false;
+        // Not found
+        return null;
     }
 
-    private bool ShouldHarvest(BlockValue block)
+    private bool ShouldMowDown(BlockValue block)
     {
         // Check for multi-dim blocks
         // Only work on master block
         if (block.ischild) return false;
         // Do fast check for air
         if (block.isair) return false;
-        // Mushrooms are not marked `isPlant` so we use this check
-        if (block.Block.blockMaterial.SurfaceCategory != "plant") return false;
         // Don't mow down things that support things (cactus only?)
         if (block.Block.blockMaterial.StabilitySupport) return false;
-        // Check if we protect growing plants?
-        if (ProtectPlayerPlants == false) return true;
-        // Use custom property to mark plants to harvest
-        // Will have some CPU impact, but may be negigable
-        // Dedicating some CPU power when harvester is running
-        return block.Block.Properties.GetBool("HarvestCrop") ||
-            block.Block.Properties.Contains("CropReplacement");
-        // Check below was used before, but DF uses it also for
-        // fully grown plants, so no way around custom property
-        // if (block.Block is BlockPlantGrowing) return false;
+
+        // Is protector installed?
+        if (ProtectGrowingPlants)
+        {
+            // Never mow down growing plants
+            // Growing plants are assumed to
+            // be from players only (not wild)
+            if (IsGrowingPlant(block)) return false;
+        }
+
+        // Mow down everything marked as a "plant"
+        return block.Block.blockMaterial.SurfaceCategory == "plant";
+    }
+
+    private bool IsGrowingPlant(BlockValue block)
+    {
+        var name = block.Block.GetType().Name;
+        // Check the we have a block it can grow into
+        // Note: this fixes an issue with Darkness Falls
+        // Note: vanilla sets `BlockPlantGrowing.nextPlant`
+        // if (block.Block.UpgradeBlock.isair) return false;
+        // ToDo: maybe just rely on having an upgrade block?
+        return name.StartsWith("BlockPlantGrowing");
+    }
+
+    private bool IsPlayerPlant(BlockValue block)
+    {
+        string name = block.Block.GetBlockName();
+        if (name.EndsWith("3HarvestPlayer")) return true;
+        if (name.EndsWith("PlantPlayer")) return true; // DF
+        return false;
+
     }
 
     // ####################################################################
@@ -514,7 +577,7 @@ public class VPMower : VehiclePart
     // Helper function to get `wanted` item from `bag`, and if OK, updates `reseed`
     private bool DecrementBagItem(Bag bag, BlockValue bv)
     {
-        if (bv.type == BlockValue.Air.type) return false;
+        if (bv.isair) return false;
         ItemValue iv = bv.ToItemValue();
         bool reseeded = bag.DecItem(iv, 1, true) != 0;
         // Force lawn tractor bag to display inventory changes
@@ -553,15 +616,44 @@ public class VPMower : VehiclePart
     {
         bool changes = false;
         if (bag == null) return changes;
+        if (drops == null) return changes;
+        if (drops.Count == 0) return changes;
+        // Get reference to inform about harvest (might be expensive on CPU)
+        EntityPlayerLocal player = vehicle?.entity?.GetAttachedPlayerLocal();
+        // Process all entries (probability was checked)
         foreach (Block.SItemDropProb drop in drops)
         {
-            // Only allow to get harvestable items
+            // Only allow to get our harvestable items
             if (!HarvestTags.Contains(drop.tag)) continue;
+            // Skip if drop has tool category we don't have
+            if (!string.IsNullOrEmpty(drop.toolCategory))
+                if (!HarvestTools.Contains(drop.toolCategory))
+                    continue;
+            // Check for optional requirements (2nd check)
+            // If you want this yield as bonus for another tag
+            // if (Requirements.TryGetValue(drop.tag, out var requirements))
+            //     foreach (var requirement in requirements)
+            //         if (!HarvestTags.Contains(requirement)) continue;
+            
             // Apply overall probability if we get anything at all?
             if (random.RandomDouble > drop.prob) continue;
+            // Log.Out(" has prop", drop.prob);
             // Get random count if min and max are different
             int count = drop.minCount == drop.maxCount ? drop.maxCount
                 : random.RandomRange(drop.minCount, drop.maxCount + 1);
+            // Log.Out(" has count", count);
+            // Get effects from player (doesn't include vehicle)
+            // Note: passing `vehicle.entity` would not include player
+            // So one governs perk progression, the other vehicle mods
+            // And we already have the vehicle mods status calculated
+            float effect = EffectManager.GetValue(
+                PassiveEffects.HarvestCount, null, count,
+                player, tags: FastTags.Parse(drop.tag));
+
+            // Log.Out(" has effect", effect);
+            // We use rounding rules here (why not)
+            count = (int)Math.Round(count * effect);
+            // Adjust count by effect
             // Skip if no luck with RNG
             if (count <= 0) continue;
             // Finally try to add the items to the bag (if there is space left)

@@ -1,81 +1,144 @@
-﻿<configs>
-	<!-- WHEAT -->
+﻿<configs patcher-version="5">
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="DFWheatPlantWild"
+		tmpl-plant-player-name="DFWheatPlantPlayer"
+		tmpl-item-name="DFWheat"
+		tmpl-seed-name="DFseedWheat"
+		tmpl-harvest-type="plant"
+	/>
 
-	<append xpath="/blocks/block[@name='DFWheatPlantWild']">
-		<property name="HarvestCrop" value="true"/>
-		<drop event="Harvest" name="DFWheat" count="1" prob="0.75" tag="wildMowing"/>
-		<drop event="Harvest" name="DFWheat" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFWheatPlantYoung']">
-		<property name="ProtectedPlant" value="true"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFWheatPlantPlayer']">
-		<property name="CropReplacement" value="DFseedWheat"/>
-		<drop event="Harvest" name="DFWheat" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="DFseedWheat" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="DFCannabisPlantWild"
+		tmpl-plant-player-name="DFCannabisPlantPlayer"
+		tmpl-item-name="drugCannabisBud"
+		tmpl-seed-name="DFseedCannabis"
+		tmpl-harvest-type="plant"
+	/>
 
-	<!-- CANNABIS -->
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="DFRicePlantWild"
+		tmpl-plant-player-name="DFRicePlantPlayer"
+		tmpl-item-name="DFRice"
+		tmpl-seed-name="DFseedRice"
+		tmpl-harvest-type="plant"
+	/>
 
-	<append xpath="/blocks/block[@name='DFCannabisPlantWild']">
-		<property name="HarvestCrop" value="true"/>
-		<drop event="Harvest" name="drugCannabisBud" count="1" prob="0.5" tag="wildMowing"/>
-		<drop event="Harvest" name="drugCannabisBud" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFCannabisPlantYoung']">
-		<property name="ProtectedPlant" value="true"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFCannabisPlantPlayer']">
-		<property name="CropReplacement" value="DFseedCannabis"/>
-		<drop event="Harvest" name="drugCannabisBud" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="DFseedCannabis" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="DFtomatoPlantWild"
+		tmpl-plant-player-name="DFtomatoPlantPlayer"
+		tmpl-item-name="DFTomato"
+		tmpl-seed-name="DFseedTomato"
+		tmpl-harvest-type="crop"
+	/>
 
-	<!-- RICE -->
+	<include
+		path="blocks.a21.tmpl.xml"
+		tmpl-plant-wild-name="DFcarrotPlantWild"
+		tmpl-plant-player-name="DFcarrotPlantPlayer"
+		tmpl-item-name="DFCarrot"
+		tmpl-seed-name="DFseedCarrot"
+		tmpl-harvest-type="crop"
+	/>
 
-	<append xpath="/blocks/block[@name='DFRicePlantWild']">
-		<property name="HarvestCrop" value="true"/>
-		<drop event="Harvest" name="DFRice" count="1" prob="0.5" tag="wildMowing"/>
-		<drop event="Harvest" name="DFRice" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFRicePlantYoung']">
-		<property name="ProtectedPlant" value="true"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFRicePlantPlayer']">
-		<property name="CropReplacement" value="DFseedRice"/>
-		<drop event="Harvest" name="DFRice" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="DFseedRice" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<!-- UNDERGROUND CROPS -->
 
-	<!-- TOMATO -->
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedCotton3UndergroundHarvest"
+		tmpl-item-name="resourceCropCottonPlant"
+		tmpl-seed-name="plantedCotton1Underground"
+		tmpl-harvest-type="plant"
+	/>
 
-	<append xpath="/blocks/block[@name='DFtomatoPlantWild']">
-		<property name="HarvestCrop" value="true"/>
-		<!-- <drop event="Harvest" name="DFTomato" count="1" prob="0.5" tag="wildMowing"/> -->
-		<drop event="Harvest" name="DFTomato" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFCannabisPlantYoung']">
-		<property name="ProtectedPlant" value="true"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFtomatoPlantPlayer']">
-		<property name="CropReplacement" value="DFseedTomato"/>
-		<drop event="Harvest" name="DFTomato" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="DFseedTomato" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedChrysanthemum3UndergroundHarvest"
+		tmpl-item-name="resourceCropChrysanthemumPlant"
+		tmpl-seed-name="plantedChrysanthemum1Underground"
+		tmpl-harvest-type="plant"
+	/>
 
-	<!-- CARROT -->
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedGoldenrod3UndergroundHarvest"
+		tmpl-item-name="resourceCropGoldenrodPlant"
+		tmpl-seed-name="plantedGoldenrod1Underground"
+		tmpl-harvest-type="plant"
+	/>
 
-	<append xpath="/blocks/block[@name='DFcarrotPlantWild']">
-		<property name="HarvestCrop" value="true"/>
-		<!-- <drop event="Harvest" name="foodCropOnion" count="1" prob="0.5" tag="wildMowing"/> -->
-		<drop event="Harvest" name="DFCarrot" count="1,3" prob="0.975" tag="cropMowing"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFcarrotPlantYoung']">
-		<property name="ProtectedPlant" value="true"/>
-	</append>
-	<append xpath="/blocks/block[@name='DFcarrotPlantPlayer']">
-		<property name="CropReplacement" value="DFseedCarrot"/>
-		<drop event="Harvest" name="DFCarrot" count="2,4" prob="0.925" tag="cropMowing"/>
-		<drop event="Destroy" name="DFseedCarrot" count="1,2" prob="0.775" tag="cropMowing"/>
-	</append>
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedBlueberry3UndergroundHarvest"
+		tmpl-item-name="foodCropBlueberries"
+		tmpl-seed-name="plantedBlueberry1Underground"
+		tmpl-harvest-type="plant"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedAloe3UndergroundHarvest"
+		tmpl-item-name="resourceCropAloeLeaf"
+		tmpl-seed-name="plantedAloe1Underground"
+		tmpl-harvest-type="plant"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedCoffee3UndergroundHarvest"
+		tmpl-item-name="resourceCropCoffeeBeans"
+		tmpl-seed-name="plantedCoffee1Underground"
+		tmpl-harvest-type="plant"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedHop3UndergroundHarvest"
+		tmpl-item-name="resourceCropHopsFlower"
+		tmpl-seed-name="plantedHop1Underground"
+		tmpl-harvest-type="plant"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedCorn3UndergroundHarvest"
+		tmpl-item-name="foodCropCorn"
+		tmpl-seed-name="plantedCorn1Underground"
+		tmpl-harvest-type="crop"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedGraceCorn3UndergroundHarvest"
+		tmpl-item-name="foodCropGraceCorn"
+		tmpl-seed-name="plantedGraceCorn1Underground"
+		tmpl-harvest-type="crop"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedPotato3UndergroundHarvest"
+		tmpl-item-name="foodCropPotato"
+		tmpl-seed-name="plantedPotato1Underground"
+		tmpl-harvest-type="crop"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedPumpkin3UndergroundHarvest"
+		tmpl-item-name="foodCropPumpkin"
+		tmpl-seed-name="plantedPumpkin1Underground"
+		tmpl-harvest-type="crop"
+	/>
+
+	<include
+		path="tmpl-blocks/plant.player.xml"
+		tmpl-plant-player-name="plantedYucca3UndergroundHarvest"
+		tmpl-item-name="foodCropYuccaFruit"
+		tmpl-seed-name="plantedYucca1Underground"
+		tmpl-harvest-type="crop"
+	/>
 </configs>

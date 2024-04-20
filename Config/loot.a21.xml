@@ -1,6 +1,15 @@
 <config>
 	<append xpath="/lootcontainers">
-		<lootcontainer id="4826" name="LawnTractor" count="1,2" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+		<lootcontainer
+			id="4826"
+			name="LawnTractor"
+			count="1,2"
+			size="7,4"
+			sound_open="UseActions/open_vehicle"
+			sound_close="UseActions/close_vehicle"
+			open_time="4"
+			loot_quality_template="qualBaseTemplate"
+		>
 			<item group="groupCars"/>
 			<item name="modVehicleLawnTractorGrassCollectorSchematic" mod_chance="1" prob="0.035"/>
 			<item name="modVehicleLawnTractorPlantCollectorSchematic" mod_chance="1" prob="0.025"/>

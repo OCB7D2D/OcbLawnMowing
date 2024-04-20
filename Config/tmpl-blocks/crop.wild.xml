@@ -1,0 +1,33 @@
+﻿<configs patcher-version="4">
+	<!-- crops (higher tier) grown in the wild -->
+	<modif condition="DarknessFallsCore">
+		<!-- DF distribution (by perk lvl): -->
+		<!-- Harvesting with hoe gives +2 -->
+		<!-- Averages are with hoe (max) -->
+		<!-- Lvl 0: avg 3 items, no seed -->
+		<!-- Lvl 5: avg 4 items, no seed -->
+		<append xpath="/blocks/block[@name='{{plant-wild-name}}']">
+			<drop event="Harvest" name="{{item-name}}" count="1" prob="0.725" tag="wildMowing" tool_category="CropHarvester"/>
+			<!-- DF gives no seeds for wild plants, give a slight chance with the lawn mower -->
+			<drop event="Destroy" name="{{seed-name}}" count="1" prob="0.075" tag="lawnMowing" tool_category="CropHarvester"/>
+		</append>
+	</modif>
+	<modelse>
+		<!-- Vanilla distribution (by perk lvl): -->
+		<!-- Lvl 0: avg 1 item, no seed -->
+		<!-- Lvl 1: avg 2 items, no seed -->
+		<!-- Lvl 2: avg 2.5 items, no seed -->
+		<!-- Lvl 3: avg 3.5 items, no seed -->
+		<append xpath="/blocks/block[@name='{{plant-wild-name}}']">
+			<drop event="Harvest" name="{{item-name}}" count="1" prob="0.775" tag="wildMowing" tool_category="CropHarvester"/>
+			<drop event="Harvest" name="{{item-name}}" count="1" prob="0.775" tag="wildMowingBonus" tool_category="CropHarvester"/>
+			<!-- wild plants never give any seeds in vanilla -->
+		</append>
+	</modelse>
+	<modif condition="Random_Regrowing_Wild_Crops">
+		<append xpath="/blocks/block[@name='{{plant-wild-name}}']">
+			<!-- Give at least a seed back if we mow the plant down (not sure compatibility even makes sense at this point) -->
+			<drop event="Destroy" name="{{seed-name}}" count="1" prob="0.875" tag="lawnMowing" tool_category="CropHarvester"/>
+		</append>
+	</modif>
+</configs>

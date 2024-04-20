@@ -1,59 +1,41 @@
 ﻿<configs>
 	<!-- COTTON -->
 
-	<append xpath="/blocks/block[@name='plantedCotton3Regrow']">
-		<drop event="Harvest" name="resourceCropCottonPlant" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="resourceCropCottonPlant" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedCotton3Regrow" tmpl-item-name="resourceCropCottonPlant" tmpl-seed-name="plantedCotton1" tmpl-harvest-type="plant"/>
 
 	<!-- CHRYSANTHEMUM -->
 
-	<append xpath="/blocks/block[@name='plantedChrysanthemum3Regrow']">
-		<drop event="Harvest" name="resourceCropChrysanthemumPlant" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="resourceCropChrysanthemumPlant" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include
+		path="tmpl-blocks/plant.wild.xml"
+		tmpl-plant-wild-name="plantedChrysanthemum3Harvest"
+		tmpl-item-name="resourceCropChrysanthemumPlant"
+		tmpl-seed-name="plantedChrysanthemum1"
+		tmpl-harvest-type="plant"
+	/>
 
 	<!-- GOLDEN ROD -->
 
-	<append xpath="/blocks/block[@name='plantedGoldenrod3Regrow']">
-		<drop event="Harvest" name="resourceCropGoldenrodPlant" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="resourceCropGoldenrodPlant" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedGoldenrod3Regrow" tmpl-item-name="resourceCropGoldenrodPlant" tmpl-seed-name="plantedGoldenrod1"/>
 
 	<!-- BLUEBERRY -->
 
-	<append xpath="/blocks/block[@name='plantedBlueberry3Regrow']">
-		<drop event="Harvest" name="foodCropBlueberries" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="foodCropBlueberries" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedBlueberry3Regrow" tmpl-item-name="foodCropBlueberries" tmpl-seed-name="plantedBlueberry1"/>
 
 	<!-- ALOE -->
 
-	<append xpath="/blocks/block[@name='plantedAloe3Regrow']">
-		<drop event="Harvest" name="resourceCropAloeLeaf" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="resourceCropAloeLeaf" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedAloe3Regrow" tmpl-item-name="resourceCropAloeLeaf" tmpl-seed-name="plantedAloe1"/>
 
 	<!-- COFFEE -->
 
-	<append xpath="/blocks/block[@name='plantedCoffee3Regrow']">
-		<drop event="Harvest" name="resourceCropCoffeeBeans" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="resourceCropCoffeeBeans" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedCoffee3Regrow" tmpl-item-name="resourceCropCoffeeBeans" tmpl-seed-name="plantedCoffee1"/>
 
 	<!-- HOP -->
 
-	<append xpath="/blocks/block[@name='plantedHop3Regrow']">
-		<drop event="Harvest" name="resourceCropHopsFlower" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="resourceCropHopsFlower" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedCoffee3Regrow" tmpl-item-name="resourceCropCoffeeBeans" tmpl-seed-name="plantedCoffee1"/>
 
 	<!-- MUSHROOM -->
 
-	<append xpath="/blocks/block[@name='plantedMushroom3Regrow']">
-		<drop event="Harvest" name="foodCropMushrooms" count="1" prob="0.35" tag="wildMowing"/>
-		<drop event="Harvest" name="foodCropMushrooms" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/plant.wild.xml" tmpl-plant-wild-name="plantedMushroom3Regrow" tmpl-item-name="foodCropMushrooms" tmpl-seed-name="plantedMushroom1"/>
 
 	<!-- ############################################################################ -->
 	<!-- ITEMS BELOW CAN ONLY BE HARVESTED WITH CROP MOWER ADDON (WILD IS NOT ENOUGH) -->
@@ -61,31 +43,21 @@
 
 	<!-- CORN -->
 
-	<append xpath="/blocks/block[@name='plantedCorn3Regrow']">
-		<drop event="Harvest" name="foodCropCorn" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/crop.wild.xml" tmpl-plant-wild-name="plantedCorn3Regrow" tmpl-item-name="foodCropCorn" tmpl-seed-name="plantedCorn1"/>
 
 	<!-- GRACE CORN -->
 
-	<append xpath="/blocks/block[@name='plantedGraceCorn3Regrow']">
-		<drop event="Harvest" name="foodCropGraceCorn" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/crop.wild.xml" tmpl-plant-wild-name="plantedGraceCorn3Regrow" tmpl-item-name="foodCropGraceCorn" tmpl-seed-name="plantedGraceCorn1"/>
 
 	<!-- POTATO -->
 
-	<append xpath="/blocks/block[@name='plantedPotato3Regrow']">
-		<drop event="Harvest" name="foodCropPotato" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/crop.wild.xml" tmpl-plant-wild-name="plantedPotato3Regrow" tmpl-item-name="foodCropPotato" tmpl-seed-name="plantedPotato1"/>
 
 	<!-- PUMPKIN -->
 
-	<append xpath="/blocks/block[@name='plantedPumpkin3Regrow']">
-		<drop event="Harvest" name="foodCropPumpkin" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/crop.wild.xml" tmpl-plant-wild-name="plantedPumpkin3Regrow" tmpl-item-name="foodCropPumpkin" tmpl-seed-name="plantedPumpkin1"/>
 
 	<!-- YUCCA -->
 
-	<append xpath="/blocks/block[@name='plantedYucca3Regrow']">
-		<drop event="Harvest" name="foodCropYuccaFruit" count="1" prob="0.75" tag="cropMowing"/>
-	</append>
+	<include path="tmpl-blocks/crop.wild.xml" tmpl-plant-wild-name="plantedYucca3Regrow" tmpl-item-name="foodCropYuccaFruit" tmpl-seed-name="plantedYucca1"/>
 </configs>

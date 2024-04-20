@@ -2,7 +2,7 @@
 	<include path="blocks.damaged.xml"/>
 
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="blocks.a20.ulm.xml"/>
+		<include path="blocks.a21.ulm.xml"/>
 	</modif>
 	<modelsif condition="DarknessFallsCore">
 		<include path="blocks.a21.df.xml"/>
@@ -15,15 +15,19 @@
 	</modelse>
 
 	<include path="blocks.a21.xml"/>
+	<include path="blocks.a21.grass.xml"/>
 
-	<modif condition="FoodExpansion">
+	<modif condition="MoonpieFoodExpansion">
+		<!-- ToDo: check after DF refactoring -->
 		<include path="blocks.foodexp.xml"/>
 	</modif>
 
 	<modif condition="Random_Regrowing_Wild_Crops">
+		<!-- ToDo: check after DF refactoring -->
 		<include path="blocks.regrow.xml"/>
 	</modif>
 
-	<!-- Enable Harvestable player blocks to be placed via dev console for testing purposes -->
-	<!-- <setattribute xpath="/blocks/block[contains(@name, '3HarvestPlayer')]/property[@name='CreativeMode' and @value='None']" name="name">Dev</setattribute> -->
+	<!-- Enable plant blocks to be placed via dev console for testing purposes -->
+	<!-- <append xpath="/blocks/block[starts-with(@name, 'DF')]"><property name="CreativeMode" value="Player"/></append> -->
+	<!-- <append xpath="/blocks/block[starts-with(@name, 'planted')]"><property name="CreativeMode" value="Player"/></append> -->
 </configs>
