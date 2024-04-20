@@ -36,4 +36,16 @@
 	<!-- Allow the crop protector and reseeder also to be built by advanced engineering perk (for all other classes) -->
 	<csv xpath="/progression/perks/perk[@name='perkCraftTools']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='1,5']/@tags" op="add">modVehicleLawnTractorCropsProtector</csv>
 	<csv xpath="/progression/perks/perk[@name='perkCraftTools']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='4,5']/@tags" op="add">modVehicleLawnTractorCropsReseeder</csv>
+
+	<!-- increaes yield with living of the land perk -->
+	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']">
+		<!-- Enable effect if in a vehicle -->
+		<effect_group name="InLawnTractor">
+			<!-- Vehicle requirement should be enough -->
+			<requirement name="IsAttachedToEntity"/>
+			<!-- must not alter `base` if not within same vehicle requirement as initialization -->
+			<passive_effect name="HarvestCount" operation="perc_add" value="1,2,3,3" level="2,3,4,5" tags="grownMowing"/>
+			<passive_effect name="HarvestCount" operation="perc_add" value="1" level="5" tags="wildMowing"/>
+		</effect_group>
+	</append>
 </configs>

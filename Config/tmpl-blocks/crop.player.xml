@@ -1,0 +1,31 @@
+﻿<configs patcher-version="4">
+	<!-- crops (higher tier) grown by player -->
+	<modif condition="DarknessFallsCore">
+		<!-- DF distribution (by perk lvl): -->
+		<!-- Harvesting with hoe gives +2 -->
+		<!-- Averages are with hoe (max) -->
+		<!-- Lvl 0: avg 3 items, 1 seed -->
+		<!-- Lvl 2: avg 4 items, 1 seed -->
+		<!-- Lvl 3: avg 5 items, 1 seed -->
+		<!-- Lvl 4: avg 6 items, 1 seed -->
+		<append xpath="/blocks/block[@name='{{plant-player-name}}']">
+			<drop event="Harvest" name="{{item-name}}" count="1" prob="0.775" tag="grownMowing" tool_category="CropHarvester"/>
+			<drop event="Harvest" name="{{item-name}}" count="1" prob="0.775" tag="grownMowingBonus" tool_category="CropHarvester"/>
+			<!-- seed will not progress in vanilla ever, still needs a protection tag to avoid manual harvest -->
+			<drop event="Destroy" name="{{seed-name}}" count="1" prob="0.875" tag="lawnMowing" tool_category="CropHarvester"/>
+		</append>
+	</modif>
+	<modelse>
+		<!-- Vanilla distribution (by perk lvl): -->
+		<!-- Lvl 0: avg 2 items, 0.5 seeds -->
+		<!-- Lvl 1: avg 4 items, 0.5 seeds -->
+		<!-- Lvl 2: avg 4.5 items, 0.5 seeds -->
+		<!-- Lvl 3: avg 6.5 items, 0.5 seeds -->
+		<append xpath="/blocks/block[@name='{{plant-player-name}}']">
+			<drop event="Harvest" name="{{item-name}}" count="2" prob="0.775" tag="grownMowing" tool_category="CropHarvester"/>
+			<drop event="Harvest" name="{{item-name}}" count="1" prob="0.775" tag="grownMowingBonus" tool_category="CropHarvester"/>
+			<!-- seed will not progress in vanilla ever, still needs a protection tag to avoid manual harvest -->
+			<drop event="Destroy" name="{{seed-name}}" count="1" prob="0.375" tag="lawnMowing" tool_category="CropHarvester"/>
+		</append>
+	</modelse>
+</configs>

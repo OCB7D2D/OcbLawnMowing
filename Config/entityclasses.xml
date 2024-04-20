@@ -22,7 +22,47 @@
 		</entity_class>
 	</append>
 
+	<!-- append into the effect group that has the other harvest count base setters -->
+	<!-- should be generic enough to properly work for vanilla and DF (and maybe others) -->
+	<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group[
+          passive_effect[@name='HarvestCount' and @operation='base_set' and @value='0']]">
+		<!-- ensure we have the same base for all drop events (otherwise destroy will yield) -->
+		<!-- Lawn Tractor will actually ignore these all together (just here to fix player) -->
+		<!-- as it uses player effects in order to properly scale with progression perks -->
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="wildMowing"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="grownMowing"/>
+		<!-- duplicate the effect tags in order to make seed harvest not scale with other -->
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="wildMowingBonus"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="grownMowingBonus"/>
+		<!-- some additional tags to realize different harvesting effects -->
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="lawnMowing"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="growReseed"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="growReseedBonus"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="growProtector"/>
+	</append>
+
+	<!-- own group with vehicle requirement to enable effect -->
+	<!-- lawn tractor is the only vehicle to use `HarvestCount` -->
+	<append xpath="/entity_classes/entity_class[@name='playerMale']">
+		<!-- Enable effect if in a vehicle -->
+		<effect_group name="InLawnTractor">
+			<!-- Vehicle requirement should be enough -->
+			<requirement name="IsAttachedToEntity"/>
+			<!-- Add one to the base value of zero that we've set above if requirement is met -->
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="wildMowing"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="grownMowing"/>
+			<!-- duplicate the effect tags in order to make seed harvest not scale with other -->
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="wildMowingBonus"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="grownMowingBonus"/>
+			<!-- some additional tags to realize different harvesting effects -->
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="lawnMowing"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="growReseed"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="growReseedBonus"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="growProtector"/>
+		</effect_group>
+	</append>
+
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="entityclasses.a20.ulm.xml"/>
+		<include path="entityclasses.a21.ulm.xml"/>
 	</modif>
 </configs>

@@ -8,8 +8,10 @@
 			<property name="CustomIcon" value="modVehicleLawnTractorGrassCollector"/>
 			<property name="ShowTransforms" value="mower_bag"/>
 			<property name="EnablePhysics" value="p_mower_bag"/>
-			<!-- add comma to include untagged things, e.g. value=",allHarvest" -->
-			<property name="MowerHarvestTags" value="grassMowing"/>
+			<!-- harvest everything that is marked for grass mowing -->
+			<!-- this way we can easily adjust and nerf probabilities -->
+			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
+			<property name="MowerHarvestTools" value="GrassCollector"/>
 		</item_modifier>
 
 		<!-- Items below form a group (only one mod can be installed) -->
@@ -20,9 +22,10 @@
 			<property name="CustomIcon" value="modVehicleLawnTractorPlantCollector"/>
 			<property name="ShowTransforms" value="mower_bag"/>
 			<property name="EnablePhysics" value="p_mower_bag"/>
-			<!-- harvest everything that is marked for wild mowing -->
+			<!-- harvest everything that is marked for plant mowing -->
 			<!-- this way we can easily adjust and nerf probabilities -->
-			<property name="MowerHarvestTags" value="wildMowing"/>
+			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
+			<property name="MowerHarvestTools" value="PlantCollector"/>
 		</item_modifier>
 
 		<item_modifier name="modVehicleLawnTractorCropsCollector" installable_tags="vmower" modifier_tags="mowerCrops" type="attachment" blocked_tags="mowerCrops">
@@ -31,10 +34,10 @@
 			<property name="CustomIcon" value="modVehicleLawnTractorCropsCollector"/>
 			<property name="ShowTransforms" value="mower_bag"/>
 			<property name="EnablePhysics" value="p_mower_bag"/>
-			<!-- we allow both, since you don't get the same amount if only one is equipped -->
-			<!-- therefore people would anyway have to install both mods to get the best yield -->
-			<!-- makes it more clear, so people don't loose yield because it's too complex -->
-			<property name="MowerHarvestTags" value="wildMowing,cropMowing"/>
+			<!-- harvest everything that is marked for crop mowing -->
+			<!-- this way we can easily adjust and nerf probabilities -->
+			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
+			<property name="MowerHarvestTools" value="CropHarvester"/>
 		</item_modifier>
 
 		<!-- Items below form a group (only one mod can be installed) -->
@@ -46,7 +49,8 @@
 			<property name="Extends" value="modGeneralMaster"/>
 			<property name="UnlockedBy" value="perkAdvancedEngineering,modVehicleLawnTractorCropsProtectorSchematic"/>
 			<property name="CustomIcon" value="modVehicleLawnTractorCropsProtector"/>
-			<property name="MowerHarvestTags" value="protect"/>
+			<property name="MowerHarvestTags" value="lawnMowing,growProtector"/>
+			<property name="MowerHarvestTools" value="GrowProtector"/>
 			<property name="ShowTransforms" value="mower_fender"/>
 			<property name="EnablePhysics" value="p_mower_fender"/>
 			<property name="DamageModifier" value="0.4"/>
@@ -56,7 +60,12 @@
 			<property name="Extends" value="modGeneralMaster"/>
 			<property name="UnlockedBy" value="perkAdvancedEngineering,modVehicleLawnTractorCropsReseederSchematic"/>
 			<property name="CustomIcon" value="modVehicleLawnTractorCropsReseeder"/>
-			<property name="MowerHarvestTags" value="protect,reseed"/>
+			<property name="MowerHarvestTags" value="lawnMowing,growProtector,growReseed,growReseedBonus"/>
+			<property name="MowerHarvestTools" value="GrowReseeder"/>
+			<!-- requires any of these dependencies to actually do the harvesting -->
+			<!-- used to give bonus drop if any of those collectors are installed -->
+			<!-- otherwise it would harvest without a proper catching device -->
+			<!-- <property name="HarvestRequirements" value="cropMowing"/> -->
 			<property name="ShowTransforms" value="mower_fender"/>
 			<property name="EnablePhysics" value="p_mower_fender"/>
 			<property name="DamageModifier" value="0.4"/>

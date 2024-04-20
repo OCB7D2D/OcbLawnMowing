@@ -22,7 +22,13 @@
 			<ingredient name="resourceScrapPolymers" count="40"/>
 			<ingredient name="resourceDuctTape" count="8"/>
 			<effect_group>
-				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceForgedSteel,resourceMechanicalParts,resourceScrapPolymers,resourceDuctTape"/>
+				<passive_effect
+					name="CraftingIngredientCount"
+					operation="perc_add"
+					level="0,3"
+					value=".5,.5"
+					tags="resourceForgedSteel,resourceMechanicalParts,resourceScrapPolymers,resourceDuctTape"
+				/>
 			</effect_group>
 		</recipe>
 

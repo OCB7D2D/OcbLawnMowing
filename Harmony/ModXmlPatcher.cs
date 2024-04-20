@@ -140,6 +140,47 @@ static class ModXmlPatcher
         return true;
     }
 
+    // Static dictionary for templating
+    static Dictionary<string, string> dict =
+        new Dictionary<string, string>();
+
+    // Helper class to keep correct template dict scoping
+    // Add new keys when initialized, restores old on close
+    private class DictScopeHelper : IDisposable
+    {
+        Dictionary<string, string> prev = null;
+        public DictScopeHelper(XElement element) =>
+            dict = GetTemplateValues(prev = dict, element);
+        public void Dispose() => dict = prev;
+    }
+
+    // Add placeholder keys to our template dictionary
+    private static Dictionary<string, string> GetTemplateValues(
+        Dictionary<string, string> parent, XElement child)
+    {
+        // Make a copy of the parent dictionary
+        Dictionary<string, string> dict =
+            new Dictionary<string, string>(parent);
+        // Add new template values to dictionary
+        foreach (var attr in child.Attributes())
+        {
+            if (!attr.Name.LocalName.StartsWith("tmpl-")) continue;
+            dict[attr.Name.LocalName.Substring(5)] = attr.Value;
+        }
+        // Return new dict
+        return dict;
+    }
+
+    // Replace all placeholder the dictionary contains
+    private static void ReplaceTemplateOccurences(
+        Dictionary<string, string> dict, ref string text)
+    {
+        foreach (var kv in dict)
+            text = text.Replace(
+                "{{" + kv.Key + "}}",
+                kv.Value);
+    }
+
     // We need to call into the private function to proceed with XML patching
     private static readonly MethodInfo MethodSinglePatch = AccessTools.Method(typeof(XmlPatcher), "singlePatch");
 
@@ -147,49 +188,53 @@ static class ModXmlPatcher
     private static bool IncludeAnotherDocument(XmlFile target, XmlFile parent, XElement element, string modName)
     {
         bool result = true;
-        foreach (XAttribute attr in element.Attributes())
-        {
-            // Skip unknown attributes
-            if (attr.Name != "path") continue;
-            // Load path relative to previous XML include
-            string prev = Path.Combine(parent.Directory, parent.Filename);
-            string path = Path.Combine(Path.GetDirectoryName(prev), attr.Value);
-            if (File.Exists(path))
+
+        // Add template values to dictionary
+        using (var tmpls = new DictScopeHelper(element))
+            foreach (XAttribute attr in element.Attributes())
             {
-                try
+                // Skip unknown attributes
+                if (attr.Name != "path") continue;
+                // Load path relative to previous XML include
+                string prev = Path.Combine(parent.Directory, parent.Filename);
+                string path = Path.Combine(Path.GetDirectoryName(prev), attr.Value);
+                if (File.Exists(path))
                 {
-                    string _text = File.ReadAllText(path, Encoding.UTF8)
-                        .Replace("@modfolder:", "@modfolder(" + modName + "):");
-                    XmlFile _patchXml;
                     try
                     {
-                        _patchXml = new XmlFile(_text,
-                            Path.GetDirectoryName(path),
-                            Path.GetFileName(path),
-                            true);
+                        string _text = File.ReadAllText(path, Encoding.UTF8)
+                            .Replace("@modfolder:", "@modfolder(" + modName + "):");
+                        ReplaceTemplateOccurences(dict, ref _text);
+                        XmlFile _patchXml;
+                        try
+                        {
+                            _patchXml = new XmlFile(_text,
+                                Path.GetDirectoryName(path),
+                                Path.GetFileName(path),
+                                true);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error("XML loader: Loading XML patch include '{0}' from mod '{1}' failed.", path, modName);
+                            Log.Exception(ex);
+                            result = false;
+                            continue;
+                        }
+                        result &= XmlPatcher.PatchXml(
+                            target, _patchXml, modName);
                     }
                     catch (Exception ex)
                     {
-                        Log.Error("XML loader: Loading XML patch include '{0}' from mod '{1}' failed.", path, modName);
+                        Log.Error("XML loader: Patching '" + target.Filename + "' from mod '" + modName + "' failed.");
                         Log.Exception(ex);
                         result = false;
-                        continue;
                     }
-                    result &= XmlPatcher.PatchXml(
-                        target, _patchXml, modName);
                 }
-                catch (Exception ex)
+                else
                 {
-                    Log.Error("XML loader: Patching '" + target.Filename + "' from mod '" + modName + "' failed.");
-                    Log.Exception(ex);
-                    result = false;
+                    Log.Error("XML loader: Can't find XML include '{0}' from mod '{1}'.", path, modName);
                 }
             }
-            else
-            {
-                Log.Error("XML loader: Can't find XML include '{0}' from mod '{1}'.", path, modName);
-            }
-        }
         return result;
     }
 
@@ -198,7 +243,8 @@ static class ModXmlPatcher
 
     static int count = 0;
 
-    public static bool PatchXml(XmlFile xmlFile, XmlFile patchXml, XElement node, string patchName)
+    public static bool PatchXml(XmlFile xmlFile,
+        XmlFile patchXml, XElement node, string name)
     {
         bool result = true;
         count++;
@@ -206,34 +252,30 @@ static class ModXmlPatcher
         stack.count = count;
         foreach (XElement child in node.Elements())
         {
-            if (child.NodeType == XmlNodeType.Element)
+            // Patched to support includes
+            if (child.Name == "include")
             {
-                if (!(child is XElement element)) continue;
-                // Patched to support includes
-                if (child.Name == "include")
+                // Will do the magic by calling our functions again
+                IncludeAnotherDocument(xmlFile, patchXml, child, name);
+            }
+            else if (child.Name == "echo")
+            {
+                foreach (XAttribute attr in child.Attributes())
                 {
-                    // Will do the magic by calling our functions again
-                    IncludeAnotherDocument(xmlFile, patchXml, element, patchName);
+                    if (attr.Name == "log") Log.Out("{1}: {0}", attr.Value, xmlFile.Filename);
+                    if (attr.Name == "warn") Log.Warning("{1}: {0}", attr.Value, xmlFile.Filename);
+                    if (attr.Name == "error") Log.Error("{1}: {0}", attr.Value, xmlFile.Filename);
+                    if (attr.Name != "log" && attr.Name != "warn" && attr.Name != "error")
+                        Log.Warning("Echo has no valid name (log, warn or error)");
                 }
-                else if (child.Name == "echo")
-                {
-                    foreach (XAttribute attr in child.Attributes())
-                    {
-                        if (attr.Name == "log") Log.Out("{1}: {0}", attr.Value, xmlFile.Filename);
-                        if (attr.Name == "warn") Log.Warning("{1}: {0}", attr.Value, xmlFile.Filename);
-                        if (attr.Name == "error") Log.Error("{1}: {0}", attr.Value, xmlFile.Filename);
-                        if (attr.Name != "log" && attr.Name != "warn" && attr.Name != "error")
-                            Log.Warning("Echo has no valid name (log, warn or error)");
-                    }
-                }
-                // Otherwise try to apply the patches found in child element
-                else if (!ApplyPatchEntry(xmlFile, patchXml, element, patchName, ref stack))
-                {
-                    IXmlLineInfo lineInfo = (IXmlLineInfo)element;
-                    Log.Warning(string.Format("XML patch for \"{0}\" from mod \"{1}\" did not apply: {2} (line {3} at pos {4})",
-                        xmlFile.Filename, patchName, element.ToString(), lineInfo.LineNumber, lineInfo.LinePosition));
-                    result = false;
-                }
+            }
+            // Otherwise try to apply the patches found in child element
+            else if (!ApplyPatchEntry(xmlFile, patchXml, child, name, ref stack))
+            {
+                IXmlLineInfo lineInfo = child;
+                Log.Warning(string.Format("XML patch for \"{0}\" from mod \"{1}\" did not apply: {2} (line {3} at pos {4})",
+                    xmlFile.Filename, name, child.ToString(), lineInfo.LineNumber, lineInfo.LinePosition));
+                result = false;
             }
         }
         return result;
@@ -249,7 +291,8 @@ static class ModXmlPatcher
 
     // Entry point instead of (private) `XmlPatcher.singlePatch`
     // Implements conditional patching and also allows includes
-    private static bool ApplyPatchEntry(XmlFile _xmlFile, XmlFile _patchXml, XElement _patchElement, string _patchName, ref ParserStack stack)
+    private static bool ApplyPatchEntry(XmlFile _xmlFile, XmlFile _patchXml,
+        XElement _patchElement, string _patchName, ref ParserStack stack)
     {
 
         // Only support root level
@@ -367,7 +410,7 @@ static class ModXmlPatcher
             if (!string.IsNullOrEmpty(version))
             {
                 // Check if version is too new for us
-                if (int.Parse(version) > 4) return true;
+                if (int.Parse(version) > 5) return true;
             }
             // Call out to static helper function
             __result = PatchXml(

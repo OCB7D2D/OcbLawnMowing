@@ -132,8 +132,8 @@ Simply [download here from GitHub][1] and put into your A21 Mods folder:
 
 ### Version 2.2.0
 
+- Refactor passive effect for perk progression
 - Refactor to allow mowing of any custom block
-- Requires a bit more CPU power to allow this
 
 ### Version 2.1.2
 
