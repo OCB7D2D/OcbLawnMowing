@@ -248,7 +248,7 @@ public class VPMower : VehiclePart
         ProtectGrowingPlants = HarvestTags.Contains("growProtector");
         // IsWildHarvesterInstalled = HarvestTags.Contains("plantCollector");
         // IsCropHarvesterInstalled = HarvestTags.Contains("cropMowing");
-        DoReseed = HarvestTags.Contains("tractorReseed");
+        DoReseed = HarvestTags.Contains("growReseed");
     }
 
     // ####################################################################
