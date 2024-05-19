@@ -87,5 +87,48 @@
 			<MaxVoices value="10"/>
 			<MaxRepeatRate value="0.01"/>
 		</SoundDataNode>
+
+		<SoundDataNode name="lawnmower_horn">
+			<AudioSource name="Sounds/AudioSource_SmallHorn"/>
+			<Noise ID="4" noise="60" time="3" heat_map_strength="0.2" heat_map_time="90"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-horn"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="1"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="3"/>
+			<MaxEntities name="6"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<SoundDataNode name="lawnmower_plant">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.5"/>
+			<AudioClip ClipName="Sounds/DestroyBlock/plantdestroy1"/>
+			<AudioClip ClipName="Sounds/DestroyBlock/plantdestroy2"/>
+			<AudioClip ClipName="Sounds/DestroyBlock/plantdestroy3"/>
+			<!-- <AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-grass"/> -->
+			<LowestPitch name="0.9"/>
+			<HighestPitch name="1.0"/>
+			<!-- we hacked this to change volume -->
+			<LocalCrouchVolumeScale value="0.25"/>
+			<CrouchNoiseScale value="0.5"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="10"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
+
+		<SoundDataNode name="lawnmower_stone">
+			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.5"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-stone-01"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-stone-02"/>
+			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-stone-03"/>
+			<LocalCrouchVolumeScale value="1.0"/>
+			<CrouchNoiseScale value="1"/>
+			<NoiseScale value="1"/>
+			<MaxVoices value="3"/>
+			<MaxEntities name="6"/>
+			<MaxRepeatRate value="0.01"/>
+		</SoundDataNode>
 	</append>
 </configs>

@@ -2,4 +2,18 @@
 	<setattribute xpath="/items/item[@name='vehicleLawnTractorChassis']/property[@name='UnlockedBy']" name="value">perkLivingOffTheLand,perkGreaseMonkey,perkMinibike</setattribute>
 	<setattribute xpath="/items/item[@name='vehicleLawnTractorAccessories']/property[@name='UnlockedBy']" name="value">perkLivingOffTheLand,perkGreaseMonkey,perkMinibike</setattribute>
 	<setattribute xpath="/items/item/property[@name='PickupJournalEntry' and @value='lawnMowerTip']" name="value">lawnMowerDfTip</setattribute>
+	<insertafter xpath="/items/item[@name='modFuelTankLargeSchematic']">
+		<item name="modVehicleLawnTractorGoreCollectorSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorGoreCollector"/>
+			<property name="Unlocks" value="modVehicleLawnTractorGoreCollector"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorGoreCollector" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+	</insertafter>
 </configs>

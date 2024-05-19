@@ -1,0 +1,87 @@
+<configs>
+	<append xpath="/item_modifiers">
+		<!-- First basic attachment that will harvest grass and bushes -->
+
+		<item_modifier name="modVehicleLawnTractorGrassCollector" installable_tags="vmower" modifier_tags="mowerGrass" type="attachment" blocked_tags="mowerGrass">
+			<property name="Extends" value="modGeneralMaster"/>
+			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorGrassCollectorSchematic"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorGrassCollector"/>
+			<property name="ShowTransforms" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
+			<!-- harvest everything that is marked for grass mowing -->
+			<!-- this way we can easily adjust and nerf probabilities -->
+			<property name="MowerHarvestTags" value="lawnMowing,stoneMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
+			<property name="MowerHarvestTools" value="GrassCollector,StoneCollector"/>
+		</item_modifier>
+
+		<!-- Items below form a group (only one mod can be installed) -->
+
+		<item_modifier name="modVehicleLawnTractorPlantCollector" installable_tags="vmower" modifier_tags="mowerCrops" type="attachment" blocked_tags="mowerCrops">
+			<property name="Extends" value="modGeneralMaster"/>
+			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorPlantCollectorSchematic"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorPlantCollector"/>
+			<property name="ShowTransforms" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
+			<!-- harvest everything that is marked for plant mowing -->
+			<!-- this way we can easily adjust and nerf probabilities -->
+			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
+			<property name="MowerHarvestTools" value="PlantCollector"/>
+		</item_modifier>
+
+		<item_modifier name="modVehicleLawnTractorCropsCollector" installable_tags="vmower" modifier_tags="mowerCrops" type="attachment" blocked_tags="mowerCrops">
+			<property name="Extends" value="modGeneralMaster"/>
+			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorCropsCollectorSchematic"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorCropsCollector"/>
+			<property name="ShowTransforms" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
+			<!-- harvest everything that is marked for crop mowing -->
+			<!-- this way we can easily adjust and nerf probabilities -->
+			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
+			<property name="MowerHarvestTools" value="CropHarvester"/>
+		</item_modifier>
+
+		<!-- Items below form a group (only one mod can be installed) -->
+		<!-- Either just protects self planted crops or also reseeds them on harvest-->
+		<!-- Re-seeder only makes much sense if used together with modVehicleLawnTractorCropsCollector -->
+		<!-- Note: re-seeder without protector doesn't make much sense, as one can easily figure -->
+
+		<item_modifier name="modVehicleLawnTractorCropsProtector" installable_tags="vmower" modifier_tags="mowerReseed" type="attachment" blocked_tags="mowerReseed">
+			<property name="Extends" value="modGeneralMaster"/>
+			<property name="UnlockedBy" value="perkAdvancedEngineering,modVehicleLawnTractorCropsProtectorSchematic"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorCropsProtector"/>
+			<property name="MowerHarvestTags" value="lawnMowing,growProtector"/>
+			<property name="MowerHarvestTools" value="GrowProtector"/>
+			<property name="ShowTransforms" value="mower_fender"/>
+			<property name="EnablePhysics" value="p_mower_fender"/>
+			<property name="DamageModifier" value="0.4"/>
+		</item_modifier>
+
+		<item_modifier name="modVehicleLawnTractorCropsReseeder" installable_tags="vmower" modifier_tags="mowerReseed" type="attachment" blocked_tags="mowerReseed">
+			<property name="Extends" value="modGeneralMaster"/>
+			<property name="UnlockedBy" value="perkAdvancedEngineering,modVehicleLawnTractorCropsReseederSchematic"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorCropsReseeder"/>
+			<property name="MowerHarvestTags" value="lawnMowing,growProtector,growReseed,growReseedBonus"/>
+			<property name="MowerHarvestTools" value="GrowReseeder"/>
+			<!-- requires any of these dependencies to actually do the harvesting -->
+			<!-- used to give bonus drop if any of those collectors are installed -->
+			<!-- otherwise it would harvest without a proper catching device -->
+			<!-- <property name="HarvestRequirements" value="cropMowing"/> -->
+			<property name="ShowTransforms" value="mower_fender"/>
+			<property name="EnablePhysics" value="p_mower_fender"/>
+			<property name="DamageModifier" value="0.4"/>
+		</item_modifier>
+
+		<!-- DF attachment that will harvest gore blocks -->
+		<item_modifier name="modVehicleLawnTractorGoreCollector" installable_tags="vmower" modifier_tags="mowerGore" type="attachment" blocked_tags="mowerGore">
+			<property name="Extends" value="modGeneralMaster"/>
+			<property name="UnlockedBy" value="perkLivingOffTheLand,modVehicleLawnTractorGoreCollectorSchematic"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorGoreCollector"/>
+			<property name="ShowTransforms" value="mower_bag"/>
+			<property name="EnablePhysics" value="p_mower_bag"/>
+			<!-- harvest everything that is marked for grass mowing -->
+			<!-- this way we can easily adjust and nerf probabilities -->
+			<property name="MowerHarvestTags" value="lawnMowing,goreMowing"/>
+			<property name="MowerHarvestTools" value="GoreCollector"/>
+		</item_modifier>
+	</append>
+</configs>

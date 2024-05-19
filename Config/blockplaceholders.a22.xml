@@ -1,0 +1,46 @@
+<configs>
+	<append xpath="/blockplaceholders/placeholder[@name='carsRandomHelper']">
+		<!-- original has already ~120 items -->
+		<!-- randomizer first chooses a random item -->
+		<!-- then it checks if probablity is ok -->
+		<!-- if not, it will choose another item -->
+
+		<!-- These give good stuff to build lawn mowers -->
+		<block name="cntCarLawnTractorDamaged0v05" prob=".85"/>
+		<!-- These give mostly scrap materials -->
+		<block name="cntCarLawnTractorDamaged1v06" prob=".87"/>
+		<!-- These give only scrap materials -->
+		<block name="carLawnTractorDamaged2v01" prob=".59"/>
+
+		<!-- Randomized as it (may) give better distribution -->
+		<block name="cntCarLawnTractorDamaged0v03" prob=".85"/>
+		<block name="cntCarLawnTractorDamaged1v05" prob=".87"/>
+		<block name="carLawnTractorDamaged2v04" prob=".59"/>
+		<block name="cntCarLawnTractorDamaged0v02" prob=".85"/>
+		<block name="cntCarLawnTractorDamaged1v04" prob=".87"/>
+		<block name="carLawnTractorDamaged2v06" prob=".59"/>
+		<block name="cntCarLawnTractorDamaged0v01" prob=".85"/>
+		<block name="cntCarLawnTractorDamaged1v03" prob=".87"/>
+		<block name="carLawnTractorDamaged2v07" prob=".59"/>
+		<block name="cntCarLawnTractorDamaged0v06" prob=".85"/>
+		<block name="cntCarLawnTractorDamaged1v02" prob=".87"/>
+		<block name="carLawnTractorDamaged2v05" prob=".59"/>
+		<block name="cntCarLawnTractorDamaged0v07" prob=".85"/>
+		<block name="cntCarLawnTractorDamaged1v01" prob=".87"/>
+		<block name="carLawnTractorDamaged2v02" prob=".59"/>
+		<block name="cntCarLawnTractorDamaged0v04" prob=".85"/>
+		<block name="cntCarLawnTractorDamaged1v07" prob=".87"/>
+		<block name="carLawnTractorDamaged2v03" prob=".59"/>
+	</append>
+
+	<append xpath="/blockplaceholders/placeholder[@name='carWrecksRandomHelper']">
+		<!-- These give only scrap materials -->
+		<block name="carLawnTractorDamaged2v01" prob=".08"/>
+		<block name="carLawnTractorDamaged2v02" prob=".08"/>
+		<block name="carLawnTractorDamaged2v03" prob=".08"/>
+		<block name="carLawnTractorDamaged2v04" prob=".08"/>
+		<block name="carLawnTractorDamaged2v05" prob=".08"/>
+		<block name="carLawnTractorDamaged2v06" prob=".08"/>
+		<block name="carLawnTractorDamaged2v07" prob=".08"/>
+	</append>
+</configs>

@@ -1,4 +1,0 @@
-﻿<configs patcher-version="5">
-	<include path="tmpl-blocks/{{harvest-type}}.wild.xml"/>
-	<include path="tmpl-blocks/{{harvest-type}}.player.xml"/>
-</configs>
