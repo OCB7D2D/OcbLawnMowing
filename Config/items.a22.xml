@@ -1,0 +1,118 @@
+<configs>
+	<insertafter xpath="/items/item[@name='vehicleMinibikePlaceable']">
+		<item name="vehicleLawnTractorChassis">
+			<property name="Extends" value="vehicleWheels" param1="DescriptionKey"/>
+			<property name="DescriptionKey" value="vehicleLawnTractorChassisDesc"/>
+			<property name="EconomicValue" value="3000"/>
+			<property name="UnlockedBy" value="craftingVehicles"/>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="vehicleLawnTractorAccessories">
+			<property name="Extends" value="vehicleWheels" param1="DescriptionKey"/>
+			<property name="DescriptionKey" value="vehicleLawnTractorAccessoriesDesc"/>
+			<property name="EconomicValue" value="3000"/>
+			<property name="UnlockedBy" value="craftingVehicles"/>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="vehicleLawnTractorPlaceable">
+			<property name="TintColor" value="229,110,0"/>
+			<property name="Extends" value="vehicleMinibikePlaceable"/>
+			<property name="Tags" value="vehicle,vengine,vfuel,vmower,vlight,canHaveCosmetic"/>
+			<property name="Meshfile" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDriveable.prefab"/>
+			<property name="EconomicValue" value="7000"/>
+			<property name="Group" value="Science,TCScience"/>
+			<property class="Action1">
+				<property name="Vehicle" value="vehicleLawnTractor"/>
+				<property name="VehicleSize" value="2.5, 2.1, 5"/>
+			</property>
+			<effect_group name="vehicleLawnTractorPlaceable" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="6"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="5000"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+	</insertafter>
+
+	<insertafter xpath="/items/item[@name='modFuelTankLargeSchematic']">
+		<item name="modVehicleLawnTractorGrassCollectorSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorGrassCollector"/>
+			<property name="Unlocks" value="modVehicleLawnTractorGrassCollector"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorGrassCollector" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="modVehicleLawnTractorPlantCollectorSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorPlantCollector"/>
+			<property name="Unlocks" value="modVehicleLawnTractorPlantCollector"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorPlantCollector" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="modVehicleLawnTractorCropsCollectorSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorCropsCollector"/>
+			<property name="Unlocks" value="modVehicleLawnTractorCropsCollector"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorCropsCollector" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="modVehicleLawnTractorCropsProtectorSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorCropsProtector"/>
+			<property name="Unlocks" value="modVehicleLawnTractorCropsProtector"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorCropsProtector" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="modVehicleLawnTractorCropsReseederSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorCropsReseeder"/>
+			<property name="Unlocks" value="modVehicleLawnTractorCropsReseeder"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorCropsReseeder" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+
+		<item name="modVehicleLawnTractorGoreCollectorSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="Group" value="Schematics,BPScience,Books,Items"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modVehicleLawnTractorGoreCollector"/>
+			<property name="Unlocks" value="modVehicleLawnTractorGoreCollector"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modVehicleLawnTractorGoreCollector" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="lawnMowerTip"/>
+		</item>
+	</insertafter>
+</configs>

@@ -1,0 +1,132 @@
+<configs>
+	<append xpath="/recipes">
+		<!-- ACCESSORIES -->
+
+		<recipe name="vehicleLawnTractorAccessories" craft_time="120" craft_area="workbench" tags="perkGreaseMonkey,learnable,workbenchCrafting">
+			<ingredient name="resourceHeadlight" count="2"/>
+			<ingredient name="resourceRadiator" count="2"/>
+			<ingredient name="resourceLeather" count="20"/>
+			<ingredient name="resourceElectricParts" count="32"/>
+			<ingredient name="resourceMetalPipe" count="50"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceLeather,resourceElectricParts,resourceMetalPipe"/>
+			</effect_group>
+		</recipe>
+
+		<!-- CHASSIS -->
+
+		<recipe name="vehicleLawnTractorChassis" craft_time="120" craft_area="workbench" tags="perkGreaseMonkey,learnable,workbenchCrafting">
+			<ingredient name="bladeTrap" count="1"/>
+			<ingredient name="resourceForgedSteel" count="75"/>
+			<ingredient name="resourceMechanicalParts" count="32"/>
+			<ingredient name="resourceScrapPolymers" count="40"/>
+			<ingredient name="resourceDuctTape" count="8"/>
+			<effect_group>
+				<passive_effect
+					name="CraftingIngredientCount"
+					operation="perc_add"
+					level="0,3"
+					value=".5,.5"
+					tags="resourceForgedSteel,resourceMechanicalParts,resourceScrapPolymers,resourceDuctTape"
+				/>
+			</effect_group>
+		</recipe>
+
+		<!-- LAWN MOWER -->
+
+		<recipe name="vehicleLawnTractorPlaceable" craft_time="180" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="vehicleWheels" count="4"/>
+			<ingredient name="vehicleLawnTractorChassis" count="1"/>
+			<ingredient name="vehicleLawnTractorAccessories" count="1"/>
+			<ingredient name="smallEngine" count="1"/>
+			<ingredient name="carBattery" count="1"/>
+		</recipe>
+
+		<!-- GRASS COLLECTOR -->
+
+		<recipe name="modVehicleLawnTractorGrassCollector" craft_time="90" craft_area="workbench" tags="perkLivingOffTheLand,learnable,workbenchCrafting">
+			<!-- Using diamond mod might be a bit over the top -->
+			<!-- I believe you should get it fairly easy, but RNG -->
+			<!-- You might buy the "diamond tools" book though -->
+			<!-- <ingredient name="modMeleeDiamondTip" count="1"/> -->
+
+			<ingredient name="modMeleeTemperedBlade" count="2"/>
+			<ingredient name="resourceCloth" count="20"/>
+			<ingredient name="resourceLeather" count="10"/>
+			<ingredient name="resourceDuctTape" count="6"/>
+			<ingredient name="resourceSpring" count="16"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceCloth,resourceLeather,resourceDuctTape,resourceSpring"/>
+			</effect_group>
+		</recipe>
+
+		<!-- PLANT COLLECTOR -->
+
+		<recipe name="modVehicleLawnTractorPlantCollector" craft_time="90" craft_area="workbench" tags="perkLivingOffTheLand,learnable,workbenchCrafting">
+			<ingredient name="meleeToolAxeT3ChainsawParts" count="2"/>
+			<ingredient name="meleeToolShovelT1IronShovel" count="2"/>
+			<ingredient name="resourceForgedSteel" count="8"/>
+			<ingredient name="resourceMechanicalParts" count="12"/>
+			<ingredient name="resourceSpring" count="16"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceForgedSteel,resourceMechanicalParts,resourceSpring"/>
+			</effect_group>
+		</recipe>
+
+		<!-- CROP COLLECTOR -->
+
+		<recipe name="modVehicleLawnTractorCropsCollector" craft_time="120" craft_area="workbench" tags="perkLivingOffTheLand,learnable,workbenchCrafting">
+			<ingredient name="modVehicleLawnTractorPlantCollector" count="1"/>
+			<ingredient name="gunBotRoboticsParts" count="1"/>
+			<ingredient name="modMeleeGraveDigger" count="2"/>
+			<ingredient name="meleeToolAxeT3ChainsawParts" count="4"/>
+			<ingredient name="resourceElectricParts" count="16"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="meleeToolAxeT3ChainsawParts,resourceElectricParts"/>
+			</effect_group>
+		</recipe>
+
+		<!-- CROP PROTECTOR -->
+
+		<recipe name="modVehicleLawnTractorCropsProtector" craft_time="90" craft_area="workbench" tags="perkAdvancedEngineering,learnable,workbenchCrafting">
+			<!-- You can buy them from traders now -->
+			<ingredient name="modMeleeClubMetalChain" count="2"/>
+			<ingredient name="meleeToolAxeT3ChainsawParts" count="2"/>
+			<ingredient name="resourceForgedSteel" count="12"/>
+			<ingredient name="resourceMechanicalParts" count="24"/>
+			<ingredient name="resourceLeather" count="24"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceForgedSteel,resourceMechanicalParts,resourceLeather"/>
+			</effect_group>
+		</recipe>
+
+		<!-- CROP RESEEDER -->
+
+		<recipe name="modVehicleLawnTractorCropsReseeder" craft_time="180" craft_area="workbench" tags="perkAdvancedEngineering,learnable,workbenchCrafting">
+			<ingredient name="modVehicleLawnTractorCropsProtector" count="1"/>
+			<!-- You can buy these from traders already -->
+			<ingredient name="modArmorWaterPurifier" count="2"/>
+			<ingredient name="gunBotRoboticsParts" count="2"/>
+			<ingredient name="resourceElectricParts" count="12"/>
+			<ingredient name="resourceSpring" count="24"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceElectricParts,resourceSpring"/>
+			</effect_group>
+		</recipe>
+
+		<!-- GORE COLLECTOR -->
+
+		<recipe name="modVehicleLawnTractorGoreCollector" craft_time="180" craft_area="workbench" tags="perkTheHuntsman,learnable,workbenchCrafting">
+			<!-- You can buy these from traders already -->
+
+			<ingredient name="meleeWpnBladeT1HuntingKnife" count="1"/>
+			<ingredient name="meleeWpnBladeT3MacheteParts" count="2"/>
+			<ingredient name="meleeToolAllSteelParts" count="2"/>
+			<ingredient name="resourceMechanicalParts" count="24"/>
+			<ingredient name="resourceDuctTape" count="6"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" operation="perc_add" level="0,3" value=".5,.5" tags="resourceElectricParts,resourceSpring"/>
+			</effect_group>
+		</recipe>
+	</append>
+</configs>

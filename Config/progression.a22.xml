@@ -1,0 +1,53 @@
+<configs>
+	<insertafter xpath="/progression/crafting_skills/crafting_skill[@name='craftingVehicles']/display_entry[@name_key='vehiclesT1']">
+		<display_entry icon="vehicleLawnTractorPlaceable" name_key="vehicleLawnTractor" has_quality="false" unlock_level="15">
+			<unlock_entry item="vehicleLawnTractorChassis,vehicleLawnTractorAccessories" unlock_tier="1"/>
+		</display_entry>
+	</insertafter>
+
+	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingVehicles']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="15,100" value="1" tags="vehicleLawnTractorChassis,vehicleLawnTractorAccessories"/>
+	</append>
+
+	<!-- Still keep the old way of vehile mod recipes still being unlock by perks -->
+	<!-- That way you can either gather the Schematics to build it or use the perks -->
+	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']/effect_group[1]">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,3" value="1" tags="modVehicleLawnTractorGrassCollector"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3" value="1" tags="modVehicleLawnTractorPlantCollector"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3" value="1" tags="modVehicleLawnTractorCropsCollector"/>
+	</append>
+
+	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group[1]">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,5" value="1" tags="modVehicleLawnTractorCropsProtector"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="modVehicleLawnTractorCropsReseeder"/>
+	</append>
+
+	<append xpath="/progression/perks/perk[@name='perkTheHuntsman']/effect_group[1]">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,5" value="1" tags="modVehicleLawnTractorGoreCollector"/>
+	</append>
+
+	<!-- increaes yield with living of the land perk -->
+	<append xpath="/progression/perks/perk[@name='perkLivingOffTheLand']">
+		<!-- Enable effect if in a vehicle -->
+		<effect_group name="InLawnTractor">
+			<!-- Vehicle requirement should be enough -->
+			<requirement name="IsAttachedToEntity"/>
+			<!-- increase effects the same as vanilla does (requires specific tag to do so for bonus yield) -->
+			<passive_effect name="HarvestCount" operation="perc_add" level="1,2,3" value="1,1,2" tags="grownMowing,wildMowing"/>
+			<passive_effect name="HarvestCount" operation="base_set" level="2,3" value="1,1" tags="grownMowingBonus,wildMowingBonus"/>
+			<!-- only increase grass collecting by one with level 2 (max 2 -> vanilla `allHarvest` doesn't scale at all) -->
+			<passive_effect name="HarvestCount" operation="perc_add" level="2" value="1" tags="grassCollector"/>
+		</effect_group>
+	</append>
+
+	<!-- increaes gore yield with huntsman perk -->
+	<append xpath="/progression/perks/perk[@name='perkTheHuntsman']">
+		<!-- Enable effect if in a vehicle -->
+		<effect_group name="InLawnTractor">
+			<!-- Vehicle requirement should be enough -->
+			<requirement name="IsAttachedToEntity"/>
+			<!-- increase effects the same as vanilla does (requires specific tag to do so for bonus yield) -->
+			<passive_effect name="HarvestCount" operation="perc_add" level="1,5" value=".2,1" tags="goreMowing"/>
+		</effect_group>
+	</append>
+</configs>

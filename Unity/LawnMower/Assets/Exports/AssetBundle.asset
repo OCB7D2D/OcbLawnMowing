@@ -19,6 +19,33 @@ MonoBehaviour:
   AppendHashToAssetBundleName: 1
   Compression: 1
   VerboseLogging: 0
+  ShowPlatformTargets: 0
+  StandaloneWindows: 1
+  StandaloneMacOSX: 0
+  StandaloneLinux: 0
+  StripRedundantAPIs: 1
+  WantD3D11: 1
+  WantOpenGL: 1
+  WantVulkan: 1
+  WantMetal: 1
+  SeparateShaders: 0
+  ShowShaderStripping: 0
+  StripMetaPass: 0
+  StripForwardBasePass: 0
+  StripForwardAddPass: 0
+  StripDeferredPass: 0
+  StripShadowCasterPass: 0
+  StripFogNone: 0
+  StripFogLinear: 1
+  StripFogExp: 0
+  StripFogExp2: 1
+  StripInstancing: 0
+  StripLightmapPlain: 1
+  StripLightmapDirCombined: 1
+  StripLightmapDynamicPlain: 1
+  StripLightmapDynamicDirCombined: 1
+  StripLightmapShadowMask: 1
+  StripLightmapSubtractive: 1
   Objects:
   - {fileID: 8572175620037692651, guid: 56090f1021b8a31428e783a00e9ca61b, type: 3}
   - {fileID: 3190873964502640126, guid: ffebb9a93a1e488409b14140dfb724f0, type: 3}
@@ -32,3 +59,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5781febf1d1918b4797392869c6c4302, type: 3}
   - {fileID: 8300000, guid: d6b169b1626f2df4098792e87e0991c3, type: 3}
   - {fileID: 8300000, guid: 66156c2330c004a4598f743684a80630, type: 3}
+  - {fileID: 8300000, guid: 980399e394ef2854eb8192194aaffbdc, type: 3}
+  - {fileID: 8300000, guid: a6cbb51e0b4deb94e9e7069e98b8144e, type: 3}
+  - {fileID: 8300000, guid: 349b80094fc1d104c9310f4efecfe8ae, type: 3}
+  - {fileID: 8300000, guid: ef4290b1a3543ce4db0cb2b0ba185366, type: 3}

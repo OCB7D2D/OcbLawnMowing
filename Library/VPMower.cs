@@ -46,11 +46,8 @@ public class VPMower : VehiclePart
     // ####################################################################
     // ####################################################################
 
-    private ParticleSystem ParticlesSys;
-    private int ParticlesPerGrass = 10;
-
     // Offset for particle emission for mowed down grass (center above ground)
-    static private Vector3 particleOffset = new Vector3(0.5f, 0.25f, 0.5f);
+    static private Vector3 particleOffset = new Vector3(0f, 0.15f, 0f);
 
     // ####################################################################
     // ####################################################################
@@ -79,18 +76,10 @@ public class VPMower : VehiclePart
 
     // ####################################################################
     // ####################################################################
-    
+
     public override void InitPrefabConnections()
     {
         base.InitPrefabConnections();
-        Transform ps = GetTransform("particle_transform");
-        if (ps == null) return; // Play safe
-        ParticlesSys = ps.GetComponentInChildren<ParticleSystem>();
-        if (ParticlesSys != null) ParticlesSys.Stop();
-        else Log.Warning("Particle System not found");
-        if (ParticlesSys == null) return;
-        var main = ParticlesSys.main;
-        main.maxParticles = 500;
     }
 
     // ####################################################################
@@ -112,8 +101,6 @@ public class VPMower : VehiclePart
         properties.ParseFloat("plant_interval", ref PlantInterval);
         // Amount of fuel used per seconds (so mowing costs a little)
         properties.ParseFloat("fuel_per_second", ref FuelUsePerSecond);
-        // Number of particles to emit per mowed down plant
-        properties.ParseInt("particle_per_grass", ref ParticlesPerGrass);
     }
 
     // ####################################################################
@@ -155,7 +142,7 @@ public class VPMower : VehiclePart
             var values = props?.Values;
             if (values == null) continue; // Play safe
             props.ParseFloat("DamageModifier", ref DamageModifier);
-            if (values.TryGetString("MowerHarvestTags", out string tags))
+            if (values.TryGetValue("MowerHarvestTags", out string tags))
             {
                 var names = SplitAndTrim(tags, ',');
                 foreach (string tag in names) HarvestTags.Add(tag);
@@ -170,17 +157,17 @@ public class VPMower : VehiclePart
                 //    }
                 //}
             }
-            if (values.TryGetString("MowerHarvestTools", out string tools))
+            if (values.TryGetValue("MowerHarvestTools", out string tools))
             {
                 foreach (string tool in SplitAndTrim(tools, ','))
                     HarvestTools.Add(tool);
             }
-            if (values.TryGetString("EnablePhysics", out string physics))
+            if (values.TryGetValue("EnablePhysics", out string physics))
             {
                 foreach (string physic in SplitAndTrim(physics, ','))
                     NewShownModPhysics.Add(physic);
             }
-            if (values.TryGetString("ShowTransforms", out string shows))
+            if (values.TryGetValue("ShowTransforms", out string shows))
             {
                 foreach (string show in SplitAndTrim(shows, ','))
                     NewShownModTransforms.Add(show);
@@ -479,14 +466,26 @@ public class VPMower : VehiclePart
                     // Either air or a new crop seed to grow
                     _blockChangeInfo.Add(new BlockChangeInfo(
                         0, blockPos + offset, reseed));
-                    // Emit the particles for each mowed item
-                    if (ParticlesSys == null) continue;
-                    // Emit (reduced) particles at lawn mower
-                    ParticlesSys.Emit(ParticlesPerGrass / 3);
-                    // Emit particles at old plant location
-                    ParticleSystem.EmitParams parameters = new ParticleSystem.EmitParams
-                    { position = blockPos + offset - Origin.position + particleOffset };
-                    ParticlesSys.Emit(parameters, ParticlesPerGrass);
+
+                    // Emit the particles for each? destroyed block
+                    var name = block.Block.GetDestroyParticle(block);
+                    var sound = block.Block.blockMaterial.SurfaceCategory + "destroy";
+
+                    if (sound == "plantdestroy")
+                        sound = "lawnmower_plant";
+                    else if (sound == "stonedestroy")
+                        sound = "lawnmower_stone";
+
+                    var effect = new ParticleEffect("blockdestroy_" + name,
+                        World.blockToTransformPos(blockPos + offset) + particleOffset, 15f,
+                        Color.white, sound, null, true);
+
+                    world.GetGameManager().SpawnParticleEffectServer(effect,
+                        vehicle.entity.entityId, _worldSpawn: true, _forceCreation: true);
+
+                    int damage = block.Block.Properties.GetInt("LawnMowerDamage");
+                    if (damage > 0) vehicle.entity.ApplyDamage(damage);
+
                 }
             }
         }
@@ -520,7 +519,7 @@ public class VPMower : VehiclePart
                 name.Length - 13);
         }
         // Or fall-back to properties to support any plant
-        else if (block.Properties.Values.TryGetString(
+        else if (block.Properties.Values.TryGetValue(
             "CropReplacement", out string replacement)) {
                 return replacement;
         }
@@ -535,6 +534,9 @@ public class VPMower : VehiclePart
         if (block.ischild) return false;
         // Do fast check for air
         if (block.isair) return false;
+        // Check if xml is enforcing mower mode (small overhead cost)
+        if (block.Block.Properties.Values.TryGetValue("EnableMowing", out var enabled))
+            return bool.Parse(enabled);
         // Don't mow down things that support things (cactus only?)
         if (block.Block.blockMaterial.StabilitySupport) return false;
 
@@ -647,8 +649,8 @@ public class VPMower : VehiclePart
             // So one governs perk progression, the other vehicle mods
             // And we already have the vehicle mods status calculated
             float effect = EffectManager.GetValue(
-                PassiveEffects.HarvestCount, null, count,
-                player, tags: FastTags.Parse(drop.tag));
+                PassiveEffects.HarvestCount, null, count, player,
+                tags: FastTags<TagGroup.Global>.Parse(drop.tag));
 
             // Log.Out(" has effect", effect);
             // We use rounding rules here (why not)

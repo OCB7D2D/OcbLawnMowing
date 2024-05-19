@@ -1,0 +1,25 @@
+﻿<configs patcher-version="5">
+	<!-- ############################################################################ -->
+	<!-- ITEMS BELOW CAN BE HARVESTED WITH GRASS MOWER ADDON                          -->
+	<!-- ############################################################################ -->
+
+	<append xpath="/blocks/block[@name='treeGrassMaster']">
+		<!-- Enable proper extending of harvest drop -->
+		<property name="ExtendHarvestDrops" value="true"/>
+		<!-- Vanilla will check if the same name of a drop event is already present and -->
+		<!-- only inherit the first unique one, which is not correct if we want to have -->
+		<!-- the same item harvestable by different tags and probabilities. -->
+		<drop event="Harvest" name="resourceYuccaFibers" count="1,2" prob="0.125" tag="lawnMowing" tool_category="GrassCollector"/>
+	</append>
+
+	<append xpath="/blocks/block[starts-with(@name, 'plantShrub')]">
+		<property name="ExtendHarvestDrops" value="true"/>
+		<drop event="Harvest" name="resourceWood" count="1,3" prob="0.725" tag="lawnMowing" tool_category="GrassCollector"/>
+		<property name="EnableMowing" value="true"/>
+	</append>
+
+	<insertafter xpath="/blocks/block/property[@value='Mleaves']">
+		<!-- get some wood from mowing down bushes (catching small sticks) -->
+		<drop event="Harvest" name="resourceWood" count="1,3" prob="0.325" tag="lawnMowing" tool_category="GrassCollector"/>
+	</insertafter>
+</configs>

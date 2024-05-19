@@ -1,0 +1,187 @@
+﻿<configs patcher-version="5">
+	<!-- ############################################################################ -->
+	<!-- ITEMS BELOW CAN BE HARVESTED WITH CROP OR WILD HARVEST MOWER ADDON           -->
+	<!-- ############################################################################ -->
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedCotton3Harvest"
+		tmpl-plant-player-name="plantedCotton3HarvestPlayer"
+		tmpl-item-name="resourceCropCottonPlant"
+		tmpl-seed-name="plantedCotton1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedChrysanthemum3Harvest"
+		tmpl-plant-player-name="plantedChrysanthemum3HarvestPlayer"
+		tmpl-item-name="resourceCropChrysanthemumPlant"
+		tmpl-seed-name="plantedChrysanthemum1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedGoldenrod3Harvest"
+		tmpl-plant-player-name="plantedGoldenrod3HarvestPlayer"
+		tmpl-item-name="resourceCropGoldenrodPlant"
+		tmpl-seed-name="plantedGoldenrod1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedBlueberry3Harvest"
+		tmpl-plant-player-name="plantedBlueberry3HarvestPlayer"
+		tmpl-item-name="foodCropBlueberries"
+		tmpl-seed-name="plantedBlueberry1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedAloe3Harvest"
+		tmpl-plant-player-name="plantedAloe3HarvestPlayer"
+		tmpl-item-name="resourceCropAloeLeaf"
+		tmpl-seed-name="plantedAloe1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedCoffee3Harvest"
+		tmpl-plant-player-name="plantedCoffee3HarvestPlayer"
+		tmpl-item-name="resourceCropCoffeeBeans"
+		tmpl-seed-name="plantedCoffee1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedHop3Harvest"
+		tmpl-plant-player-name="plantedHop3HarvestPlayer"
+		tmpl-item-name="resourceCropHopsFlower"
+		tmpl-seed-name="plantedHop1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedMushroom3Harvest"
+		tmpl-plant-player-name="plantedMushroom3HarvestPlayer"
+		tmpl-item-name="foodCropMushrooms"
+		tmpl-seed-name="plantedMushroom1"
+		tmpl-harvest-type="plant"
+	/>
+
+	<!-- ############################################################################ -->
+	<!-- ITEMS BELOW CAN ONLY BE HARVESTED WITH CROP MOWER ADDON (WILD IS NOT ENOUGH) -->
+	<!-- ############################################################################ -->
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedCorn3Harvest"
+		tmpl-plant-player-name="plantedCorn3HarvestPlayer"
+		tmpl-item-name="foodCropCorn"
+		tmpl-seed-name="plantedCorn1"
+		tmpl-harvest-type="crop"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedGraceCorn3Harvest"
+		tmpl-plant-player-name="plantedGraceCorn3HarvestPlayer"
+		tmpl-item-name="foodCropGraceCorn"
+		tmpl-seed-name="plantedGraceCorn1"
+		tmpl-harvest-type="crop"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedPotato3Harvest"
+		tmpl-plant-player-name="plantedPotato3HarvestPlayer"
+		tmpl-item-name="foodCropPotato"
+		tmpl-seed-name="plantedPotato1"
+		tmpl-harvest-type="crop"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedPumpkin3Harvest"
+		tmpl-plant-player-name="plantedPumpkin3HarvestPlayer"
+		tmpl-item-name="foodCropPumpkin"
+		tmpl-seed-name="plantedPumpkin1"
+		tmpl-harvest-type="crop"
+	/>
+
+	<modinc
+		path="blocks.a22.tmpl.xml"
+		tmpl-plant-wild-name="plantedYucca3Harvest"
+		tmpl-plant-player-name="plantedYucca3HarvestPlayer"
+		tmpl-item-name="foodCropYuccaFruit"
+		tmpl-seed-name="plantedYucca1"
+		tmpl-harvest-type="crop"
+	/>
+
+	<!-- ############################################################################ -->
+	<!-- MOWING GORE BLOCKS AND ROCKS DUE TO POPULAR DEMAND                           -->
+	<!-- ############################################################################ -->
+
+	<append xpath="/blocks/block[@name='goreBlockAnimal']">
+		<drop event="Harvest" name="foodRottingFlesh" count="1,3" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Harvest" name="resourceAnimalFat" count="1,2" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Harvest" name="resourcePotassiumNitratePowder" count="4,8" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Destroy" name="resourceBone" count="5,10" tag="goreMowing" tool_category="GoreCollector"/>
+		<property name="ExtendHarvestDrops" value="true"/>
+		<property name="EnableMowing" value="true"/>
+		<property name="LawnMowerDamage" value="2"/>
+	</append>
+
+	<append xpath="/blocks/block[@name='goreBlockHumanCorpse']">
+		<drop event="Harvest" name="foodRottingFlesh" count="1,2" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Harvest" name="resourcePotassiumNitratePowder" count="4,8" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Destroy" name="resourceBone" count="5,9" tag="goreMowing" tool_category="GoreCollector"/>
+		<property name="ExtendHarvestDrops" value="true"/>
+		<property name="ExtendDestroyDrops" value="true"/>
+		<property name="EnableMowing" value="true"/>
+		<property name="LawnMowerDamage" value="2"/>
+	</append>
+
+	<append xpath="/blocks/block[@name='goreBlockHumanBones']">
+		<drop event="Harvest" name="foodRottingFlesh" count="1,2" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Destroy" name="resourceAnimalFat" count="5" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Harvest" name="resourcePotassiumNitratePowder" count="4,8" tag="goreMowing" tool_category="GoreCollector"/>
+		<drop event="Destroy" name="resourceBone" count="5" tag="goreMowing" tool_category="GoreCollector"/>
+		<property name="ExtendHarvestDrops" value="true"/>
+		<property name="ExtendDestroyDrops" value="true"/>
+		<property name="EnableMowing" value="true"/>
+		<property name="LawnMowerDamage" value="2"/>
+	</append>
+
+	<append xpath="/blocks/block[@name='rock01']">
+		<drop event="Destroy" name="resourceRockSmall" count="1" tag="stoneMowing" tool_category="StoneCollector"/>
+		<property name="ExtendHarvestDrops" value="true"/>
+		<property name="ExtendDestroyDrops" value="true"/>
+		<property name="EnableMowing" value="true"/>
+		<property name="LawnMowerDamage" value="3"/>
+	</append>
+
+	<append xpath="/blocks/block[starts-with(@name, 'emberPileDeco')]">
+		<drop event="Destroy" name="resourceCoal" count="1,2" tag="stoneMowing" tool_category="StoneCollector"/>
+		<drop event="Destroy" name="resourceWood" count="0,1" tag="stoneMowing" tool_category="StoneCollector"/>
+		<property name="ExtendHarvestDrops" value="true"/>
+		<property name="ExtendDestroyDrops" value="true"/>
+		<property name="EnableMowing" value="true"/>
+		<property name="LawnMowerDamage" value="5"/>
+	</append>
+
+	<!-- ############################################################################ -->
+	<!-- EASTER EGG TO GET SOME CORN COB FROM DEAD CORN PLANTS WITH CROP HARVESTER    -->
+	<!-- ############################################################################ -->
+
+	<append xpath="/blocks/block[@name='plantedCornDead']">
+		<drop event="Harvest" name="foodCropCorn" count="1" prob="0.125" tag="lawnMowing" tool_category="CropHarvester"/>
+		<drop event="Harvest" name="plantedCorn1" count="1" prob="0.075" tag="lawnMowing" tool_category="GrowReseeder"/>
+	</append>
+</configs>

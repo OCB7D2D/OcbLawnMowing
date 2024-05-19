@@ -1,3 +1,4 @@
+using Audio;
 using HarmonyLib;
 using System.Collections.Generic;
 using System.Reflection;
@@ -105,12 +106,12 @@ public class OcbLawnMowing : IModApi
             Block __instance,
             Block _other)
         {
-            bool enabled = false;
             // Only patch extending of a specific block we checked
             // I think this is the right approach, but keep vanilla as is
-            _other.Properties.ParseBool("ExtendHarvestDrops", ref enabled);
-            // Abort patcher if not enabled for block
-            if (enabled == false) return true;
+            bool harvests = _other.Properties.GetBool("ExtendHarvestDrops");
+            bool destroys = _other.Properties.GetBool("ExtendDestroyDrops");
+            // Abort patcher if nothing is enabled for block
+            if (harvests == false && destroys == false) return true;
             // Code below is mostly just copied from `Block.CopyDroppedFrom`
             foreach (KeyValuePair<EnumDropEvent, List<Block.SItemDropProb>> okv in _other.itemsToDrop)
             {
@@ -123,8 +124,8 @@ public class OcbLawnMowing : IModApi
                     __instance.itemsToDrop[evt] = ours =
                         new List<Block.SItemDropProb>();
                 }
-                // Use our patched code to extend harvest
-                if (evt == EnumDropEvent.Harvest)
+                // Use our patched code to extend harvest or destroy
+                if ((harvests && evt == EnumDropEvent.Harvest) || (destroys && evt == EnumDropEvent.Destroy))
                 {
                     int count = ours.Count;
                     for (int i = 0; i < others.Count; ++i)
@@ -181,19 +182,44 @@ public class OcbLawnMowing : IModApi
         }
     }
 
+    [HarmonyPatch(typeof(Audio.Manager), "Play")]
+    [HarmonyPatch(new System.Type[] { typeof(Vector3),
+        typeof(string), typeof(int) })]
+    public class AudioManagerPlayPatch
+    {
+        private static void Prefix(string soundGroupName, int entityId, ref bool __state)
+        {
+            if (entityId >= 0 && soundGroupName == "lawnmower_plant")
+            {
+                var entity = GameManager.Instance.World.GetEntity(entityId);
+                if (entity is EntityAlive alive) __state = alive.Crouching;
+                ((EntityAlive)entity).Crouching = true;
+            }
+        }
+        private static void Postfix(string soundGroupName, int entityId, bool __state)
+        {
+            if (entityId >= 0 && soundGroupName == "lawnmower_plant")
+            {
+                var entity = GameManager.Instance.World.GetEntity(entityId);
+                if (entity is EntityAlive alive) alive.Crouching = __state;
+            }
+        }
+    }
+
+
     // ####################################################################
     // Make sure paint is set on all renderers (also on LODs)
     // ####################################################################
 
     [HarmonyPatch(typeof(VehiclePart))]
-    [HarmonyPatch("SetPaint")]
-    public class VehiclePartSetPaintPatch
+    [HarmonyPatch("SetColors")]
+    public class VehiclePartSetColorsPatch
     {
-        private static void Postfix(VehiclePart __instance, Color color)
+        private static void Postfix(VehiclePart __instance, Color _color)
         {
             if (!(__instance.GetTransform("paints") is Transform transform)) return;
             System.Array.ForEach(transform.GetComponentsInChildren<Renderer>(),
-                renderer => renderer.material.color = color);
+                renderer => renderer.material.color = _color);
         }
     }
 

@@ -1,5 +1,5 @@
 ﻿<configs patcher-version="5">
-	<include
+	<modinc
 		path="blocks.a21.tmpl.xml"
 		tmpl-plant-wild-name="DFWheatPlantWild"
 		tmpl-plant-player-name="DFWheatPlantPlayer"
@@ -8,7 +8,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="blocks.a21.tmpl.xml"
 		tmpl-plant-wild-name="DFCannabisPlantWild"
 		tmpl-plant-player-name="DFCannabisPlantPlayer"
@@ -17,16 +17,9 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
-		tmpl-plant-wild-name="DFRicePlantWild"
-		tmpl-plant-player-name="DFRicePlantPlayer"
-		tmpl-item-name="DFRice"
-		tmpl-seed-name="DFseedRice"
-		tmpl-harvest-type="plant"
-	/>
+	<modinc path="blocks.a21.tmpl.xml" tmpl-plant-wild-name="DFRicePlantWild" tmpl-plant-player-name="DFRicePlantPlayer" tmpl-item-name="DFRice" tmpl-seed-name="DFseedRice" tmpl-harvest-type="plant"/>
 
-	<include
+	<modinc
 		path="blocks.a21.tmpl.xml"
 		tmpl-plant-wild-name="DFtomatoPlantWild"
 		tmpl-plant-player-name="DFtomatoPlantPlayer"
@@ -35,7 +28,7 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
+	<modinc
 		path="blocks.a21.tmpl.xml"
 		tmpl-plant-wild-name="DFcarrotPlantWild"
 		tmpl-plant-player-name="DFcarrotPlantPlayer"
@@ -46,7 +39,7 @@
 
 	<!-- UNDERGROUND CROPS -->
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedCotton3UndergroundHarvest"
 		tmpl-item-name="resourceCropCottonPlant"
@@ -54,7 +47,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedChrysanthemum3UndergroundHarvest"
 		tmpl-item-name="resourceCropChrysanthemumPlant"
@@ -62,7 +55,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedGoldenrod3UndergroundHarvest"
 		tmpl-item-name="resourceCropGoldenrodPlant"
@@ -70,7 +63,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedBlueberry3UndergroundHarvest"
 		tmpl-item-name="foodCropBlueberries"
@@ -78,7 +71,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedAloe3UndergroundHarvest"
 		tmpl-item-name="resourceCropAloeLeaf"
@@ -86,7 +79,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedCoffee3UndergroundHarvest"
 		tmpl-item-name="resourceCropCoffeeBeans"
@@ -94,7 +87,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedHop3UndergroundHarvest"
 		tmpl-item-name="resourceCropHopsFlower"
@@ -102,7 +95,7 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedCorn3UndergroundHarvest"
 		tmpl-item-name="foodCropCorn"
@@ -110,7 +103,7 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedGraceCorn3UndergroundHarvest"
 		tmpl-item-name="foodCropGraceCorn"
@@ -118,7 +111,7 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedPotato3UndergroundHarvest"
 		tmpl-item-name="foodCropPotato"
@@ -126,7 +119,7 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedPumpkin3UndergroundHarvest"
 		tmpl-item-name="foodCropPumpkin"
@@ -134,7 +127,7 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
+	<modinc
 		path="tmpl-blocks/plant.player.xml"
 		tmpl-plant-player-name="plantedYucca3UndergroundHarvest"
 		tmpl-item-name="foodCropYuccaFruit"

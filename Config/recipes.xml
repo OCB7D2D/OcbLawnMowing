@@ -1,12 +1,14 @@
 <configs patcher-version="4">
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="recipes.ulm.xml"/>
+		<modinc path="recipes.a21.ulm.xml"/>
+		<echo error="No Undead Legacy support yet!"/>
 	</modif>
 	<modelsif condition="DarknessFallsCore">
-		<include path="recipes.a21.xml"/>
-		<include path="recipes.a21.df.xml"/>
+		<modinc path="recipes.a22.xml"/>
+		<modinc path="recipes.a21.df.xml"/>
+		<echo error="No Darkness Falls support yet!"/>
 	</modelsif>
 	<modelse>
-		<include path="recipes.a21.xml"/>
+		<modinc path="recipes.a22.xml"/>
 	</modelse>
 </configs>

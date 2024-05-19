@@ -1,11 +1,13 @@
 ﻿<configs patcher-version="4">
-	<include path="blocks.damaged.xml"/>
+	<modinc path="blocks.damaged.xml"/>
 
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="blocks.a21.ulm.xml"/>
+		<modinc path="blocks.a21.ulm.xml"/>
+		<echo error="No Undead Legacy support yet!"/>
 	</modif>
 	<modelsif condition="DarknessFallsCore">
-		<include path="blocks.a21.df.xml"/>
+		<modinc path="blocks.a21.df.xml"/>
+		<echo error="No Darkness Falls support yet!"/>
 	</modelsif>
 	<modelse>
 		<append xpath="/blocks/block[@name='cntCarLawnTractorDamaged0Master']">
@@ -14,17 +16,17 @@
 		</append>
 	</modelse>
 
-	<include path="blocks.a21.xml"/>
-	<include path="blocks.a21.grass.xml"/>
+	<modinc path="blocks.a22.xml"/>
+	<modinc path="blocks.a22.grass.xml"/>
 
 	<modif condition="MoonpieFoodExpansion">
 		<!-- ToDo: check after DF refactoring -->
-		<include path="blocks.foodexp.xml"/>
+		<modinc path="blocks.foodexp.xml"/>
 	</modif>
 
 	<modif condition="Random_Regrowing_Wild_Crops">
 		<!-- ToDo: check after DF refactoring -->
-		<include path="blocks.regrow.xml"/>
+		<modinc path="blocks.regrow.xml"/>
 	</modif>
 
 	<!-- Enable plant blocks to be placed via dev console for testing purposes -->

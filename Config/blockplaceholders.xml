@@ -1,13 +1,15 @@
 <configs patcher-version="4">
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="blockplaceholders.a21.xml"/>
-		<include path="blockplaceholders.a21.ulm.xml"/>
+		<modinc path="blockplaceholders.a22.xml"/>
+		<modinc path="blockplaceholders.a21.ulm.xml"/>
+		<echo error="No Undead Legacy support yet!"/>
 	</modif>
 	<modelsif condition="DarknessFallsCore">
-		<include path="blockplaceholders.a21.xml"/>
-		<include path="blockplaceholders.a21.df.xml"/>
+		<modinc path="blockplaceholders.a22.xml"/>
+		<modinc path="blockplaceholders.a21.df.xml"/>
+		<echo error="No Darkness Falls support yet!"/>
 	</modelsif>
 	<modelse>
-		<include path="blockplaceholders.a21.xml"/>
+		<modinc path="blockplaceholders.a22.xml"/>
 	</modelse>
 </configs>

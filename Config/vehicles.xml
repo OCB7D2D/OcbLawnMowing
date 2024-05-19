@@ -1,32 +1,32 @@
 <configs>
 	<append xpath="/vehicles">
 		<vehicle name="vehicleLawnTractor">
-			<property name="motorTorque" value="400, 200"/>
-			<property name="turboScale" value="1.4, 1"/>
-			<property name="velocityMax" value="6, 4"/>
-			<property name="brakeTorque" value="1500"/>
-
 			<property name="cameraDistance" value="5.5, 6"/>
 			<property name="cameraTurnRate" value=".2, .35"/>
-			<!--
-			<property name="motorTorqueMinQ" value="5000"/>
-			<property name="motorTorqueMaxQ" value="5000"/>
-			-->
 			<property name="upAngleMax" value="70"/>
 			<property name="upForce" value="1"/>
 			<property name="steerRate" value="130"/>
 			<property name="steerCenteringRate" value="90"/>
-			<property name="tiltAngleMax" value="80"/>
+			<property name="tiltAngleMax" value="60"/>
 			<property name="tiltThreshold" value="2.5"/>
 			<property name="tiltDampening" value=".18"/>
 			<property name="tiltDampenThreshold" value="6"/>
-			<property name="tiltUpForce" value="0"/>
+			<property name="tiltUpForce" value="0.5"/>
+
+			<!-- a little more torque than the minibike -->
+			<property name="motorTorque_turbo" value="450, 225, 580, 250"/>
+			<!-- a bit slower than the minibike at max speed -->
+			<property name="velocityMax_turbo" value="6.25, 3.75, 8.75, 4.0"/>
+			<!-- a little less break torque than minibike -->
+			<property name="brakeTorque" value="2500"/>
+			<!-- same config as the minibike -->
 			<property name="hopForce" value="1.5, .2"/>
 			<property name="unstickForce" value="1"/>
 			<property name="waterDrag_y_velScale_velMaxScale" value="1.8, .9, .1"/>
 			<property name="wheelPtlScale" value="1"/>
 
-			<property name="hornSound" value="vehicle/minibike/minibike_horn"/>
+			<property name="hornSound" value="lawnmower_horn"/>
+			<property name="recipeName" value="vehicleLawnTractorPlaceable"/>
 
 			<!--
 			<property class="battery">
@@ -51,11 +51,11 @@
 				<property name="slot_type" value="engine"/>
 				<property name="mesh" value="engine_small"/>
 				<property name="transform" value="engine_small"/>
-				<property name="fuelKmPerL" value=".1"/>
-				<property name="foodDrain" value=".002,.00811"/>
 				<property name="particleOn" value="engine_small/p_on"/>
 				<property name="particleDamaged" value="engine_small/p_damaged"/>
 				<property name="particleBroken" value="engine_small/p_broken"/>
+				<property name="fuelKmPerL" value=".175"/>
+				<property name="foodDrain" value=".002,.00811"/>
 
 				<!-- driving/turbo, truck -->
 
@@ -85,8 +85,6 @@
 
 			<property class="mower">
 				<property name="class" value="Mower, LawnMowing"/>
-				<property name="particle_transform" value="engine_small/MowerParticles/p_blades"/>
-				<property name="particle_per_grass" value="11"/>
 				<property name="fuel_per_second" value="0.1"/>
 				<property name="plant_interval" value="0.3"/>
 				<property name="blade_interval" value="0.2"/>
@@ -109,21 +107,22 @@
 				<property name="slot_type" value="handlebars"/>
 				<property name="transform" value="Origin/steering_joint/SteeringWheel"/>
 				<property name="steerMaxAngle" value="35"/>
-				<property name="IKHandLPosition" value="-0.145, 0.213, -0.07"/>
-				<property name="IKHandLRotation" value="60, -45, -310"/>
-				<property name="IKHandRPosition" value="0.145, 0.213, -0.07"/>
-				<property name="IKHandRRotation" value="60, 45, 310"/>
+				<property name="IKHandLPosition" value="-0.155, 0.194, -0.100"/>
+				<property name="IKHandRPosition" value="0.115, 0.235, 0.05"/>
+				<property name="IKHandLRotation" value="327, 0, 82"/>
+				<property name="IKHandRRotation" value="0, 120, 230"/>
 			</property>
 
 			<property class="seat0">
 				<property name="class" value="Seat"/>
-				<property name="position" value="0, .12, -.12"/>
-				<property name="rotation" value="-18, 0, 0"/>
+				<property name="pose" value="20"/>
+				<property name="position" value="0, .24, .1"/>
+				<property name="rotation" value="-24, 0, 0"/>
 				<property name="exit" value="-1.6,0,0 ~ 1.6,0,-1 ~ -.4,0,-2.8 ~ -.4,0,2.6 ~ -.4,2.1,0"/>
-				<property name="IKFootLPosition" value="-.34, .35, .30"/>
-				<property name="IKFootLRotation" value="-30, 0, 0"/>
-				<property name="IKFootRPosition" value=".34, .35, .30"/>
-				<property name="IKFootRRotation" value="-30, 0, 0"/>
+				<property name="IKFootLPosition" value="-.315, .330, .075"/>
+				<property name="IKFootRPosition" value=".325, .350, .195"/>
+				<property name="IKFootLRotation" value="355.0, -15.0, 0"/>
+				<property name="IKFootRRotation" value="340.0, 17.5, 0"/>
 			</property>
 
 			<property class="wheel0">

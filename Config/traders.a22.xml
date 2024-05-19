@@ -1,0 +1,23 @@
+<configs>
+	<!-- You can buy the mower, but not the mods -->
+	<!-- You can buy schematics for everything though -->
+
+	<append xpath="//trader_item_group[@name='groupVehicles']">
+		<item name="vehicleLawnTractorPlaceable"/>
+		<item name="vehicleLawnTractorChassis"/>
+		<item name="vehicleLawnTractorAccessories"/>
+	</append>
+
+	<append xpath="//trader_item_group[@name='schematicsVehiclesMods']">
+		<item name="modVehicleLawnTractorGrassCollectorSchematic" prob="0.8"/>
+		<item name="modVehicleLawnTractorPlantCollectorSchematic" prob="0.5"/>
+		<item name="modVehicleLawnTractorCropsCollectorSchematic" prob="0.4"/>
+		<item name="modVehicleLawnTractorCropsProtectorSchematic" prob="0.6"/>
+		<item name="modVehicleLawnTractorCropsReseederSchematic" prob="0.3"/>
+	</append>
+
+	<!-- Add required mod to trader for users to buy -->
+	<append xpath="//trader_item_group[@name='groupMeleeMods']">
+		<item name="modMeleeClubMetalChain"/>
+	</append>
+</configs>

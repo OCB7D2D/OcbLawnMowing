@@ -31,6 +31,8 @@
 		<!-- as it uses player effects in order to properly scale with progression perks -->
 		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="wildMowing"/>
 		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="grownMowing"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="stoneMowing"/>
+		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="goreMowing"/>
 		<!-- duplicate the effect tags in order to make seed harvest not scale with other -->
 		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="wildMowingBonus"/>
 		<passive_effect name="HarvestCount" operation="base_set" value="0" tags="grownMowingBonus"/>
@@ -51,6 +53,8 @@
 			<!-- Add one to the base value of zero that we've set above if requirement is met -->
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="wildMowing"/>
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="grownMowing"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="stoneMowing"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="goreMowing"/>
 			<!-- duplicate the effect tags in order to make seed harvest not scale with other -->
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="wildMowingBonus"/>
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="grownMowingBonus"/>
@@ -63,6 +67,6 @@
 	</append>
 
 	<modif condition="UndeadLegacy_CoreModule">
-		<include path="entityclasses.a21.ulm.xml"/>
+		<modinc path="entityclasses.a21.ulm.xml"/>
 	</modif>
 </configs>

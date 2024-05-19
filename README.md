@@ -1,4 +1,4 @@
-# Lawn Mowing Mod - 7 Days to Die (A21) Addon
+# Lawn Mowing Mod - 7 Days to Die (V1.0 exp) Addon
 
 What started as a small Proof of concept has grown into a feature rich
 Mod, that should satisfy a few of your farming sim desires. I've added
@@ -124,11 +124,21 @@ vehicle will only give the usual scrap that cars would give you.
 
 ## Download and Install
 
-Simply [download here from GitHub][1] and put into your A21 Mods folder:
+End-Users are encouraged to download my mods from [NexusMods][4].  
+Every download there helps me to buy stuff for mod development.
 
-- https://github.com/OCB7D2D/OcbLawnMowing/releases (master branch)
+Otherwise please use one of the [official releases][1] here.  
+Only clone or download the repo if you know what you do!
 
 ## Changelog
+
+### Version 2.3.0
+
+- First compatibility with V1.0 (exp)
+- Refactor to allow to collect more blocks
+- Enabled rocks and ember piles to be harvested
+- Add gore collector mod to gather gore blocks
+- Collecting these will damage the vehicle slightly
 
 ### Version 2.2.0
 
@@ -189,10 +199,7 @@ Simply [download here from GitHub][1] and put into your A21 Mods folder:
 
 - Initial working version
 
-## Compatibility
-
-Developed initially for version a20.6(b8), updated through A21.2(b37).
-
 [1]: https://github.com/OCB7D2D/OcbLawnMowing/releases
 [2]: https://github.com/OCB7D2D/OcbLawnMowing/actions/workflows/ci.yml
 [3]: https://github.com/OCB7D2D/OcbLawnMowing/actions/workflows/ci.yml/badge.svg
+[4]: https://www.nexusmods.com/7daystodie/mods/3312

@@ -1,19 +1,12 @@
 ﻿<configs>
 	<!-- WHEAT -->
 
-	<include
-		path="blocks.a21.tmpl.xml"
-		tmpl-plant-wild-name="WheatPlant"
-		tmpl-plant-player-name="WheatPlantPlayer"
-		tmpl-item-name="foodCropWheat"
-		tmpl-seed-name="seedWheat"
-		tmpl-harvest-type="plant"
-	/>
+	<modinc path="blocks.a22.tmpl.xml" tmpl-plant-wild-name="WheatPlant" tmpl-plant-player-name="WheatPlantPlayer" tmpl-item-name="foodCropWheat" tmpl-seed-name="seedWheat" tmpl-harvest-type="plant"/>
 
 	<!-- TOMATO -->
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="TomatoPlant"
 		tmpl-plant-player-name="TomatoPlantPlayer"
 		tmpl-item-name="foodCropTomato"
@@ -23,12 +16,12 @@
 
 	<!-- ONION -->
 
-	<include path="blocks.a21.tmpl.xml" tmpl-plant-wild-name="OnionPlant" tmpl-plant-player-name="OnionPlantPlayer" tmpl-item-name="foodCropOnion" tmpl-seed-name="seedOnion" tmpl-harvest-type="crop"/>
+	<modinc path="blocks.a22.tmpl.xml" tmpl-plant-wild-name="OnionPlant" tmpl-plant-player-name="OnionPlantPlayer" tmpl-item-name="foodCropOnion" tmpl-seed-name="seedOnion" tmpl-harvest-type="crop"/>
 
 	<!-- CABBAGE -->
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="CabbagePlant"
 		tmpl-plant-player-name="CabbagePlantPlayer"
 		tmpl-item-name="foodCropCabbage"
