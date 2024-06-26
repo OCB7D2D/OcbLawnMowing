@@ -185,56 +185,58 @@ static class ModXmlPatcher
     private static readonly MethodInfo MethodSinglePatch = AccessTools.Method(typeof(XmlPatcher), "singlePatch");
 
     // Function to load another XML file and basically call the same PatchXML function again
-    private static bool IncludeAnotherDocument(XmlFile target, XmlFile parent, XElement element, string modName)
+    private static bool IncludeAnotherDocument(XmlFile target, XmlFile parent, XElement element, Mod mod)
     {
         bool result = true;
 
+        var modName = mod.Name;
+
         // Add template values to dictionary
         using (var tmpls = new DictScopeHelper(element))
-            foreach (XAttribute attr in element.Attributes())
+        foreach (XAttribute attr in element.Attributes())
+        {
+            // Skip unknown attributes
+            if (attr.Name != "path") continue;
+            // Load path relative to previous XML include
+            string prev = Path.Combine(parent.Directory, parent.Filename);
+            string path = Path.Combine(Path.GetDirectoryName(prev), attr.Value);
+            if (File.Exists(path))
             {
-                // Skip unknown attributes
-                if (attr.Name != "path") continue;
-                // Load path relative to previous XML include
-                string prev = Path.Combine(parent.Directory, parent.Filename);
-                string path = Path.Combine(Path.GetDirectoryName(prev), attr.Value);
-                if (File.Exists(path))
+                try
                 {
+                    string _text = File.ReadAllText(path, Encoding.UTF8)
+                        .Replace("@modfolder:", "@modfolder(" + modName + "):");
+                    ReplaceTemplateOccurences(dict, ref _text);
+                    XmlFile _patchXml;
                     try
                     {
-                        string _text = File.ReadAllText(path, Encoding.UTF8)
-                            .Replace("@modfolder:", "@modfolder(" + modName + "):");
-                        ReplaceTemplateOccurences(dict, ref _text);
-                        XmlFile _patchXml;
-                        try
-                        {
-                            _patchXml = new XmlFile(_text,
-                                Path.GetDirectoryName(path),
-                                Path.GetFileName(path),
-                                true);
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error("XML loader: Loading XML patch include '{0}' from mod '{1}' failed.", path, modName);
-                            Log.Exception(ex);
-                            result = false;
-                            continue;
-                        }
-                        result &= XmlPatcher.PatchXml(
-                            target, _patchXml, modName);
+                        _patchXml = new XmlFile(_text,
+                            Path.GetDirectoryName(path),
+                            Path.GetFileName(path),
+                            true);
                     }
                     catch (Exception ex)
                     {
-                        Log.Error("XML loader: Patching '" + target.Filename + "' from mod '" + modName + "' failed.");
+                        Log.Error("XML loader: Loading XML patch include '{0}' from mod '{1}' failed.", path, modName);
                         Log.Exception(ex);
                         result = false;
+                        continue;
                     }
+                    result &= XmlPatcher.PatchXml(
+                        target, element, _patchXml, mod);
                 }
-                else
+                catch (Exception ex)
                 {
-                    Log.Error("XML loader: Can't find XML include '{0}' from mod '{1}'.", path, modName);
+                    Log.Error("XML loader: Patching '" + target.Filename + "' from mod '" + modName + "' failed.");
+                    Log.Exception(ex);
+                    result = false;
                 }
             }
+            else
+            {
+                Log.Error("XML loader: Can't find XML include '{0}' from mod '{1}'.", path, modName);
+            }
+        }
         return result;
     }
 
@@ -244,7 +246,7 @@ static class ModXmlPatcher
     static int count = 0;
 
     public static bool PatchXml(XmlFile xmlFile,
-        XmlFile patchXml, XElement node, string name)
+        XmlFile patchXml, XElement node, Mod mod)
     {
         bool result = true;
         count++;
@@ -253,10 +255,10 @@ static class ModXmlPatcher
         foreach (XElement child in node.Elements())
         {
             // Patched to support includes
-            if (child.Name == "include")
+            if (child.Name == "modinc")
             {
                 // Will do the magic by calling our functions again
-                IncludeAnotherDocument(xmlFile, patchXml, child, name);
+                IncludeAnotherDocument(xmlFile, patchXml, child, mod);
             }
             else if (child.Name == "echo")
             {
@@ -270,11 +272,11 @@ static class ModXmlPatcher
                 }
             }
             // Otherwise try to apply the patches found in child element
-            else if (!ApplyPatchEntry(xmlFile, patchXml, child, name, ref stack))
+            else if (!ApplyPatchEntry(xmlFile, child, patchXml, mod, ref stack))
             {
                 IXmlLineInfo lineInfo = child;
                 Log.Warning(string.Format("XML patch for \"{0}\" from mod \"{1}\" did not apply: {2} (line {3} at pos {4})",
-                    xmlFile.Filename, name, child.ToString(), lineInfo.LineNumber, lineInfo.LinePosition));
+                    xmlFile.Filename, mod.Name, child.ToString(), lineInfo.LineNumber, lineInfo.LinePosition));
                 result = false;
             }
         }
@@ -291,19 +293,19 @@ static class ModXmlPatcher
 
     // Entry point instead of (private) `XmlPatcher.singlePatch`
     // Implements conditional patching and also allows includes
-    private static bool ApplyPatchEntry(XmlFile _xmlFile, XmlFile _patchXml,
-        XElement _patchElement, string _patchName, ref ParserStack stack)
+    private static bool ApplyPatchEntry(XmlFile _targetFile, XElement _patchElement,
+        XmlFile _patchFile, Mod _patchingMod, ref ParserStack stack)
     {
 
         // Only support root level
         switch (_patchElement.Name.ToString())
         {
 
-            case "include":
+            case "modinc":
 
                 // Call out to our include handler
-                return IncludeAnotherDocument(_xmlFile, _patchXml,
-                    _patchElement, _patchName);
+                return IncludeAnotherDocument(_targetFile, _patchFile,
+                    _patchElement, _patchingMod);
 
             case "modif":
 
@@ -321,11 +323,11 @@ static class ModXmlPatcher
                         continue;
                     }
                     // Evaluate one or'ed condition
-                    if (EvaluateConditions(attr.Value, _xmlFile))
+                    if (EvaluateConditions(attr.Value, _targetFile))
                     {
                         stack.PreviousResult = true;
-                        return PatchXml(_xmlFile, _patchXml,
-                            _patchElement, _patchName);
+                        return PatchXml(_targetFile, _patchFile,
+                            _patchElement, _patchingMod);
                     }
                 }
 
@@ -354,11 +356,11 @@ static class ModXmlPatcher
                         continue;
                     }
                     // Evaluate one or'ed condition
-                    if (EvaluateConditions(attr.Value, _xmlFile))
+                    if (EvaluateConditions(attr.Value, _targetFile))
                     {
                         stack.PreviousResult = true;
-                        return PatchXml(_xmlFile, _patchXml,
-                            _patchElement, _patchName);
+                        return PatchXml(_targetFile, _patchFile,
+                            _patchElement, _patchingMod);
                     }
                 }
 
@@ -371,8 +373,8 @@ static class ModXmlPatcher
                 stack.IfClauseParsed = false;
                 // Abort else when last result was true
                 if (stack.PreviousResult) return true;
-                return PatchXml(_xmlFile, _patchXml,
-                    _patchElement, _patchName);
+                return PatchXml(_targetFile, _patchFile,
+                    _patchElement, _patchingMod);
 
             default:
                 // Reset flags first
@@ -380,7 +382,7 @@ static class ModXmlPatcher
                 stack.PreviousResult = true;
                 // Dispatch to original function
                 return (bool)MethodSinglePatch.Invoke(null,
-                    new object[] { _xmlFile, _patchElement, _patchName });
+                    new object[] { _targetFile, _patchElement, _patchFile, _patchingMod });
         }
     }
 
@@ -391,8 +393,9 @@ static class ModXmlPatcher
     {
         static bool Prefix(
             ref XmlFile _xmlFile,
-            ref XmlFile _patchXml,
-            ref string _patchName,
+            ref XmlFile _patchFile,
+            XElement _containerElement,
+            ref Mod _patchingMod,
             ref bool __result)
         {
             // According to Harmony docs, returning false on a prefix
@@ -403,8 +406,8 @@ static class ModXmlPatcher
             // Might also be something solved with latest versions,
             // as the game uses a rather old HarmonyX version (2.2).
             // To address this we simply "consume" one of the args.
-            if (_patchXml == null) return false;
-            XElement element = _patchXml.XmlDoc.Root;
+            if (_patchFile == null) return false;
+            XElement element = _patchFile.XmlDoc.Root;
             if (element == null) return false;
             string version = element.GetAttribute("patcher-version");
             if (!string.IsNullOrEmpty(version))
@@ -414,10 +417,10 @@ static class ModXmlPatcher
             }
             // Call out to static helper function
             __result = PatchXml(
-                _xmlFile, _patchXml,
-                element, _patchName);
+                _xmlFile, _patchFile,
+                element, _patchingMod);
             // First one wins
-            _patchXml = null;
+            _patchFile = null;
             return false;
         }
     }

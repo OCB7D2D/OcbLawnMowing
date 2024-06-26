@@ -3,8 +3,8 @@
 	<!-- ITEMS BELOW CAN BE HARVESTED WITH CROP OR WILD HARVEST MOWER ADDON           -->
 	<!-- ############################################################################ -->
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedCotton3Harvest"
 		tmpl-plant-player-name="plantedCotton3HarvestPlayer"
 		tmpl-item-name="resourceCropCottonPlant"
@@ -12,8 +12,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedChrysanthemum3Harvest"
 		tmpl-plant-player-name="plantedChrysanthemum3HarvestPlayer"
 		tmpl-item-name="resourceCropChrysanthemumPlant"
@@ -21,8 +21,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedGoldenrod3Harvest"
 		tmpl-plant-player-name="plantedGoldenrod3HarvestPlayer"
 		tmpl-item-name="resourceCropGoldenrodPlant"
@@ -30,8 +30,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedBlueberry3Harvest"
 		tmpl-plant-player-name="plantedBlueberry3HarvestPlayer"
 		tmpl-item-name="foodCropBlueberries"
@@ -39,8 +39,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedAloe3Harvest"
 		tmpl-plant-player-name="plantedAloe3HarvestPlayer"
 		tmpl-item-name="resourceCropAloeLeaf"
@@ -48,8 +48,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedCoffee3Harvest"
 		tmpl-plant-player-name="plantedCoffee3HarvestPlayer"
 		tmpl-item-name="resourceCropCoffeeBeans"
@@ -57,8 +57,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedHop3Harvest"
 		tmpl-plant-player-name="plantedHop3HarvestPlayer"
 		tmpl-item-name="resourceCropHopsFlower"
@@ -66,8 +66,8 @@
 		tmpl-harvest-type="plant"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedMushroom3Harvest"
 		tmpl-plant-player-name="plantedMushroom3HarvestPlayer"
 		tmpl-item-name="foodCropMushrooms"
@@ -79,8 +79,8 @@
 	<!-- ITEMS BELOW CAN ONLY BE HARVESTED WITH CROP MOWER ADDON (WILD IS NOT ENOUGH) -->
 	<!-- ############################################################################ -->
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedCorn3Harvest"
 		tmpl-plant-player-name="plantedCorn3HarvestPlayer"
 		tmpl-item-name="foodCropCorn"
@@ -88,8 +88,8 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedGraceCorn3Harvest"
 		tmpl-plant-player-name="plantedGraceCorn3HarvestPlayer"
 		tmpl-item-name="foodCropGraceCorn"
@@ -97,8 +97,8 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedPotato3Harvest"
 		tmpl-plant-player-name="plantedPotato3HarvestPlayer"
 		tmpl-item-name="foodCropPotato"
@@ -106,8 +106,8 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedPumpkin3Harvest"
 		tmpl-plant-player-name="plantedPumpkin3HarvestPlayer"
 		tmpl-item-name="foodCropPumpkin"
@@ -115,8 +115,8 @@
 		tmpl-harvest-type="crop"
 	/>
 
-	<include
-		path="blocks.a21.tmpl.xml"
+	<modinc
+		path="blocks.a22.tmpl.xml"
 		tmpl-plant-wild-name="plantedYucca3Harvest"
 		tmpl-plant-player-name="plantedYucca3HarvestPlayer"
 		tmpl-item-name="foodCropYuccaFruit"

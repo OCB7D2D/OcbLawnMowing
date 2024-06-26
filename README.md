@@ -1,4 +1,4 @@
-# Lawn Mowing Mod - 7 Days to Die (A21) Addon
+# Lawn Mowing Mod - 7 Days to Die (V1.0 exp) Addon
 
 What started as a small Proof of concept has grown into a feature rich
 Mod, that should satisfy a few of your farming sim desires. I've added
@@ -124,11 +124,14 @@ vehicle will only give the usual scrap that cars would give you.
 
 ## Download and Install
 
-Simply [download here from GitHub][1] and put into your A21 Mods folder:
-
-- https://github.com/OCB7D2D/OcbLawnMowing/releases (master branch)
+[Download from GitHub releases][1] and extract into your Mods folder!  
+Ensure you don't have double nested folders and ModInfo.xml is at right place!
 
 ## Changelog
+
+### Version 2.3.0
+
+- First compatibility with V1.0 (exp)
 
 ### Version 2.2.0
 
@@ -188,10 +191,6 @@ Simply [download here from GitHub][1] and put into your A21 Mods folder:
 ### Version 1.0.0
 
 - Initial working version
-
-## Compatibility
-
-Developed initially for version a20.6(b8), updated through A21.2(b37).
 
 [1]: https://github.com/OCB7D2D/OcbLawnMowing/releases
 [2]: https://github.com/OCB7D2D/OcbLawnMowing/actions/workflows/ci.yml

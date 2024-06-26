@@ -155,7 +155,7 @@ public class VPMower : VehiclePart
             var values = props?.Values;
             if (values == null) continue; // Play safe
             props.ParseFloat("DamageModifier", ref DamageModifier);
-            if (values.TryGetString("MowerHarvestTags", out string tags))
+            if (values.TryGetValue("MowerHarvestTags", out string tags))
             {
                 var names = SplitAndTrim(tags, ',');
                 foreach (string tag in names) HarvestTags.Add(tag);
@@ -170,17 +170,17 @@ public class VPMower : VehiclePart
                 //    }
                 //}
             }
-            if (values.TryGetString("MowerHarvestTools", out string tools))
+            if (values.TryGetValue("MowerHarvestTools", out string tools))
             {
                 foreach (string tool in SplitAndTrim(tools, ','))
                     HarvestTools.Add(tool);
             }
-            if (values.TryGetString("EnablePhysics", out string physics))
+            if (values.TryGetValue("EnablePhysics", out string physics))
             {
                 foreach (string physic in SplitAndTrim(physics, ','))
                     NewShownModPhysics.Add(physic);
             }
-            if (values.TryGetString("ShowTransforms", out string shows))
+            if (values.TryGetValue("ShowTransforms", out string shows))
             {
                 foreach (string show in SplitAndTrim(shows, ','))
                     NewShownModTransforms.Add(show);
@@ -520,7 +520,7 @@ public class VPMower : VehiclePart
                 name.Length - 13);
         }
         // Or fall-back to properties to support any plant
-        else if (block.Properties.Values.TryGetString(
+        else if (block.Properties.Values.TryGetValue(
             "CropReplacement", out string replacement)) {
                 return replacement;
         }
@@ -647,8 +647,8 @@ public class VPMower : VehiclePart
             // So one governs perk progression, the other vehicle mods
             // And we already have the vehicle mods status calculated
             float effect = EffectManager.GetValue(
-                PassiveEffects.HarvestCount, null, count,
-                player, tags: FastTags.Parse(drop.tag));
+                PassiveEffects.HarvestCount, null, count, player,
+                tags: FastTags<TagGroup.Global>.Parse(drop.tag));
 
             // Log.Out(" has effect", effect);
             // We use rounding rules here (why not)

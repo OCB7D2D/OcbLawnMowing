@@ -186,14 +186,14 @@ public class OcbLawnMowing : IModApi
     // ####################################################################
 
     [HarmonyPatch(typeof(VehiclePart))]
-    [HarmonyPatch("SetPaint")]
-    public class VehiclePartSetPaintPatch
+    [HarmonyPatch("SetColors")]
+    public class VehiclePartSetColorsPatch
     {
-        private static void Postfix(VehiclePart __instance, Color color)
+        private static void Postfix(VehiclePart __instance, Color _color)
         {
             if (!(__instance.GetTransform("paints") is Transform transform)) return;
             System.Array.ForEach(transform.GetComponentsInChildren<Renderer>(),
-                renderer => renderer.material.color = color);
+                renderer => renderer.material.color = _color);
         }
     }
 

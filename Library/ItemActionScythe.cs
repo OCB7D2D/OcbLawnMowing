@@ -110,7 +110,7 @@ public class ItemActionScythe : ItemAction
     // ####################################################################
     // ####################################################################
     
-    protected override bool isShowOverlay(ItemActionData actionData)
+    public override bool isShowOverlay(ItemActionData actionData)
     {
         return true;
     }

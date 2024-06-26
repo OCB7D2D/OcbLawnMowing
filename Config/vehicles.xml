@@ -109,21 +109,22 @@
 				<property name="slot_type" value="handlebars"/>
 				<property name="transform" value="Origin/steering_joint/SteeringWheel"/>
 				<property name="steerMaxAngle" value="35"/>
-				<property name="IKHandLPosition" value="-0.145, 0.213, -0.07"/>
-				<property name="IKHandLRotation" value="60, -45, -310"/>
-				<property name="IKHandRPosition" value="0.145, 0.213, -0.07"/>
-				<property name="IKHandRRotation" value="60, 45, 310"/>
+				<property name="IKHandLPosition" value="-0.155, 0.194, -0.100"/>
+				<property name="IKHandRPosition" value="0.115, 0.235, 0.05"/>
+				<property name="IKHandLRotation" value="327, 0, 82"/>
+				<property name="IKHandRRotation" value="0, 120, 230"/>
 			</property>
 
 			<property class="seat0">
 				<property name="class" value="Seat"/>
-				<property name="position" value="0, .12, -.12"/>
-				<property name="rotation" value="-18, 0, 0"/>
+				<property name="pose" value="20"/>
+				<property name="position" value="0, .24, .1"/>
+				<property name="rotation" value="-24, 0, 0"/>
 				<property name="exit" value="-1.6,0,0 ~ 1.6,0,-1 ~ -.4,0,-2.8 ~ -.4,0,2.6 ~ -.4,2.1,0"/>
-				<property name="IKFootLPosition" value="-.34, .35, .30"/>
-				<property name="IKFootLRotation" value="-30, 0, 0"/>
-				<property name="IKFootRPosition" value=".34, .35, .30"/>
-				<property name="IKFootRRotation" value="-30, 0, 0"/>
+				<property name="IKFootLPosition" value="-.315, .330, .075"/>
+				<property name="IKFootRPosition" value=".325, .350, .195"/>
+				<property name="IKFootLRotation" value="355.0, -15.0, 0"/>
+				<property name="IKFootRRotation" value="340.0, 17.5, 0"/>
 			</property>
 
 			<property class="wheel0">
