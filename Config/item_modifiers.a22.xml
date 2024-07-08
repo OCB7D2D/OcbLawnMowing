@@ -12,6 +12,7 @@
 			<!-- this way we can easily adjust and nerf probabilities -->
 			<property name="MowerHarvestTags" value="lawnMowing,stoneMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
 			<property name="MowerHarvestTools" value="GrassCollector,StoneCollector"/>
+			<property name="UnlockForPerklivingofftheland" value="1"/>
 		</item_modifier>
 
 		<!-- Items below form a group (only one mod can be installed) -->
@@ -26,6 +27,7 @@
 			<!-- this way we can easily adjust and nerf probabilities -->
 			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
 			<property name="MowerHarvestTools" value="PlantCollector"/>
+			<property name="UnlockForPerklivingofftheland" value="2"/>
 		</item_modifier>
 
 		<item_modifier name="modVehicleLawnTractorCropsCollector" installable_tags="vmower" modifier_tags="mowerCrops" type="attachment" blocked_tags="mowerCrops">
@@ -38,6 +40,7 @@
 			<!-- this way we can easily adjust and nerf probabilities -->
 			<property name="MowerHarvestTags" value="lawnMowing,wildMowing,grownMowing,wildMowingBonus,grownMowingBonus"/>
 			<property name="MowerHarvestTools" value="CropHarvester"/>
+			<property name="UnlockForPerklivingofftheland" value="3"/>
 		</item_modifier>
 
 		<!-- Items below form a group (only one mod can be installed) -->
@@ -54,6 +57,7 @@
 			<property name="ShowTransforms" value="mower_fender"/>
 			<property name="EnablePhysics" value="p_mower_fender"/>
 			<property name="DamageModifier" value="0.4"/>
+			<property name="UnlockForPerkadvancedengineering" value="2"/>
 		</item_modifier>
 
 		<item_modifier name="modVehicleLawnTractorCropsReseeder" installable_tags="vmower" modifier_tags="mowerReseed" type="attachment" blocked_tags="mowerReseed">
@@ -69,6 +73,7 @@
 			<property name="ShowTransforms" value="mower_fender"/>
 			<property name="EnablePhysics" value="p_mower_fender"/>
 			<property name="DamageModifier" value="0.4"/>
+			<property name="UnlockForPerkadvancedengineering" value="4"/>
 		</item_modifier>
 
 		<!-- DF attachment that will harvest gore blocks -->
@@ -82,6 +87,7 @@
 			<!-- this way we can easily adjust and nerf probabilities -->
 			<property name="MowerHarvestTags" value="lawnMowing,goreMowing"/>
 			<property name="MowerHarvestTools" value="GoreCollector"/>
+			<property name="UnlockForPerkthehuntsman" value="2"/>
 		</item_modifier>
 	</append>
 </configs>

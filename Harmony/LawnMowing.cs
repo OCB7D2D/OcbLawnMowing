@@ -1,5 +1,5 @@
-using Audio;
 using HarmonyLib;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -264,6 +264,37 @@ public class OcbLawnMowing : IModApi
                 codes[position - 1]
             });
             return codes;
+        }
+    }
+
+    // ####################################################################
+    // ####################################################################
+
+    // Patch to enhance reporting of mod unlocking
+    // Shows the unlock level in the UI for these mod
+    [HarmonyPatch(typeof(RecipeUnlockData))]
+    [HarmonyPatch("GetLevel")]
+    public class RecipeUnlockDataGetLevelPatch
+    {
+        public static bool Prefix(
+            RecipeUnlockData __instance,
+            string recipeName,
+            ref string __result)
+        {
+            if (__instance.unlockType == RecipeUnlockData.UnlockTypes.Perk)
+            {
+                string pname = "UnlockFor"
+                    + Char.ToUpper(__instance.perk.Name[0])
+                    + __instance.perk.Name.Substring(1);
+                if (ItemClass.GetItemClass(recipeName) is ItemClass item)
+                {
+                    var level = item.Properties.GetString(pname);
+                    if (string.IsNullOrEmpty(level)) return true;
+                    __result = level;
+                    return false;
+                }
+            }
+            return true;
         }
     }
 
