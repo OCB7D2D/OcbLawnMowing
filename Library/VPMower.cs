@@ -198,9 +198,8 @@ public class VPMower : VehiclePart
             // Update the state to remember what we showed
             // We need to reset that when mod is unequipped
             // Swap the objects to avoid memory allocations
-            var swap = OldShownModPhysics;
-            OldShownModPhysics = NewShownModPhysics;
-            NewShownModPhysics = swap;
+            (NewShownModPhysics, OldShownModPhysics) =
+                (OldShownModPhysics, NewShownModPhysics);
         }
 
         // Check if there are any changes to any transforms
@@ -660,6 +659,7 @@ public class VPMower : VehiclePart
             if (count <= 0) continue;
             // Finally try to add the items to the bag (if there is space left)
             changes |= AddItemsToBag(bag, ItemClass.GetItem(drop.name), count);
+            // Log.Out("Add Items To Bag {1} x {0} ({2})", drop.name, count, drop.tag);
         }
         return changes;
     }

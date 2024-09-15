@@ -245,27 +245,33 @@ public class OcbLawnMowing : IModApi
     // Otherwise re-seeding can get pretty weird
     // ####################################################################
 
-    [HarmonyPatch(typeof(XUiC_CollectedItemList), "AddItemStack")]
-    static class CollectedItemListAddItemStackPatch
-    {
-        static int CheckToSimplyCountAddedItems(int a, int b)
-         => UseBagForItemCount == null ? a : b;
-        // Main function handling the IL patching
-        static IEnumerable<CodeInstruction> Transpiler(
-            IEnumerable<CodeInstruction> instructions)
-        {
-            var position = 105; // ToDo: Make more dynamic!
-            var codes = new List<CodeInstruction>(instructions);
-            codes.InsertRange(position, new CodeInstruction[]
-            {
-                CodeInstruction.Call(
-                    typeof(CollectedItemListAddItemStackPatch),
-                    "CheckToSimplyCountAddedItems"),
-                codes[position - 1]
-            });
-            return codes;
-        }
-    }
+    //[HarmonyPatch(typeof(XUiC_CollectedItemList), "AddItemStack")]
+    //static class CollectedItemListAddItemStackPatch
+    //{
+    //    static int CheckToSimplyCountAddedItems(int a, int b)
+    //     => UseBagForItemCount == null ? a : b;
+    //    // Main function handling the IL patching
+    //    static IEnumerable<CodeInstruction> Transpiler(
+    //        IEnumerable<CodeInstruction> instructions)
+    //    {
+    //        var List = new List<CodeInstruction>();
+    //        for (int i = 0; i < instructions.Count(); i++)
+    //        {
+    //            Log.Out(" {0} {1}", i, instructions.ToArray()[i]);
+    //        }
+    //
+    //        var position = 105; // ToDo: Make more dynamic!
+    //        var codes = new List<CodeInstruction>(instructions);
+    //        codes.InsertRange(position, new CodeInstruction[]
+    //        {
+    //            CodeInstruction.Call(
+    //                typeof(CollectedItemListAddItemStackPatch),
+    //                "CheckToSimplyCountAddedItems"),
+    //            codes[position - 1]
+    //        });
+    //        return codes;
+    //    }
+    //}
 
     // ####################################################################
     // ####################################################################

@@ -1,4 +1,4 @@
-﻿<configs patcher-version="4">
+﻿<configs patcher-version="6">
 	<modinc path="blocks.damaged.xml"/>
 
 	<modif condition="UndeadLegacy_CoreModule">

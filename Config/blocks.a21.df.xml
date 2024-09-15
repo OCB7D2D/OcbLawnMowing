@@ -1,4 +1,4 @@
-﻿<configs patcher-version="5">
+﻿<configs patcher-version="6">
 	<modinc
 		path="blocks.a21.tmpl.xml"
 		tmpl-plant-wild-name="DFWheatPlantWild"

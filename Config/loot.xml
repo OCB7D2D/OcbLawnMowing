@@ -1,4 +1,4 @@
-<configs patcher-version="4">
+<configs patcher-version="6">
 	<modif condition="UndeadLegacy_CoreModule">
 		<modinc path="loot.a21.ulm.xml"/>
 		<echo error="No Undead Legacy support yet!"/>

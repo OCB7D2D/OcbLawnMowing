@@ -56,12 +56,12 @@
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="stoneMowing"/>
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="goreMowing"/>
 			<!-- duplicate the effect tags in order to make seed harvest not scale with other -->
-			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="wildMowingBonus"/>
-			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="grownMowingBonus"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="0" tags="wildMowingBonus"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="0" tags="grownMowingBonus"/>
+			<passive_effect name="HarvestCount" operation="base_add" value="0" tags="growReseedBonus"/>
 			<!-- some additional tags to realize different harvesting effects -->
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="lawnMowing"/>
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="growReseed"/>
-			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="growReseedBonus"/>
 			<passive_effect name="HarvestCount" operation="base_add" value="1" tags="growProtector"/>
 		</effect_group>
 	</append>

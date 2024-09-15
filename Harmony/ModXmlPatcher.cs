@@ -27,7 +27,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
@@ -181,9 +180,6 @@ static class ModXmlPatcher
                 kv.Value);
     }
 
-    // We need to call into the private function to proceed with XML patching
-    private static readonly MethodInfo MethodSinglePatch = AccessTools.Method(typeof(XmlPatcher), "singlePatch");
-
     // Function to load another XML file and basically call the same PatchXML function again
     private static bool IncludeAnotherDocument(XmlFile target, XmlFile parent, XElement element, Mod mod)
     {
@@ -223,7 +219,7 @@ static class ModXmlPatcher
                         continue;
                     }
                     result &= XmlPatcher.PatchXml(
-                        target, element, _patchXml, mod);
+                        target, _patchXml.XmlDoc.Root, _patchXml, mod);
                 }
                 catch (Exception ex)
                 {
@@ -272,7 +268,7 @@ static class ModXmlPatcher
                 }
             }
             // Otherwise try to apply the patches found in child element
-            else if (!ApplyPatchEntry(xmlFile, child, patchXml, mod, ref stack))
+            else if (!ApplyPatchEntry(xmlFile, patchXml, child, mod, ref stack))
             {
                 IXmlLineInfo lineInfo = child;
                 Log.Warning(string.Format("XML patch for \"{0}\" from mod \"{1}\" did not apply: {2} (line {3} at pos {4})",
@@ -293,8 +289,8 @@ static class ModXmlPatcher
 
     // Entry point instead of (private) `XmlPatcher.singlePatch`
     // Implements conditional patching and also allows includes
-    private static bool ApplyPatchEntry(XmlFile _targetFile, XElement _patchElement,
-        XmlFile _patchFile, Mod _patchingMod, ref ParserStack stack)
+    private static bool ApplyPatchEntry(XmlFile _targetFile, XmlFile _patchFile,
+        XElement _patchElement, Mod _patchingMod, ref ParserStack stack)
     {
 
         // Only support root level
@@ -381,8 +377,8 @@ static class ModXmlPatcher
                 stack.IfClauseParsed = false;
                 stack.PreviousResult = true;
                 // Dispatch to original function
-                return (bool)MethodSinglePatch.Invoke(null,
-                    new object[] { _targetFile, _patchElement, _patchFile, _patchingMod });
+                return XmlPatcher.singlePatch(_targetFile,
+                    _patchElement, _patchFile, _patchingMod);
         }
     }
 
@@ -413,12 +409,11 @@ static class ModXmlPatcher
             if (!string.IsNullOrEmpty(version))
             {
                 // Check if version is too new for us
-                if (int.Parse(version) > 5) return true;
+                if (int.Parse(version) > 6) return true;
             }
             // Call out to static helper function
-            __result = PatchXml(
-                _xmlFile, _patchFile,
-                element, _patchingMod);
+            __result = PatchXml(_xmlFile, _patchFile,
+                _containerElement, _patchingMod);
             // First one wins
             _patchFile = null;
             return false;

@@ -1,4 +1,4 @@
-﻿<configs patcher-version="5">
+﻿<configs patcher-version="6">
 	<!-- ############################################################################ -->
 	<!-- ITEMS BELOW CAN BE HARVESTED WITH GRASS MOWER ADDON                          -->
 	<!-- ############################################################################ -->
@@ -9,7 +9,8 @@
 		<!-- Vanilla will check if the same name of a drop event is already present and -->
 		<!-- only inherit the first unique one, which is not correct if we want to have -->
 		<!-- the same item harvestable by different tags and probabilities. -->
-		<drop event="Harvest" name="resourceYuccaFibers" count="1,2" prob="0.125" tag="lawnMowing" tool_category="GrassCollector"/>
+		<drop event="Harvest" name="resourceYuccaFibers" count="1,2" prob="0.225" tag="lawnMowing" tool_category="GrassCollector"/>
+		<drop event="Harvest" name="resourceYuccaFibers" count="1,2" prob="0.125" tag="wildMowingBonus" tool_category="GrassCollector"/>
 	</append>
 
 	<append xpath="/blocks/block[starts-with(@name, 'plantShrub')]">

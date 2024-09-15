@@ -1,4 +1,4 @@
-<configs patcher-version="4">
+<configs patcher-version="6">
 	<modif condition="UndeadLegacy_CoreModule">
 		<modinc path="items.a22.xml"/>
 		<modinc path="items.a21.ulm.xml"/>

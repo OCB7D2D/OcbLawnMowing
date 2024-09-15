@@ -1,4 +1,4 @@
-﻿<configs patcher-version="5">
+﻿<configs patcher-version="6">
 	<modinc path="tmpl-blocks/{{harvest-type}}.wild.xml"/>
 	<modinc path="tmpl-blocks/{{harvest-type}}.player.xml"/>
 </configs>

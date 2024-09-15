@@ -1,4 +1,4 @@
-﻿<configs patcher-version="4">
+﻿<configs patcher-version="6">
 	<!-- plants (lower tier) grown in the wild -->
 	<modif condition="DarknessFallsCore">
 		<!-- DF distribution (by perk lvl): -->
