@@ -132,6 +132,10 @@ Only clone or download the repo if you know what you do!
 
 ## Changelog
 
+### Version 2.3.1
+
+- Disable GetHitRootTransform patch
+
 ### Version 2.3.0
 
 - First compatibility with V1.0 (exp)

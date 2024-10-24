@@ -227,18 +227,18 @@ public class OcbLawnMowing : IModApi
     // Allow vehicles to re-use physics colliders for interaction
     // ####################################################################
 
-    [HarmonyPatch(typeof(GameUtils))]
-    [HarmonyPatch("GetHitRootTransform")]
-    public class GameUtilsGetHitRootTransformPatch
-    {
-        private static bool Prefix(string _tag, Transform _hitTransform, ref Transform __result)
-        {
-            if (_tag != "E_Vehicle") return true;
-            RootTransformRefEntity component = _hitTransform.GetComponent<RootTransformRefEntity>();
-            __result = component?.RootTransform ?? RootTransformRefEntity.FindEntityUpwards(_hitTransform);
-            return false;
-        }
-    }
+    // [HarmonyPatch(typeof(GameUtils))]
+    // [HarmonyPatch("GetHitRootTransform")]
+    // public class GameUtilsGetHitRootTransformPatch
+    // {
+    //     private static bool Prefix(string _tag, Transform _hitTransform, ref Transform __result)
+    //     {
+    //         if (_tag != "E_Vehicle") return true;
+    //         RootTransformRefEntity component = _hitTransform.GetComponent<RootTransformRefEntity>();
+    //         __result = component?.RootTransform ?? RootTransformRefEntity.FindEntityUpwards(_hitTransform);
+    //         return false;
+    //     }
+    // }
 
     // ####################################################################
     // Patch sidebar item counter to just count up and down
