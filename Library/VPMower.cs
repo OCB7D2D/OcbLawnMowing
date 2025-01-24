@@ -333,6 +333,7 @@ public class VPMower : VehiclePart
             if (!Materials.Contains(renderer.material)) Materials.Add(renderer.material);
         foreach (var material in Materials)
         {
+            if (material == null) continue;
             // Switch between shader variants (mainly serves as an example)
             if (state) material.EnableKeyword("EMISSION_ON");
             else material.DisableKeyword("EMISSION_ON");
@@ -362,7 +363,10 @@ public class VPMower : VehiclePart
         {
             Color color = ColorBrakeLight * HasBrakes * 0.5f;
             foreach (var material in Materials)
+            {
+                if (material == null) continue;
                 material.SetVector("_BrakeColor", color);
+            }
             LastBrakes = HasBrakes;
         }
 
@@ -642,7 +646,8 @@ public class VPMower : VehiclePart
             // Get random count if min and max are different
             int count = drop.minCount == drop.maxCount ? drop.maxCount
                 : random.RandomRange(drop.minCount, drop.maxCount + 1);
-            // Log.Out(" has count", count);
+            // Log.Out(" has count {0} (between {1} and {2})",
+            //     count, drop.minCount, drop.maxCount);
             // Get effects from player (doesn't include vehicle)
             // Note: passing `vehicle.entity` would not include player
             // So one governs perk progression, the other vehicle mods
@@ -651,7 +656,7 @@ public class VPMower : VehiclePart
                 PassiveEffects.HarvestCount, null, count, player,
                 tags: FastTags<TagGroup.Global>.Parse(drop.tag));
 
-            // Log.Out(" has effect", effect);
+            // Log.Out(" has effect {0}", effect);
             // We use rounding rules here (why not)
             count = (int)Math.Round(count * effect);
             // Adjust count by effect
@@ -659,7 +664,8 @@ public class VPMower : VehiclePart
             if (count <= 0) continue;
             // Finally try to add the items to the bag (if there is space left)
             changes |= AddItemsToBag(bag, ItemClass.GetItem(drop.name), count);
-            // Log.Out("Add Items To Bag {1} x {0} ({2})", drop.name, count, drop.tag);
+            // Log.Out("Add Items To Bag {1} x {0} ({2} with {3} mul {4})",
+            //   drop.name, count, drop.tag, drop.toolCategory, drop.maxCount);
         }
         return changes;
     }
