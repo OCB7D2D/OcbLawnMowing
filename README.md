@@ -1,4 +1,4 @@
-# Lawn Mowing Mod - 7 Days to Die (V1.0 exp) Addon
+# Lawn Mowing Mod - 7 Days to Die (V2.0) Addon
 
 What started as a small Proof of concept has grown into a feature rich
 Mod, that should satisfy a few of your farming sim desires. I've added
@@ -131,6 +131,10 @@ Otherwise please use one of the [official releases][1] here.
 Only clone or download the repo if you know what you do!
 
 ## Changelog
+
+### Version 2.4.0
+
+- Update for 7D2D V2.0 stable
 
 ### Version 2.3.2
 
