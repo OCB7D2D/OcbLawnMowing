@@ -132,6 +132,10 @@ Only clone or download the repo if you know what you do!
 
 ## Changelog
 
+### Version 2.4.1
+
+- Fix sounds not playing
+
 ### Version 2.4.0
 
 - Update for 7D2D V2.0 stable

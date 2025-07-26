@@ -2,7 +2,7 @@
 	<append xpath="/Sounds">
 		<!-- used by engine sound_start -->
 		<SoundDataNode name="lawnmower_engine_start">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-start"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -13,7 +13,7 @@
 
 		<!-- used by engine sound_shut_off-->
 		<SoundDataNode name="lawnmower_engine_stop">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-stop"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -24,7 +24,7 @@
 
 		<!-- used by mower gear 1 sound A -->
 		<SoundDataNode name="lawnmower_engine_idle_lp">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-idle-lp" Loop="True"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -35,7 +35,7 @@
 
 		<!-- used by mower gear 1 sound B -->
 		<SoundDataNode name="lawnmower_mower_running_lp">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-run-lp" Loop="True"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -46,7 +46,7 @@
 
 		<!-- used by mower engine acceleration -->
 		<SoundDataNode name="lawnmower_engine_accel">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?engine-accel"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -57,7 +57,7 @@
 
 		<!-- used by mower sound_start-->
 		<SoundDataNode name="lawnmower_blades_start">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?blades-start"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -68,7 +68,7 @@
 
 		<!-- used by mower sound_shut_off-->
 		<SoundDataNode name="lawnmower_blades_stop">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?blades-stop"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -79,7 +79,7 @@
 
 		<!-- used by mower sound_loop -->
 		<SoundDataNode name="lawnmower_blades_run_lp">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?blades-run-lp" Loop="True"/>
 			<LocalCrouchVolumeScale value="1.0"/>
 			<CrouchNoiseScale value="0.5"/>
@@ -89,7 +89,7 @@
 		</SoundDataNode>
 
 		<SoundDataNode name="lawnmower_horn">
-			<AudioSource name="Sounds/AudioSource_SmallHorn"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_SmallHorn.prefab"/>
 			<Noise ID="4" noise="60" time="3" heat_map_strength="0.2" heat_map_time="90"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-horn"/>
 			<LocalCrouchVolumeScale value="1.0"/>
@@ -101,7 +101,7 @@
 		</SoundDataNode>
 
 		<SoundDataNode name="lawnmower_plant">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.5"/>
 			<AudioClip ClipName="Sounds/DestroyBlock/plantdestroy1"/>
 			<AudioClip ClipName="Sounds/DestroyBlock/plantdestroy2"/>
@@ -118,7 +118,7 @@
 		</SoundDataNode>
 
 		<SoundDataNode name="lawnmower_stone">
-			<AudioSource name="Sounds/AudioSource_Vehicle"/>
+			<AudioSource name="@:Sounds/Prefabs/AudioSource_Vehicle.prefab"/>
 			<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.5"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-stone-01"/>
 			<AudioClip ClipName="#@modfolder:Resources/LawnMowers.unity3d?lawn-tractor-stone-02"/>
