@@ -468,7 +468,7 @@ public class VPMower : VehiclePart
                     // Replace existing block with new one
                     // Either air or a new crop seed to grow
                     _blockChangeInfo.Add(new BlockChangeInfo(
-                        0, blockPos + offset, reseed));
+                        new BlockValueRef(blockPos + offset), reseed));
 
                     // Emit the particles for each? destroyed block
                     var name = block.Block.GetDestroyParticle(block);

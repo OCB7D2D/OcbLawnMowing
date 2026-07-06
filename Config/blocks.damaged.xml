@@ -3,12 +3,11 @@
 		<block name="cntCarLawnTractorDamaged0Master">
 			<property name="CreativeMode" value="None"/>
 			<property name="Material" value="Mmetal"/>
-			<property name="Class" value="CarExplodeLoot"/>
+			<property name="Class" value="CompositeTileEntity"/>
 			<property name="MaxDamage" value="750"/>
 			<!-- cars explode when destroyed by a tool without harvest settings -->
 			<property name="CustomIcon" value="vehicleLawnTractorTintable"/>
 			<property name="ItemTypeIcon" value="explosion"/>
-			<property name="LootList" value="LawnTractor"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="IsTerrainDecoration" value="true"/>
 			<property name="Model" value="#@modfolder:Resources/LawnMowers.unity3d?LawnMowerDamaged0"/>
@@ -32,17 +31,24 @@
 			<property name="DowngradeBlock" value="cntCarLawnTractorDamaged1Master"/>
 			<property name="BigDecorationRadius" value="5"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
-			<property class="Explosion">
-				<property name="ParticleIndex" value="4"/>
-				<!-- which prefab/particle is used -->
-				<property name="RadiusBlocks" value="3.5"/>
-				<!-- damage radius for blocks -->
-				<property name="BlockDamage" value="500"/>
-				<!-- damage for blocks in the center of the explosion -->
-				<property name="RadiusEntities" value="5"/>
-				<!-- damage radius for entities -->
-				<property name="EntityDamage" value="250"/>
-				<!-- damage for entities in the center of the explosion -->
+			<property class="CompositeFeatures">
+				<property class="TEFeatureExplodable">
+					<property class="Explosion">
+						<property name="ParticleIndex" value="4"/>
+						<!-- which prefab/particle is used -->
+						<property name="RadiusBlocks" value="3.5"/>
+						<!-- damage radius for blocks -->
+						<property name="BlockDamage" value="500"/>
+						<!-- damage for blocks in the center of the explosion -->
+						<property name="RadiusEntities" value="5"/>
+						<!-- damage radius for entities -->
+						<property name="EntityDamage" value="250"/>
+						<!-- damage for entities in the center of the explosion -->
+					</property>
+				</property>
+				<property class="TEFeatureStorage">
+					<property name="LootList" value="LawnTractor"/>
+				</property>
 			</property>
 			<property name="PlacementDistance" value="6"/>
 			<property name="SortOrder1" value="B847"/>
@@ -63,10 +69,9 @@
 		<block name="cntCarLawnTractorDamaged1Master">
 			<property name="CreativeMode" value="None"/>
 			<property name="Material" value="Mmetal"/>
-			<property name="Class" value="CarExplodeLoot"/>
+			<property name="Class" value="CompositeTileEntity"/>
 			<property name="ItemTypeIcon" value="explosion"/>
 			<property name="CustomIcon" value="vehicleLawnTractorTintable"/>
-			<property name="LootList" value="cars"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="ImposterDontBlock" value="true"/>
 			<property name="IsTerrainDecoration" value="true"/>
@@ -91,17 +96,24 @@
 			<property name="DowngradeBlock" value="carLawnTractorDamaged2Master"/>
 			<property name="BigDecorationRadius" value="5"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
-			<property class="Explosion">
-				<property name="ParticleIndex" value="4"/>
-				<!-- which prefab/particle is used -->
-				<property name="RadiusBlocks" value="3.5"/>
-				<!-- damage radius for blocks -->
-				<property name="BlockDamage" value="500"/>
-				<!-- damage for blocks in the center of the explosion -->
-				<property name="RadiusEntities" value="5"/>
-				<!-- damage radius for entities -->
-				<property name="EntityDamage" value="250"/>
-				<!-- damage for entities in the center of the explosion -->
+			<property class="CompositeFeatures">
+				<property class="TEFeatureExplodable">
+					<property class="Explosion">
+						<property name="ParticleIndex" value="4"/>
+						<!-- which prefab/particle is used -->
+						<property name="RadiusBlocks" value="3.5"/>
+						<!-- damage radius for blocks -->
+						<property name="BlockDamage" value="500"/>
+						<!-- damage for blocks in the center of the explosion -->
+						<property name="RadiusEntities" value="5"/>
+						<!-- damage radius for entities -->
+						<property name="EntityDamage" value="250"/>
+						<!-- damage for entities in the center of the explosion -->
+					</property>
+				</property>
+				<property class="TEFeatureStorage">
+					<property name="LootList" value="cars"/>
+				</property>
 			</property>
 			<property name="PlacementDistance" value="6"/>
 			<property name="SortOrder1" value="B848"/>
@@ -118,7 +130,7 @@
 		<block name="carLawnTractorDamaged2Master">
 			<!-- car wreck -->
 			<property name="CreativeMode" value="None"/>
-			<property name="Class" value="CarExplode"/>
+			<property name="Class" value="CompositeTileEntity"/>
 			<property name="CustomIcon" value="vehicleLawnTractorTintable"/>
 			<property name="ItemTypeIcon" value="explosion"/>
 			<property name="Material" value="Mmetal"/>
@@ -146,17 +158,21 @@
 			<drop event="Fall" name="scrapMetalPile" count="1" prob="1" stick_chance="1"/>
 			<property name="BigDecorationRadius" value="5"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
-			<property class="Explosion">
-				<property name="ParticleIndex" value="4"/>
-				<!-- which prefab/particle is used -->
-				<property name="RadiusBlocks" value="3.5"/>
-				<!-- damage radius for blocks -->
-				<property name="BlockDamage" value="500"/>
-				<!-- damage for blocks in the center of the explosion -->
-				<property name="RadiusEntities" value="5"/>
-				<!-- damage radius for entities -->
-				<property name="EntityDamage" value="250"/>
-				<!-- damage for entities in the center of the explosion -->
+			<property class="CompositeFeatures">
+				<property class="TEFeatureExplodable">
+					<property class="Explosion">
+						<property name="ParticleIndex" value="4"/>
+						<!-- which prefab/particle is used -->
+						<property name="RadiusBlocks" value="3.5"/>
+						<!-- damage radius for blocks -->
+						<property name="BlockDamage" value="500"/>
+						<!-- damage for blocks in the center of the explosion -->
+						<property name="RadiusEntities" value="5"/>
+						<!-- damage radius for entities -->
+						<property name="EntityDamage" value="250"/>
+						<!-- damage for entities in the center of the explosion -->
+					</property>
+				</property>
 			</property>
 			<property name="PlacementDistance" value="6"/>
 			<property name="SortOrder1" value="B849"/>

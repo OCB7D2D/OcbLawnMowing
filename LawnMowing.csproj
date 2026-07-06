@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LawnMowing</RootNamespace>
     <AssemblyName>LawnMowing</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -40,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>$(PATH_7D2D_MANAGED)\0Harmony.dll</HintPath>
+      <HintPath>$(PATH_7D2D_MANAGED)\..\..\Mods\0_TFP_Harmony\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(PATH_7D2D_MANAGED)\Assembly-CSharp.dll</HintPath>
@@ -82,6 +82,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(PATH_7D2D_MANAGED)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>$(PATH_7D2D_MANAGED)\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Plugins\CopyTransform.cs" />
@@ -105,7 +108,6 @@
     <Compile Include="Harmony\ModXmlPatcher.cs" />
     <Compile Include="Library\HarmonyFieldProxy.cs" />
     <Compile Include="Library\HarmonyPropertyProxy.cs" />
-    <Compile Include="Library\ItemActionScythe.cs" />
     <Compile Include="Library\VPMower.cs" />
   </ItemGroup>
   <ItemGroup>
